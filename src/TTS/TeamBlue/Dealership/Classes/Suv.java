@@ -4,6 +4,7 @@ import TTS.TeamBlue.Dealership.Interfaces.Vehicle;
 
 public class Suv implements Vehicle {
 	
+	private String type;
 	private String make;
 	private String model;
 	private int year;
@@ -11,6 +12,7 @@ public class Suv implements Vehicle {
 	private Double retail;
 	
 	public Suv(String make, String model, int year, Double wholeSale, Double retail) {
+		this.type = "SUV";
 		this.make = make;
 		this.model = model;
 		this.year = year;
@@ -46,6 +48,12 @@ public class Suv implements Vehicle {
 	public Double getRetail() {
 		
 		return this.retail;
+	}
+
+	@Override
+	public String getType() {
+		
+		return this.type;
 	}
 
 }
