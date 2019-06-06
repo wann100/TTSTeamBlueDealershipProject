@@ -7,11 +7,15 @@ public class Suv implements Vehicle {
 	private String make;
 	private String model;
 	private int year;
+	private Double wholeSale;
+	private Double retail;
 	
-	public Suv(String make, String model, int year) {
+	public Suv(String make, String model, int year, Double wholeSale, Double retail) {
 		this.make = make;
 		this.model = model;
 		this.year = year;
+		this.wholeSale = wholeSale;
+		this.retail = retail;
 	}
 
 	@Override
@@ -30,6 +34,18 @@ public class Suv implements Vehicle {
 	public int getYear() {
 		
 		return this.year;
+	}
+
+	@Override
+	public Double getWholeSale() {
+		
+		return this.wholeSale;
+	}
+
+	@Override
+	public Double getRetail() {
+		
+		return this.retail;
 	}
 
 }
