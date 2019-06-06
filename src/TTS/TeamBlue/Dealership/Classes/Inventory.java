@@ -11,11 +11,31 @@ public class Inventory {
 	private ArrayList<Vehicle> suvs;
 	private ArrayList<Vehicle> trucks;
 	
+	public ArrayList<Vehicle> getSedans() {
+		return sedans;
+	}
+
+	public ArrayList<Vehicle> getCoupes() {
+		return coupes;
+	}
+
+	public ArrayList<Vehicle> getSuvs() {
+		return suvs;
+	}
+
+	public ArrayList<Vehicle> getTrucks() {
+		return trucks;
+	}
+
 	public Inventory() {
+		this.sedans = new ArrayList<Vehicle>();
+		this.coupes = new ArrayList<Vehicle>();
+		this.suvs = new ArrayList<Vehicle>();
+		this.trucks = new ArrayList<Vehicle>();
 		this.updateInventory();
 	}
 	
-	private void updateInventory() {
+	public void updateInventory() {
 		
 		ArrayList<Vehicle> inventory = this.getVehicles();
 		
