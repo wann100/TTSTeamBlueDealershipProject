@@ -8,5 +8,6 @@ public interface Vehicle {
 	public int getYear();
 	public Double getWholeSale();
 	public Double getRetail();
+	public void customerDisplay();
 	
 }

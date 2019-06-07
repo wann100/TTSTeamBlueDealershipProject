@@ -56,4 +56,10 @@ public class Sedan implements Vehicle {
 		return this.type;
 	}
 
+	@Override
+	public void customerDisplay() {
+		
+		System.out.printf("%-20s%-20s%-8d%-15f\n", make, model, year, retail);
+	}
+
 }

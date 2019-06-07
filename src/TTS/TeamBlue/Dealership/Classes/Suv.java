@@ -56,4 +56,10 @@ public class Suv implements Vehicle {
 		return this.type;
 	}
 
+	@Override
+	public void customerDisplay() {
+		
+		System.out.printf("%s\t%s\t%d\t%f\n", make, model, year, retail);
+	}
+
 }
