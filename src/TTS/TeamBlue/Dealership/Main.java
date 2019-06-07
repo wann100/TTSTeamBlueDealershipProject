@@ -23,9 +23,11 @@ public class Main {
 		System.out.println(CustomerDisplayMessage.disMsg("Jane", "financing", 2)); //returns the message to the customer
 		
 		//Countdown to service
-		CountdownTimer.timer(2); //returns the countdown timer for how long the customer has to wait
+		//Need to figure out how to prevent the sales rep screen from displaying until after the countdown is complete
+		//CountdownTimer.timer(2); //returns the countdown timer for how long the customer has to wait
 		
 		//Display Sales Rep Screen
+		DepartmentLogin.DepLog();
 		
 	}
 

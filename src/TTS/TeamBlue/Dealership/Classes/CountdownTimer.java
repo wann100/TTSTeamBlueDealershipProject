@@ -2,6 +2,7 @@ package TTS.TeamBlue.Dealership.Classes;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import TTS.TeamBlue.Dealership.Classes.DepartmentLogin;
 
 //function to countdown the time until the customer is served by the sales Rep
 public class CountdownTimer {
@@ -25,10 +26,11 @@ public class CountdownTimer {
 
 			        }
 			    }, delay, period);
+			    
 			} else {
 				System.out.println("\nNot a valid Queue Postion");
 			}
-	
+		
 		}
 		
 		//cancels the countdown at 1 and returns 0
@@ -38,4 +40,6 @@ public class CountdownTimer {
 		    return --interval;
 		}
 
+		
+		
 }
