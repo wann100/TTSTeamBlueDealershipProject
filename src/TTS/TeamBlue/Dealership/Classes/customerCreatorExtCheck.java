@@ -2,16 +2,10 @@ package TTS.TeamBlue.Dealership.Classes;
 import java.util.*;
 
 
-public class customerCreator {
+public class customerCreatorExtCheck {
 
 	public static void main(String[] args) {
-		/*HI GUYS, THIS CODE IS ROUGH BUT IT CALLS A METHOD THAT RETURNS A QUEUE WITH PRELOADED CUSTOMERS IN IT,
-		AS IF THE METHOD IS READING FROM A SERVER. IT THEN ASKS A USER IF THEY ARE RETURNING AND CONFIRMS THERE IS 
-		AN INSTANCE CORRESPONDING TO THEM IN THE QUEUE WITH A SEARCH OF THE USERIDS OF EACH QUEUE 
-		ITEM. ALL THE QUEUE ITEMS HAVE THE EXACT SAME NAME BECAUSE IT SIMPLIFIED THE AUTOMATED INSTANCE 
-		CREATION PROCESS BUT THAT MAKES THE CONTAINS() SEARCH METHOD FOR QUEUES INEFFECTIVE. TO OVERCOME THIS, 
-		THE CODE GETS THE INTERNAL USERID BY CONVERTING THE QUEUE INTO AN ARRAY. THAT TYPE PERMITS GETTING FROM 
-		ITS ELEMENTS. ONE WAY OR ANOTHER, THERE'S NOW A CLIENT INSTANCE THE MAIN PROGRAM CAN UTILIZE*/
+		//Customer On-boarding/Record Retrieval and Instance Creation
 		
 		
 		
@@ -47,26 +41,12 @@ public class customerCreator {
 			//Use their first and last name to create a userID as the customerIntake method would
 			String IDforsearch = (fsearch+lsearch).toLowerCase();
 			
-			//Create a search success Boolean set to a default state of fail
-			Boolean searchsuccess = false;
+			//Pass IDforsearch and customerQueue to a method that will search Queue for that userID
+			Boolean searchsuccess = userLocalRecordCheck.userLocalRecordCheck(customerQueue, IDforsearch);
 			
-			/*Convert the downloaded Queue to an array so its elements can be typecasted
-			into type customer and their internal ID checked with a common getter*/
-			Object[] queueArray = customerQueue.toArray();
-			
-			//Search all userID values using each customer's userID
-			for(int i = 0; (i + 1) < queueArray.length; i++) {
-				if(((customer) queueArray[i]).getCustomerID().equalsIgnoreCase(IDforsearch)) {
-					//Terminate search if successful
-					searchsuccess = true;
-					customer client = (customer)queueArray[i];
-					break;
-				}
-			}
-				
 			if(searchsuccess = true) {
-				System.out.println("Welcome back "+fsearch+"!");
-				System.out.println("We've retrieved your info.");
+				System.out.println("Welcome back, "+fsearch+"!");
+				System.out.println("We've retrieved your info");
 			}
 			else {
 				System.out.println("Hmm, we can't seem to find your record. Let's create a new one.");
