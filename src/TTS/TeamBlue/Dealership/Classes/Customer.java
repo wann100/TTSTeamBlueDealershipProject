@@ -2,22 +2,20 @@ package TTS.TeamBlue.Dealership.Classes;
 
 import java.util.*;
 
-public class customer {
+public class Customer {
 	
 	//Customer Parameters
-	private String firstName;
-	private String lastName;
-	private String middleInitial;
-	private String customerPhone;
-	private String street;
-	private String customerCity;
-	private String customerState;
-	private int customerZip;
-	private String customerID;
-	
+	private String firstName = "default";
+	private String lastName = "default";
+	private String middleInitial = "default";
+	private String customerPhone = "default";
+	private String street = "default";
+	private String customerCity = "default";
+	private String customerState = "default";
+	private int customerZip = 99999;
 	
 	//CONSTRUCTOR
-	public customer(Object fName, Object lName, Object mI, Object pNumber, Object sAddress, Object city, Object state, Object zip, Object cI) {
+	public Customer(Object fName, Object lName, Object mI, Object pNumber, Object sAddress, Object city, Object state, Object zip) {
 		
 		firstName = (String)fName;
 		lastName = (String)lName;
@@ -26,8 +24,10 @@ public class customer {
 		street = (String)sAddress;
 		customerCity = (String)city;
 		customerState = (String)state;
-		customerZip = (int)zip;
-		customerID = (String)cI;	
+		customerZip = (int)zip;	
+	}
+	
+	public Customer() {
 	}
 	
 	//GETTERS
@@ -55,9 +55,7 @@ public class customer {
 	public int getCustomerZip() {
 		return customerZip;
 	}
-	public String getCustomerID() {
-		return customerID;
-	}
+
 	
 	//SETTERS
 	public void setFirstName(String firstName) {
@@ -83,9 +81,6 @@ public class customer {
 	}
 	public void setCustomerZip(int zip) {
 		this.customerZip = zip;
-	}
-	public void setCustomerID(String customerID) {
-		this.customerID = customerID;
 	}
 	
 
