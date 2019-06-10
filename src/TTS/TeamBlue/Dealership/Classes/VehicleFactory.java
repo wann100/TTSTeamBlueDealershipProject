@@ -1,24 +1,29 @@
 package TTS.TeamBlue.Dealership.Classes;
 
-import TTS.TeamBlue.Dealership.Interfaces.Vehicle;
+import TTS.TeamBlue.Dealership.Interfaces.IVehicle;
 
 public class VehicleFactory {
 
-	public static Vehicle getVehicle(int id, String type, String make, String model, int year,
-			Double wholeSale, Double retail, boolean isLeasable, boolean isForSale, boolean isAvailable) {
+	public static IVehicle getVehicle(int id, String type, String make, String model, int mileage, int year,
+			Double wholeSale, Double retail, boolean isLeasable, boolean isForSale, boolean isAvailable,
+			String color, String interior, String rims, String soundSystem) {
 		
-		Vehicle tmp = null;
+		IVehicle tmp = null;
 		if (type.equalsIgnoreCase("Sedan")) {
-			tmp = new Sedan(id, make, model, year, wholeSale, retail, isLeasable, isForSale, isAvailable);
+			tmp = new Sedan(id, make, model, mileage, year, wholeSale, retail, isLeasable, isForSale, isAvailable,
+							color, interior, rims, soundSystem);
 		}
 		else if (type.equalsIgnoreCase("Coupe")) {
-			tmp = new Coupe(id, make, model, year, wholeSale, retail, isLeasable, isForSale, isAvailable);
+			tmp = new Coupe(id, make, model, mileage, year, wholeSale, retail, isLeasable, isForSale, isAvailable,
+							color, interior, rims, soundSystem);
 		}
 		else if (type.equalsIgnoreCase("Suv")) {
-			tmp = new Suv(id, make, model, year, wholeSale, retail, isLeasable, isForSale, isAvailable);
+			tmp = new Suv(id, make, model, mileage, year, wholeSale, retail, isLeasable, isForSale, isAvailable,
+							color, interior, rims, soundSystem);
 		}
 		else if (type.equalsIgnoreCase("Truck")) {
-			tmp = new Truck(id, make, model, year, wholeSale, retail, isLeasable, isForSale, isAvailable);
+			tmp = new Truck(id, make, model, mileage, year, wholeSale, retail, isLeasable, isForSale, isAvailable,
+							color, interior, rims, soundSystem);
 		}		
 		else {
 			System.out.println("None of those vehicle types match.");

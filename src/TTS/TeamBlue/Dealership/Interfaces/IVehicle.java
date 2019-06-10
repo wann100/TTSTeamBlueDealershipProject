@@ -1,6 +1,6 @@
 package TTS.TeamBlue.Dealership.Interfaces;
 
-public interface Vehicle {
+public interface IVehicle {
 	
 	public int getId();
 	
@@ -12,9 +12,12 @@ public interface Vehicle {
 	
 	public int getYear();
 	
+	public int getMileage();
+	
 	public Double getWholeSale();
 	
 	public Double getRetail();
+	public void setRetail(Double retail);
 	
 	public boolean getLeasable();
 	
@@ -23,5 +26,17 @@ public interface Vehicle {
 	public boolean getAvailable();
 	
 	public void customerDisplay();
+	
+	public String getColor();
+	public void setColor(String color);
+	
+	public String getRims();
+	public void setRims(String rims);
+	
+	public String getInterior();
+	public void setInterior(String interior);
+	
+	public String getSoundSystem();
+	public void setSoundSystem(String soundSystem);
 	
 }
