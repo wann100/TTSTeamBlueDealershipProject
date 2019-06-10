@@ -8,11 +8,13 @@ public class InputChecker {
 		String input = "";
 		boolean flag = false;
 		while (flag == false) {
-			input = scanner.next();
-			if (input.isEmpty()) {
-				flag = false;
-			} else {
-				flag = true;
+			if (scanner.hasNext()) {
+				input = scanner.next();
+				if (input.isEmpty()) {
+					flag = false;
+				} else {
+					flag = true;
+				}
 			}
 		}
 		return input;

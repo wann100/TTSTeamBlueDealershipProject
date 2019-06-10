@@ -6,6 +6,7 @@ import TTS.TeamBlue.Dealership.Interfaces.Vehicle;
 
 public class Inventory {
 	
+	private ArrayList<Vehicle> inventory;
 	private ArrayList<Vehicle> sedans;
 	private ArrayList<Vehicle> coupes;
 	private ArrayList<Vehicle> suvs;
@@ -37,7 +38,7 @@ public class Inventory {
 	
 	public void updateInventory() {
 		
-		ArrayList<Vehicle> inventory = this.getVehicles();
+		this.inventory = this.getVehicles();
 		
 		// loop through inventory and update HashMaps
 		for (Vehicle vehicle : inventory) {
@@ -64,20 +65,33 @@ public class Inventory {
 		ArrayList<Vehicle> vehicles = new ArrayList<>();
 		
 		// create some static vehicles for now...
-		Vehicle tmp1 = VehicleFactory.getVehicle("sedan", "Pontiac", "Bonneville", 1994, 1500d, 2000d);
+		Vehicle tmp1 = VehicleFactory.getVehicle(1, "sedan", "Pontiac", "Bonneville", 1994, 1500d, 2000d, true, true, true);
 		vehicles.add(tmp1);
 		
-		Vehicle tmp2 = VehicleFactory.getVehicle("coupe", "Honda", "Civic", 2018, 19000d, 23000d);
+		Vehicle tmp2 = VehicleFactory.getVehicle(2, "coupe", "Honda", "Civic", 2018, 19000d, 23000d, true, true, true);
 		vehicles.add(tmp2);
 		
-		Vehicle tmp3 = VehicleFactory.getVehicle("suv", "Ford", "Explorer", 2013, 6000d, 8000d);
+		Vehicle tmp3 = VehicleFactory.getVehicle(3, "suv", "Ford", "Explorer", 2013, 6000d, 8000d, true, true, true);
 		vehicles.add(tmp3);
 		
-		Vehicle tmp4 = VehicleFactory.getVehicle("truck", "Toyota", "Tacoma", 2019, 35000d, 42000d);
+		Vehicle tmp4 = VehicleFactory.getVehicle(4, "truck", "Toyota", "Tacoma", 2019, 35000d, 42000d, true, true, true);
 		vehicles.add(tmp4);
+		
+		Vehicle tmp5 = VehicleFactory.getVehicle(5, "sedan", "Chevrolet", "Camaro", 2010, 8000d, 12000d, true, true, true);
+		vehicles.add(tmp5);
 		
 		return vehicles;
 		
+	}
+	
+	public Vehicle getVehicle(String id) {
+		
+		for (Vehicle vehicle : inventory) {
+			if (String.valueOf(vehicle.getId()).compareTo(id) == 0) {
+				return vehicle;
+			}		
+		}
+		return null;
 	}
 
 }
