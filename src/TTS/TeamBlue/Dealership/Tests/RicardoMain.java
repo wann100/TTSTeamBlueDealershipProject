@@ -1,15 +1,14 @@
-package TTS.TeamBlue.Dealership;
+package TTS.TeamBlue.Dealership.Tests;
 
-import TTS.TeamBlue.Dealership.Classes.DepStatus;
-import TTS.TeamBlue.Dealership.Classes.CustomerDisplayMessage;
 import TTS.TeamBlue.Dealership.Classes.CountdownTimer;
+import TTS.TeamBlue.Dealership.Classes.CustomerDisplayMessage;
+import TTS.TeamBlue.Dealership.Classes.DepStatus;
 import TTS.TeamBlue.Dealership.Classes.DepartmentLogin;
 
-public class Main {
+public class RicardoMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
 		int numInQueue = 2; 
 		
 		
@@ -24,11 +23,11 @@ public class Main {
 		
 		//Countdown to service
 		//Need to figure out how to prevent the sales rep screen from displaying until after the countdown is complete
-		CountdownTimer.timer(numInQueue); //returns the countdown timer for how long the customer has to wait
+		//CountdownTimer.timer(numInQueue); //returns the countdown timer for how long the customer has to wait
 		
 		//Display Sales Rep Screen
 		DepartmentLogin.DepLog(numInQueue);
-		
+
 	}
 
 }
