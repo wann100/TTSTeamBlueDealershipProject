@@ -40,7 +40,7 @@ public class Inventory {
 		
 		this.inventory = this.getVehicles();
 		
-		// loop through inventory and update HashMaps
+		// loop through inventory and update ArrayLists
 		for (IVehicle vehicle : inventory) {
 			if (vehicle.getType().compareTo("Sedan") == 0) {
 				this.sedans.add(vehicle);
@@ -84,6 +84,10 @@ public class Inventory {
 		IVehicle tmp5 = VehicleFactory.getVehicle(5, "sedan", "Chevrolet", "Camaro", 50000, 2010, 8000d, 12000d,
 						true, true, true, "Orange", "Cloth", "Chrome", "Premium");
 		vehicles.add(tmp5);
+		
+		IVehicle tmp6 = VehicleFactory.getVehicle(6, "sedan", "Subaru", "Outback", 22000, 2016, 19000d, 21000d,
+				false, true, true, "Orange", "Cloth", "Chrome", "Premium");
+		vehicles.add(tmp6);
 		
 		return vehicles;
 		
