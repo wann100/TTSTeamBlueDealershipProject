@@ -15,7 +15,7 @@ public class Customer {
 	private int customerZip = 99999;
 	
 	//CONSTRUCTOR
-	public Customer(Object fName, Object lName, Object mI, Object pNumber, Object sAddress, Object city, Object state, Object zip) {
+	public Customer(String fName, String lName, String mI, String pNumber, String sAddress, String city, String state, int zip) {
 		
 		firstName = (String)fName;
 		lastName = (String)lName;

@@ -84,7 +84,9 @@ public class TestMainToCreateCustomerAndAddtoQueue {
 		
 		//Remove the QueueItem for the customer at the head of mainQueue. The only record of that customer now is in one of the department Queues.
 		CustomerQueueItem removedQueueHead = ((CustomerQueueItem) mainQueue.remove());
-		System.out.println(testretrievefName);
+		
+		
+		
 
 	}
 
