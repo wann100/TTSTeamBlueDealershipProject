@@ -1,10 +1,10 @@
 package TTS.TeamBlue.Dealership.Classes;
-import TTS.TeamBlue.Dealership.Interfaces.Vehicle;
+import TTS.TeamBlue.Dealership.Interfaces.IVehicle;
 
 public class CustomerQueueItem {
 	
 	private Customer guestinfo;
-	private Vehicle guestvehconfig;
+	private IVehicle guestvehconfig;
 	
 	//CONSTRUCTOR
 	public CustomerQueueItem() {
@@ -22,7 +22,7 @@ public class CustomerQueueItem {
 	public void setGuestinfo(Customer guestinfo) {
 		this.guestinfo = guestinfo;
 	}
-	public void setGuestvehconfig(Vehicle guestvehconfig) {
+	public void setGuestvehconfig(IVehicle guestvehconfig) {
 		this.guestvehconfig = guestvehconfig;
 	}
 

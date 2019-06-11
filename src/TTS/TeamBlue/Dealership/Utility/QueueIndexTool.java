@@ -5,12 +5,12 @@ import TTS.TeamBlue.Dealership.Classes.CustomerQueueItem;
 public class QueueIndexTool {
 	
 	/*This utility recieves a Queue and an int.
-	If the int mode is set to 1, the method prints, the name of every client in the Queue
-	If the int mode is set to 2, the method returns the currentcustomer's QueueItem, ignoring the other Queue items ahead of it in line
+	If the int mode is set to 1, the method prints the name of every client in the Queue
+	If the int mode is set to 2, the method returns the currentcustomer's QueueItem, ignoring the other QueueItems ahead of it in line
 	*/
 	public static Queue QueueIndexTool(Queue mainQueue, int mode) {
 	
-	//Create black Queue to return later
+	//Create blank Queue to return later
 	Queue<CustomerQueueItem> newQueue = new LinkedList<CustomerQueueItem>(); 
 	
 	//Convert passed Queue to an array
