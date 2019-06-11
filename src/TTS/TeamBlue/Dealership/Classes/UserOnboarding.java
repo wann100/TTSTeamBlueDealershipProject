@@ -10,7 +10,7 @@ public class UserOnboarding {
 				Customer client = new Customer();
 				
 				//Check if user is an existing customer in the queue
-				System.out.print("Welcome to Team Blue! Are You a Returning User? Yes/No: ");
+				System.out.print("Welcome to Team Blue! Are You a Returning User (Yes/No)? ");
 				Scanner scanner = new Scanner(System.in);
 				String response = scanner.next();
 				

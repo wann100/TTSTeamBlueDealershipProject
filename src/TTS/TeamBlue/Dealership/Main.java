@@ -1,25 +1,21 @@
 package TTS.TeamBlue.Dealership;
 
+import TTS.TeamBlue.Dealership.Classes.UserOnboarding;
 import TTS.TeamBlue.Dealership.Classes.DepStatus;
 import TTS.TeamBlue.Dealership.Classes.CustomerDisplayMessage;
 import TTS.TeamBlue.Dealership.Classes.CountdownTimer;
+import TTS.TeamBlue.Dealership.Classes.Customer;
 import TTS.TeamBlue.Dealership.Classes.DepartmentLogin;
+import TTS.TeamBlue.Dealership.Classes.UserOnboarding;
 
 public class Main {
 
 	public static void main(String[] args) {
-		//
 		
-		//Display message to customer
-		System.out.println(CustomerDisplayMessage.disMsg("Jane", "financing", numInQueue)); //returns the message to the customer
+		//Create a new customer instance
+		Customer ourCustomer = UserOnboarding.userOnboarding();
 		
-		//Countdown to service
-		//Need to figure out how to prevent the sales rep screen from displaying until after the countdown is complete
-		CountdownTimer.timer(numInQueue); //returns the countdown timer for how long the customer has to wait
-		
-		//Display Sales Rep Screen
-		DepartmentLogin.DepLog(numInQueue);
-		
+
 	}
 
 }

@@ -34,15 +34,15 @@ public class DepartmentLogin {
 	  
 	    		//if purchasing department is selected
 				if (depChoice == 1) {
-					purchasingDepMethod(5, "Jane");				
+					purchasingDepMethod("Jane", 5);				
 				
 				//if leasing department is selected	
 				} else if (depChoice == 2) {
-					leasingDepMethod();
+					leasingDepMethod("Jane", 5, 14000);
 				
 				//if financing department is selected
 				} else if (depChoice == 3) {
-					financingDepMethod();
+					financingDepMethod("Jane", 5, 14000);
 		
 				}
 				//return null;
@@ -164,11 +164,8 @@ public class DepartmentLogin {
 		}
 		
 		//Purchasing Department Method
-			public static void purchasingDepMethod(int purchasingQueueTotal, String firstName) {
-				
-				//Clear the screen 
-				//ClearScreen.clearScreen();
-				
+			public static void purchasingDepMethod(String firstName, int purchasingQueueTotal) {
+
 				//HashMap of department usernames and passwords
 				HashMap<String, String> purchasingDepartmentLogin =  DepartmentMembers.purchasingDepMembers();
 				
@@ -178,7 +175,7 @@ public class DepartmentLogin {
 				
 //STILL TO DO PER DEPARTMENT 		
 				
-				//Display Purchasing Departement Queue
+				//Display Purchasing Department Queue
 				System.out.println("\n********** PURCHASING DEPARTMENT QUEUE **********\n");	
 				
 				//Display the total number of people in queue
@@ -207,7 +204,7 @@ public class DepartmentLogin {
 	
 			
 		//Leasing Department Method
-			public static void leasingDepMethod() {
+			public static void leasingDepMethod(String firstName, int leasingQueueTotal, int vehiclePrice) {
 				
 				//Clear the screen 
 				//ClearScreen.clearScreen();
@@ -218,11 +215,50 @@ public class DepartmentLogin {
 				//if username and value match (loop through hashmap to get a key match then compare value to what the user entered)
 				System.out.println("\n********** LEASING DEPARTMENT LOGIN **********");	
 				usernameAndPasswordValidation(leasingDepartmentLogin);
+				
+//STILL TO DO PER DEPARTMENT 		
+				
+				//Display Purchasing Department Queue
+				System.out.println("\n********** LEASING DEPARTMENT QUEUE **********\n");	
+				
+				//Display the total number of people in queue
+				System.out.println("# of Customers in the Leasing Department Queue: " + leasingQueueTotal);
+				
+				//Display the details of the car the current person in queue would like to purchase 
+				System.out.println("\nDetails for the customer at the front of the queue ");
+				System.out.println(firstName + "'s" + ", vehicle specifications");
+
+				//prompt the sales rep for leasing terms
+				Scanner scanner = new Scanner(System. in); 
+				System.out.print("\nLeasing Options"
+						+ "\n\n1. Short term lease (less than 1 year)"
+						+ "\n2. Mid term lease (1 year to 3 years)"
+						+ "\n3. Long term lease (3 years to 5 years)"
+						+ "\n\nWhich lease option does the customer desire?  ");
+				int leaseTerm = scanner.nextInt(); //store the user choice 
+				
+				//Display the suggested lease price to the sales Rep
+				System.out.print("\nSuggested Lease Price: " + vehiclePrice/10);
+
+				//prompt the sales rep to enter the final agreed upon price
+				
+				System.out.print("\nEnter the final agreed upon price: ");
+				int finalPrice = scanner.nextInt();
+				
+				//remove the customer that was just served from the queue 
+				
+				//display Transaction complete customer has now been removed from queue message 
+				System.out.println("\nTransaction complete. The customer has now been removed from the queue");
+				
+				//display the update queue number and the vehicle information for the next person in queue
+				
+				//provide option for the sales rep to log out and be brought back to the login screen
+				
 			}		
 			
 		
 		//Financing Department Method
-			public static void financingDepMethod() {
+			public static void financingDepMethod(String firstName, int financingQueueTotal, int vehiclePrice) {
 				
 				//Clear the screen 
 				//ClearScreen.clearScreen();
@@ -233,6 +269,61 @@ public class DepartmentLogin {
 				//if username and value match (loop through hashmap to get a key match then compare value to what the user entered)
 				System.out.println("\n********** FINANCING DEPARTMENT LOGIN **********");	
 				usernameAndPasswordValidation(financingDepartmentLogin);
+				
+//STILL TO DO PER DEPARTMENT 		
+				
+				//Display Purchasing Department Queue
+				System.out.println("\n********** FINANCING DEPARTMENT QUEUE **********\n");	
+				
+				//Display the total number of people in queue
+				System.out.println("# of Customers in the Fiancing Department Queue: " + financingQueueTotal);
+				
+				//Display the details of the car the current person in queue would like to purchase 
+				System.out.println("\nDetails for the customer at the front of the queue ");
+				System.out.println(firstName + "'s" + ", vehicle specifications");
+
+				//prompt the sales rep for leasing terms
+				Scanner scanner = new Scanner(System. in); 
+				System.out.print("\nFinancing Options"
+						+ "\n\n1. 24 Months"
+						+ "\n2. 36 Months"
+						+ "\n3. 48 Months"
+						+ "\n4. 60 Months"
+						+ "\n\nWhich financing option does the customer desire?  ");
+				int financingTerm = scanner.nextInt(); //store the user choice 
+				
+				//pompt the sales rep for additional information from the customer
+				System.out.print("\nWhat’s the customer’s credit score? ");
+				int creditScore = scanner.nextInt(); //store the customers credit score
+				
+				System.out.print("\nWhat’s the customer’s annual income? ");
+				int annualIncome = scanner.nextInt(); //store the customers credit score
+				
+				System.out.print("\nWhat’s the customer’s down payment? ");
+				int downPayment = scanner.nextInt(); //store the customers credit score
+				
+				//Let the sales rep know whether the customer has been approved or not
+				//approved if credit score is greater than 700 and income greater 40K OR downpayment of at least 20%
+				if ((creditScore >= 700 && annualIncome >= 40000) || downPayment >= (vehiclePrice * .20)) {
+					System.out.println("\nCONGRATULATIONS the customer has been approved for financing. ");
+					
+					//Prompt sales rep for final agreed upon price
+					System.out.print("\nEnter the final agreed upon price: ");
+					int finalPrice = scanner.nextInt();
+					
+				} else {
+					System.out.println("The customer is NOT approved for financing. Credit score must be at least 700 and annual income at least 40K OR Downpayment must be at least 20% of MSRP");
+				}
+				
+		
+				//remove the customer that was just served from the queue 
+				
+				//display Transaction complete customer has now been removed from queue message 
+				System.out.println("\nTransaction complete. The customer has now been removed from the queue");
+				
+				//display the update queue number and the vehicle information for the next person in queue
+				
+				//provide option for the sales rep to log out and be brought back to the login screen		
 			}			
 			
 }
