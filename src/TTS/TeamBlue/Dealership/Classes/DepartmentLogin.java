@@ -2,48 +2,53 @@ package TTS.TeamBlue.Dealership.Classes;
 
 import java.util.HashMap;
 import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
+
+
 
 public class DepartmentLogin {
 	
 	public static void DepLog(int queuePosition) {
 		
+		//NEED TO MODIFY THIS TO ONLY EXECUTE WHEN THE DEPARTMENT IS OPEN
+		
 		//wait for the countdown timer to complete 
-		Timer timer = null;
 		long waitTime = (queuePosition * 5)*1000; //multiplies the queue position by 5 get the total number of seconds, then multiply by 1000 to get the total miliseconds the customer will wait
-	   //timer.schedule(purchasingDepMethod(), waitTime); //wait for the countdown time to complete then execute the function 
+	
+		try {
+			Thread.sleep(waitTime);
+		} catch (InterruptedException ie) {
+            ie.printStackTrace();
+        }
 		
-	    //select the department to log into 
-	    int depChoice = departmentSelection(); //method to select the department 
-	    Scanner scanner = new Scanner(System. in); 
+		//call the department selection method
+		departmentSelectionAndDisplay();
+	}
+	
+	/*************************************** METHODS ***********************************************************/
 		
-
+		//Method to select the department and login and display the contents
+		public static void departmentSelectionAndDisplay() {
+			
+			//select the department to log into 
+			int depChoice = departmentSelection(); //method to select the department 
+	  
 	    		//if purchasing department is selected
 				if (depChoice == 1) {
 					purchasingDepMethod();				
 				
 				//if leasing department is selected	
 				} else if (depChoice == 2) {
-					
-					//display the purchasing department login screen
-					System.out.println("LEASING DEPARTMENT LOGIN ");
+					leasingDepMethod();
 				
 				//if financing department is selected
 				} else if (depChoice == 3) {
-			
-					//display the financing department login screen
-					System.out.println("FINANCING DEPARTMENT LOGIN ");
+					financingDepMethod();
 		
 				}
-	
-		
+				//return null;
 	}
 	
 	
-	
-		
-		
 		//method for selecting the sales department
 		public static int departmentSelection() {
 			//Clear the screen
@@ -58,7 +63,7 @@ public class DepartmentLogin {
 			//loop to validate that the user entered a valid choice for department 
 			do {
 				//Display the Menu
-				System.out.print("SALES REPRSENTATIVE LOGIN "
+				System.out.print("********** SALES REPRSENTATIVE LOGIN **********"
 						+ "\n\n1. Purchasing Department"
 						+ "\n2. Leasing Department"
 						+ "\n3. Financing Department"
@@ -70,76 +75,136 @@ public class DepartmentLogin {
 					validDep = true;
 				//if an invalid choice is entered prompt the user for a valid choice and start keep the loop going	
 				} else {
-					System.out.println("Not a valid option. Please select from one of our 3 departments");
+					System.out.println("Not a valid option. Please select from one of our 3 departments\n");
 					validDep = false;
 				}
 			} while (!validDep); 
 			
-			scanner.close();//close the scanner
 			return depChoice; //return the users choice of department
 		}
+		
 		
 		//method for prompting for user name 
 		public static String usernameEntry() {
 			Scanner scanner = new Scanner(System. in); 
 			System.out.print("\nEnter your username: ");
 			String userName = scanner.next();
-			scanner.close();
 			return userName;
 		}
+		
 		
 		//method for prompting for password
 		public static String passwordEntry() {
 			Scanner scanner = new Scanner(System. in); 
 			System.out.print("Enter your password: ");
 			String password = scanner.next();	
-			scanner.close();
 			return password;
 		}
 		
-		//Purchasing Department Method
 		
+		//Method to validate password
+		
+		public static void usernameAndPasswordValidation(HashMap<String, String> departmentLogin) {
+		
+			//check to see if the username is contained in the purchasing department users 
+			boolean validUser = true;
+			int userNameAttempts = 0;
+			
+			do {
+				//display the purchasing department login screen
+				
+				String userName = usernameEntry(); //prompt for the username
+				
+				//check to see if the username is contained in the purchasing department users 
+				if (departmentLogin.containsKey(userName)) {
+						boolean validPassword = true;
+						int passwordAttempts = 0;
+					
+						do {
+							String password = passwordEntry(); //prompt for the password
+							
+							//check to see if the password is match for the username 
+							if (departmentLogin.get(userName).equals(password)) {
+								//display the purchasing department sales rep menu (STILL NEED TO MAKE)
+								validPassword = true;
+								validUser = true;
+								
+							} else {
+								validPassword = false;
+								passwordAttempts++;
+								int pwAttemptsRemaining = 3 - passwordAttempts; //users is only allowed 3 changes to enter the correct password
+								
+								if (pwAttemptsRemaining != 0) {
+									System.out.println("Your password is incorrect, please try again\n");
+									System.out.println("Attempts remaining: " + pwAttemptsRemaining);	
+								
+								}else {
+									System.out.println("Your account has been locked please contact your system administrator");
+								}
+							}
+						} while(!validPassword && passwordAttempts !=3);
+						
+					} else {
+						validUser = false;
+						userNameAttempts++;
+						int userNameAttemptsRemaining = 3 - userNameAttempts; //user is only allowed 3 chances to enter the correct username
+						
+						if (userNameAttemptsRemaining !=0) {
+							System.out.println("Your username does not have access to this department, please try again\n");
+							System.out.println("Attempts remaining: " + userNameAttemptsRemaining);	
+						
+						} else {
+							System.out.println("The Login page has been locked please contact your system administrator");
+						}
+					}
+			} while (!validUser && userNameAttempts !=3);
+			
+			
+			
+		}
+		
+		//Purchasing Department Method
 			public static void purchasingDepMethod() {
-				//instantiating the scanner class to be able to store sales rep input
-				Scanner scanner = new Scanner(System. in); 
 				
 				//Clear the screen 
 				ClearScreen.clearScreen();
 				
-				//display the purchasing department login screen
-				System.out.println("PURCHASING DEPARTMENT LOGIN ");
-				String userName = usernameEntry();
-				String password = passwordEntry();
-				
-				//Need a hasmap of usernames and passwords
-				HashMap<String, String> purchasingDepartmentLogin = new HashMap<String, String>();
-				purchasingDepartmentLogin.put("JaneB", "Letmein");
-				purchasingDepartmentLogin.put("BrianD", "Letmein2");
+				//HashMap of department usernames and passwords
+				HashMap<String, String> purchasingDepartmentLogin =  DepartmentMembers.purchasingDepMembers();
 				
 				//if username and value match (loop through hashmap to get a key match then compare value to what the user entered)
-					
-				//check to see if the username is contained in the purchasing department users 
-				boolean validUser = true;
-				do {
-					if (purchasingDepartmentLogin.containsKey(userName)) {
-						boolean validPassword = true;
-						do {
-							if (purchasingDepartmentLogin.get(userName).equals(password)) {
-								//display the purchasing department sales rep menu (STILL NEED TO MAKE)
-						
-							} else {
-								System.out.println("Password is Incorrect, Please Try again");
-								validPassword = false;
-							}
-						} while(!validPassword);
-							
-						} else {
-							System.out.println("Your username does not have access to this department, please try again");
-							validUser = false;
-						}
-				} while (!validUser);
-		
-			scanner.close();	
+				System.out.println("********** PURCHASING DEPARTMENT LOGIN **********");	
+				usernameAndPasswordValidation(purchasingDepartmentLogin);
 			}
 	
+			
+		//Leasing Department Method
+			public static void leasingDepMethod() {
+				
+				//Clear the screen 
+				ClearScreen.clearScreen();
+				
+				//HashMap of department usernames and passwords
+				HashMap<String, String> leasingDepartmentLogin =  DepartmentMembers.leasingDepMembers();
+				
+				//if username and value match (loop through hashmap to get a key match then compare value to what the user entered)
+				System.out.println("********** LEASING DEPARTMENT LOGIN **********");	
+				usernameAndPasswordValidation(leasingDepartmentLogin);
+			}		
+			
+		
+		//Financing Department Method
+			public static void financingDepMethod() {
+				
+				//Clear the screen 
+				ClearScreen.clearScreen();
+				
+				//HashMap of department usernames and passwords
+				HashMap<String, String> financingDepartmentLogin =  DepartmentMembers.financingDepMembers();
+				
+				//if username and value match (loop through hashmap to get a key match then compare value to what the user entered)
+				System.out.println("********** FINANCING DEPARTMENT LOGIN **********");	
+				usernameAndPasswordValidation(financingDepartmentLogin);
+			}			
+			
 }

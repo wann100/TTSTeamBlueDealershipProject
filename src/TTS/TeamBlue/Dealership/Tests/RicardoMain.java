@@ -1,5 +1,7 @@
 package TTS.TeamBlue.Dealership.Tests;
 
+import java.util.Timer;
+
 import TTS.TeamBlue.Dealership.Classes.CountdownTimer;
 import TTS.TeamBlue.Dealership.Classes.CustomerDisplayMessage;
 import TTS.TeamBlue.Dealership.Classes.DepStatus;
@@ -9,7 +11,7 @@ public class RicardoMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int numInQueue = 2; 
+		int numInQueue = 5; 
 		
 		
 		
@@ -18,13 +20,10 @@ public class RicardoMain {
 		System.out.println(DepStatus.leasingDepStatus()); //returns the status of the leasing department
 		System.out.println(DepStatus.financingDepStatus()); //returns the status of the Financing department
 		
-		//Display message to customer
-		System.out.println(CustomerDisplayMessage.disMsg("Jane", "financing", numInQueue)); //returns the message to the customer
+		//Display message to customer and Countdown when open
+		CustomerDisplayMessage.disMsg("Jane", "financing", numInQueue); //returns the message to the customer
 		
-		//Countdown to service
-		//Need to figure out how to prevent the sales rep screen from displaying until after the countdown is complete
-		//CountdownTimer.timer(numInQueue); //returns the countdown timer for how long the customer has to wait
-		
+			
 		//Display Sales Rep Screen
 		DepartmentLogin.DepLog(numInQueue);
 
