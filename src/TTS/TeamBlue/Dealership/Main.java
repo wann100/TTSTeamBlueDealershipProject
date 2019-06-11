@@ -8,16 +8,7 @@ import TTS.TeamBlue.Dealership.Classes.DepartmentLogin;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		int numInQueue = 2; 
-		
-		
-		
-		//to be deleted
-		System.out.println(DepStatus.purchasingDepStatus()); //returns the status of the purchasing department  
-		System.out.println(DepStatus.leasingDepStatus()); //returns the status of the leasing department
-		System.out.println(DepStatus.financingDepStatus()); //returns the status of the Financing department
+		//
 		
 		//Display message to customer
 		System.out.println(CustomerDisplayMessage.disMsg("Jane", "financing", numInQueue)); //returns the message to the customer

@@ -3,15 +3,15 @@ package TTS.TeamBlue.Dealership.Classes;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import TTS.TeamBlue.Dealership.Interfaces.IVehicle;
+
 
 
 public class DepartmentLogin {
 	
 	public static void DepLog(int queuePosition) {
-		
-		//NEED TO MODIFY THIS TO ONLY EXECUTE WHEN THE DEPARTMENT IS OPEN
-		
-		//wait for the countdown timer to complete 
+			
+		//wait for the count down timer to complete 
 		long waitTime = (queuePosition * 5)*1000; //multiplies the queue position by 5 get the total number of seconds, then multiply by 1000 to get the total miliseconds the customer will wait
 	
 		try {
@@ -34,7 +34,7 @@ public class DepartmentLogin {
 	  
 	    		//if purchasing department is selected
 				if (depChoice == 1) {
-					purchasingDepMethod();				
+					purchasingDepMethod(5, "Jane");				
 				
 				//if leasing department is selected	
 				} else if (depChoice == 2) {
@@ -164,17 +164,45 @@ public class DepartmentLogin {
 		}
 		
 		//Purchasing Department Method
-			public static void purchasingDepMethod() {
+			public static void purchasingDepMethod(int purchasingQueueTotal, String firstName) {
 				
 				//Clear the screen 
-				ClearScreen.clearScreen();
+				//ClearScreen.clearScreen();
 				
 				//HashMap of department usernames and passwords
 				HashMap<String, String> purchasingDepartmentLogin =  DepartmentMembers.purchasingDepMembers();
 				
 				//if username and value match (loop through hashmap to get a key match then compare value to what the user entered)
-				System.out.println("********** PURCHASING DEPARTMENT LOGIN **********");	
+				System.out.println("\n********** PURCHASING DEPARTMENT LOGIN **********");	
 				usernameAndPasswordValidation(purchasingDepartmentLogin);
+				
+//STILL TO DO PER DEPARTMENT 		
+				
+				//Display Purchasing Departement Queue
+				System.out.println("\n********** PURCHASING DEPARTMENT QUEUE **********\n");	
+				
+				//Display the total number of people in queue
+				System.out.println("# of Customers in the Purchasing Department Queue: " + purchasingQueueTotal);
+				
+				//Display the details of the car the current person in queue would like to purchase 
+				System.out.println("\nDetails for the customer at the front of the queue ");
+				System.out.println(firstName + "'s" + ", vehicle specifications");
+				
+				
+				//prompt the sales rep to enter the final agreed upon price
+				Scanner scanner = new Scanner(System. in); 
+				System.out.print("\nEnter the final agreed upon price: ");
+				int finalPrice = scanner.nextInt();
+				
+				//remove the customer that was just served from the queue 
+				
+				//display Transaction complete customer has now been removed from queue message 
+				System.out.println("\nTransaction complete. The customer has now been removed from the queue");
+				
+				//display the update queue number and the vehicle information for the next person in queue
+				
+				//provide option for the sales rep to log out and be brought back to the login screen
+				
 			}
 	
 			
@@ -182,13 +210,13 @@ public class DepartmentLogin {
 			public static void leasingDepMethod() {
 				
 				//Clear the screen 
-				ClearScreen.clearScreen();
+				//ClearScreen.clearScreen();
 				
 				//HashMap of department usernames and passwords
 				HashMap<String, String> leasingDepartmentLogin =  DepartmentMembers.leasingDepMembers();
 				
 				//if username and value match (loop through hashmap to get a key match then compare value to what the user entered)
-				System.out.println("********** LEASING DEPARTMENT LOGIN **********");	
+				System.out.println("\n********** LEASING DEPARTMENT LOGIN **********");	
 				usernameAndPasswordValidation(leasingDepartmentLogin);
 			}		
 			
@@ -197,13 +225,13 @@ public class DepartmentLogin {
 			public static void financingDepMethod() {
 				
 				//Clear the screen 
-				ClearScreen.clearScreen();
+				//ClearScreen.clearScreen();
 				
 				//HashMap of department usernames and passwords
 				HashMap<String, String> financingDepartmentLogin =  DepartmentMembers.financingDepMembers();
 				
 				//if username and value match (loop through hashmap to get a key match then compare value to what the user entered)
-				System.out.println("********** FINANCING DEPARTMENT LOGIN **********");	
+				System.out.println("\n********** FINANCING DEPARTMENT LOGIN **********");	
 				usernameAndPasswordValidation(financingDepartmentLogin);
 			}			
 			

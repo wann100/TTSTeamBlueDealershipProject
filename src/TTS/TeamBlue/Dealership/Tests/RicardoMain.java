@@ -11,7 +11,7 @@ public class RicardoMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int numInQueue = 5; 
+		int numInQueue = 1; 
 		
 		
 		
