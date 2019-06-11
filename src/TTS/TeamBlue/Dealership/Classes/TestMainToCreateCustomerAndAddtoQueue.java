@@ -19,22 +19,32 @@ public class TestMainToCreateCustomerAndAddtoQueue {
 		
 		//Create a Vehicle instance paired with that Customer//
 		
-		
+		/*
 		//Creates a blank Queue
 		Queue<CustomerQueueItem> mainQueueInitial = new LinkedList<CustomerQueueItem>(); 
+		*/
 		
+		/*
 		//Create a CustomerQueueItem, Download Queue, Store Customer instance and Vehicle instance inside QueueItem, Store in Queue, return Queue
 		Queue<CustomerQueueItem> mainQueueAddCustandVeh = QueueDLAndUpdate.QueueDLAndUpdate(ourCustomer, null);
+		*/
+		
+		CustomerQueueItem newItem = new CustomerQueueItem();
+		newItem.setGuestinfo(ourCustomer);
+		newItem.setGuestvehconfig(null);
 		
 		
+		/*
 		//REMOVE ALL USERS AHEAD OF THE CURRENT USER IN THE QUEUE 
 		//This is done by passing the Queue to a utility method that returns a new Queue with only the last user added, the one we on-boarded
 		Queue mainQueue = QueueIndexTool.QueueIndexTool(mainQueueAddCustandVeh, 2);
+		*/
 		
 		//Retrieve the first name inside the Queue item at the top of the Queue and choose department
-		int deptchoicenumber = ChooseDept.ChooseDept(mainQueue);
+		String fName = ourCustomer.getFirstName();
 		
-		String testretrievefName = FirstNameInQueue.FirstNameInQueue(mainQueue);	
+		int deptchoicenumber = ChooseDept.ChooseDept(fName);
+	
 		
 		//THIS WILL COME MUCH LATER, AFTER SCOTT PROBABLY
 		//TRANSFER USER TO CORRECT QUEUE WHEN THEY ARE READY TO BUY
@@ -45,29 +55,26 @@ public class TestMainToCreateCustomerAndAddtoQueue {
 		
 		if(deptchoicenumber == 1) {
 			//Assign to purchasingQueue
-			System.out.println("Okay, "+testretrievefName+" We're transfering you to the purchasing department now!");
-			PurchasingQueue = mainQueue;
+			System.out.println("Okay, "+fName+" We're transfering you to the purchasing department now!");
+			PurchasingQueue.add(newItem);
 			int PurchasingQueueLength = QueueIndexTool2.QueueIndexTool2(PurchasingQueue);
 			System.out.println("Purchasing Queue Length: "+PurchasingQueueLength);
 		}
 		if(deptchoicenumber == 2) {
 			//Assign to leasingQueue
-			System.out.println("Okay, "+testretrievefName+" We're transfering you to the leasing department now!");
-			LeasingQueue = mainQueue;
+			System.out.println("Okay, "+fName+" We're transfering you to the leasing department now!");
+			LeasingQueue.add(newItem);
 			int LeasingQueueLength = QueueIndexTool2.QueueIndexTool2(LeasingQueue);
 			System.out.println("Leasing Queue Length: "+LeasingQueueLength);
 		}
 		if(deptchoicenumber == 3) {
 			//Assign to financingQueue
-			System.out.println("Okay, "+testretrievefName+" We're transfering you to the financing department now!");
-			FinancingQueue = mainQueue;
+			System.out.println("Okay, "+fName+" We're transfering you to the financing department now!");
+			FinancingQueue.add(newItem);
 			int FinancingQueueLength = QueueIndexTool2.QueueIndexTool2(FinancingQueue);
 			System.out.println("Finance Queue Length: "+FinancingQueueLength);
 		}
 		
-		
-		//Remove the QueueItem for the customer at the head of mainQueue. The only record of that customer now is in one of the department Queues.
-		CustomerQueueItem removedQueueHead = ((CustomerQueueItem) mainQueue.remove());
 		
 
 
