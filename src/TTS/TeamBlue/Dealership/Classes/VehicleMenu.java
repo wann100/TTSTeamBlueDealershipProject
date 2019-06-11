@@ -219,7 +219,7 @@ public class VehicleMenu {
 					String selectedColor = colors[index - 1];
 					customerVehicle.setColor(selectedColor);
 					System.out.println("\nVehicle color set to " + customerVehicle.getColor());
-					System.out.println("\nSelect again?");
+					System.out.println("\nSelect color again?");
 					System.out.println("1) Yes");
 					System.out.println("2) No\n");
 					System.out.print("Your Choice: ");
@@ -264,7 +264,7 @@ public class VehicleMenu {
 					String selectedInterior = interiors[index - 1];
 					customerVehicle.setInterior(selectedInterior);
 					System.out.println("\nVehicle interior set to " + customerVehicle.getInterior());
-					System.out.println("\nSelect again?");
+					System.out.println("\nSelect interior again?");
 					System.out.println("1) Yes");
 					System.out.println("2) No\n");
 					System.out.print("Your Choice: ");
@@ -309,7 +309,7 @@ public class VehicleMenu {
 					String selectedRims = rims[index - 1];
 					customerVehicle.setRims(selectedRims);
 					System.out.println("\nVehicle rims set to " + customerVehicle.getRims());
-					System.out.println("\nSelect again?");
+					System.out.println("\nSelect rims again?");
 					System.out.println("1) Yes");
 					System.out.println("2) No\n");
 					System.out.print("Your Choice: ");
@@ -354,7 +354,7 @@ public class VehicleMenu {
 					String selectedSoundSystem = soundSystems[index - 1];
 					customerVehicle.setInterior(selectedSoundSystem);
 					System.out.println("\nVehicle sound system set to " + customerVehicle.getSoundSystem());
-					System.out.println("\nSelect again?");
+					System.out.println("\nSelect sound system again?");
 					System.out.println("1) Yes");
 					System.out.println("2) No\n");
 					System.out.print("Your Choice: ");
