@@ -8,9 +8,14 @@ public class VehicleTests {
 
 	public static void main(String[] args) {
 		Inventory inventory = new Inventory();
-		VehicleMenu menu = new VehicleMenu(inventory, "Lease");
+		VehicleMenu menu = new VehicleMenu(inventory, "purchase");
 		IVehicle customerVehicle = menu.displayVehicleMenu();
-		customerVehicle.customerDisplay();
+		if (customerVehicle != null) {
+			System.out.println();
+			customerVehicle.customerDisplay();
+		} else {
+			System.out.println("\nYou didn't select a vehicle.");
+		}
 	}
 
 }
