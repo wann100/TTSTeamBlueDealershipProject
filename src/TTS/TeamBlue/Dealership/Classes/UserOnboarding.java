@@ -1,6 +1,8 @@
 package TTS.TeamBlue.Dealership.Classes;
 import java.util.*;
 
+import TTS.TeamBlue.Dealership.Utility.InputChecker;
+
 public class UserOnboarding {
 	
 	public static Customer userOnboarding() {
@@ -11,13 +13,20 @@ public class UserOnboarding {
 				
 				//Check if user is an existing customer in the queue
 				System.out.print("Welcome to Team Blue! Are You a Returning User (Yes/No)? ");
-				Scanner scanner = new Scanner(System.in);
-				String response = scanner.next();
 				
+				//Create New Scanner Instance
+				Scanner scanner = new Scanner(System.in);
+				
+				
+				String response;
+				
+				do{
+				response = InputChecker.checkInputText(scanner);
 				//If answer is no, create a new user instance and add it to queue
 				if(response.equalsIgnoreCase("no")) {
 					System.out.println("Let's get you into our system.");
 					client = CustomerIntake.customerIntake();
+
 				}
 				
 				if(response.equalsIgnoreCase("yes")) {
@@ -25,6 +34,11 @@ public class UserOnboarding {
 					System.out.println("We'll re-onboard you now. Sorry for the inconvenience.");
 					client = CustomerIntake.customerIntake();
 				}
+				
+				if(!response.equalsIgnoreCase("yes") || !response.equalsIgnoreCase("no")){
+					System.out.println("Incorrect Input. Please Write Either Yes or No.");
+				}
+				}while(!response.equalsIgnoreCase("yes") || !response.equalsIgnoreCase("no") );
 				
 				return client;
 		
