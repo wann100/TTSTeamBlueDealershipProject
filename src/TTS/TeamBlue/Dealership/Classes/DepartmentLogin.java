@@ -3,8 +3,6 @@ package TTS.TeamBlue.Dealership.Classes;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import TTS.TeamBlue.Dealership.Interfaces.IVehicle;
-
 
 
 public class DepartmentLogin {
