@@ -10,6 +10,7 @@ public class TestMainToCreateCustomerAndAddtoQueue {
 
 	public static void main(String[] args) {
 		
+		//Change so I can add it
 		//Create a Scanner instance
 		Scanner scanner = new Scanner(System.in);
 		
