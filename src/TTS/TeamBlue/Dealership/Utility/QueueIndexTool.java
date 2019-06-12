@@ -8,7 +8,7 @@ public class QueueIndexTool {
 	If the int mode is set to 1, the method prints the name of every client in the Queue
 	If the int mode is set to 2, the method returns the currentcustomer's QueueItem, ignoring the other QueueItems ahead of it in line
 	*/
-	public static Queue QueueIndexTool(Queue mainQueue, int mode) {
+	public static CustomerQueueItem QueueIndexTool(Queue mainQueue, int mode) {
 	
 	//Create blank Queue to return later
 	Queue<CustomerQueueItem> newQueue = new LinkedList<CustomerQueueItem>(); 
@@ -34,7 +34,7 @@ public class QueueIndexTool {
 	}
 	
 	newQueue.add(itemtoreturn);
-	return newQueue;
+	return itemtoreturn;
 	
 	}
 }
