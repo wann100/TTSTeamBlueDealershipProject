@@ -19,10 +19,15 @@ public class Truck implements IVehicle {
 	private String interior;
 	private String rims;
 	private String soundSystem;
+	private Double towingCapacity;
+	private Double grossCombinedWeight;
+	private Double truckWeight;
+	private boolean is4wd;
 	
-	public Truck(int id, String make, String model, int mileage, int year, Double wholeSale,
-			Double retail, boolean isLeasable, boolean isForSale, boolean isAvailable,
-			String color, String interior, String rims, String soundSystem) {
+	public Truck(int id, String make, String model, int mileage, int year,
+			Double wholeSale, Double retail, boolean isLeasable, boolean isForSale, boolean isAvailable,
+			String color, String interior, String rims, String soundSystem, Double towingCapacity,
+			Double grossCombinedWeight, Double truckWeight, boolean is4wd) {
 		
 		this.id = id;
 		this.type = "Truck";
@@ -39,6 +44,30 @@ public class Truck implements IVehicle {
 		this.interior = interior;
 		this.rims = rims;
 		this.soundSystem = soundSystem;
+		this.towingCapacity = towingCapacity;
+		this.grossCombinedWeight = grossCombinedWeight;
+		this.truckWeight = truckWeight;
+		this.is4wd = is4wd;
+	}
+
+	public Double getTowingCapacity() {
+		
+		return this.towingCapacity;
+	}
+
+	public Double getGrossCombinedWeight() {
+		
+		return this.grossCombinedWeight;
+	}
+
+	public Double getTruckWeight() {
+		
+		return this.truckWeight;
+	}
+
+	public boolean isIs4wd() {
+		
+		return this.is4wd;
 	}
 
 	@Override
@@ -86,8 +115,8 @@ public class Truck implements IVehicle {
 	@Override
 	public void customerDisplay() {
 		
-		System.out.printf("%-5d%-20s%-20s%-10d%-8d%-15.2f%-8s%-10s%-10s%-10s\n", id, make, model, mileage, year, retail,
-							color, interior, rims, soundSystem);
+		System.out.printf("%-5d%-20s%-20s%-10d%-8d%-15.2f%-8s%-10s%-10s%-10s%-8.2f%-8.2f%-8.2f%-5s\n", id, make, model, mileage, year, retail,
+							color, interior, rims, soundSystem, towingCapacity, grossCombinedWeight, truckWeight, is4wd);
 	}
 
 	@Override

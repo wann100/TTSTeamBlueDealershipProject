@@ -12,26 +12,29 @@ public class VehicleMenu {
 
 	private IVehicle customerVehicle;
 	private Inventory inventory;
-	private String department;
+	private int department;
+	private String departmentString;
 	
-	public VehicleMenu(Inventory inventory, String department) {
-		//purchase lease finance
+	public VehicleMenu(Inventory inventory, int department) {
+		//purchase = 1 lease = 2 finance = 3
 		this.department = department;
 		this.inventory = inventory;
+		this.departmentString = "purchase";
 	}
 	
 	public IVehicle displayVehicleMenu() {
 		
 		// display menu get input
 		boolean leaseFlag = false;
-		if (this.department.compareToIgnoreCase("lease") == 0) {
+		if (this.department == 2) {
 			leaseFlag = true;
+			this.departmentString = "lease";
 		}
 		Scanner sc = new Scanner(System.in);
 		String input = "";
 		boolean menuFlag = false;
 		while (menuFlag == false) {
-			System.out.printf("What type of vehicle would you like to %s?\t", this.department);
+			System.out.printf("What type of vehicle would you like to %s?\t", this.departmentString);
 			System.out.println();
 			System.out.println("1) " + VehicleTypes.Sedan);
 			System.out.println("2) " + VehicleTypes.Coupe);

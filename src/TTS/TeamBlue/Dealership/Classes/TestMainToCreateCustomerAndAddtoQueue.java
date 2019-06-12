@@ -21,15 +21,15 @@ public class TestMainToCreateCustomerAndAddtoQueue {
 		
 		
 		//Creates a blank Queue
-		Queue<CustomerQueueItem> mainQueueInitial = new LinkedList<CustomerQueueItem>(); 
+		Queue<CustomerQueueItem> mainQueueInitial = new LinkedList<CustomerQueueItem>();
 		
 		//Create a CustomerQueueItem, Download Queue, Store Customer instance and Vehicle instance inside QueueItem, Store in Queue, return Queue
-		Queue<CustomerQueueItem> mainQueueAddCustandVeh = QueueDLAndUpdate.QueueDLAndUpdate(ourCustomer, null);
+		//Queue<CustomerQueueItem> mainQueueAddCustandVeh = QueueDLAndUpdate.QueueDLAndUpdate(ourCustomer, null);
 		
 		
 		//REMOVE ALL USERS AHEAD OF THE CURRENT USER IN THE QUEUE 
 		//This is done by passing the Queue to a utility method that returns a new Queue with only the last user added, the one we on-boarded
-		Queue mainQueue = QueueIndexTool.QueueIndexTool(mainQueueAddCustandVeh, 2);
+		//Queue mainQueue = QueueIndexTool.QueueIndexTool(mainQueueAddCustandVeh, 2);
 		
 		//Retrieve the first name inside the Queue item at the top of the Queue and choose department
 		int deptchoicenumber = ChooseDept.ChooseDept(mainQueue);

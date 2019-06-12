@@ -8,7 +8,7 @@ public class VehicleTests {
 
 	public static void main(String[] args) {
 		Inventory inventory = new Inventory();
-		VehicleMenu menu = new VehicleMenu(inventory, "purchase");
+		VehicleMenu menu = new VehicleMenu(inventory, 1);
 		IVehicle customerVehicle = menu.displayVehicleMenu();
 		if (customerVehicle != null) {
 			System.out.println();

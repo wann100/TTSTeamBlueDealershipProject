@@ -78,7 +78,7 @@ public class Inventory {
 		vehicles.add(tmp3);
 		
 		IVehicle tmp4 = VehicleFactory.getVehicle(4, "truck", "Toyota", "Tacoma", 18000, 2019, 35000d, 42000d,
-						true, true, true, "White", "Cloth", "Alloy", "Basic");
+						true, true, true, "White", "Cloth", "Alloy", "Basic", 20000d, 50000d, 30000d, true);
 		vehicles.add(tmp4);
 		
 		IVehicle tmp5 = VehicleFactory.getVehicle(5, "sedan", "Chevrolet", "Camaro", 50000, 2010, 8000d, 12000d,
