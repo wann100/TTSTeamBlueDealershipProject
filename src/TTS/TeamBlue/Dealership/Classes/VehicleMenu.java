@@ -58,9 +58,9 @@ public class VehicleMenu {
 		// display headings
 		System.out.println();
 		System.out.println("Inventory:\n");
-		System.out.printf("%-5s%-20s%-20s%-10s%-8s%-15s%-8s%-10s%-10s%-10s\n", "ID", "MAKE", "MODEL", "MILEAGE", "YEAR", "MSRP",
+		System.out.printf("%-5s%-20s%-20s%-10s%-8s%-15s%-10s%-10s%-10s%-10s\n", "ID", "MAKE", "MODEL", "MILEAGE", "YEAR", "MSRP",
 							"COLOR", "INTERIOR", "RIMS", "SOUNDSYSTEM");
-		System.out.printf("%-5s%-20s%-20s%-10s%-8s%-15s%-8s%-10s%-10s%-10s\n", "--", "----", "-----", "-------", "----", "----",
+		System.out.printf("%-5s%-20s%-20s%-10s%-8s%-15s%-10s%-10s%-10s%-10s\n", "--", "----", "-----", "-------", "----", "----",
 							"-----", "--------", "----", "-----------");
 		
 		// display list of vehicles
@@ -194,7 +194,7 @@ public class VehicleMenu {
 			}
 			
 			// close scanner
-			sc.close();
+			//sc.close();
 			return customerVehicle;
 		}
 		else if (customize == true) {
@@ -398,12 +398,12 @@ public class VehicleMenu {
 			input = sc.next();
 			if (input.compareTo("1") == 0) {
 				// close scanner
-				sc.close();
+				//sc.close();
 				return this.customerVehicle;
 			}
 			else if (input.compareTo("2") == 0) {
 				// close scanner
-				sc.close();
+				//sc.close();
 				System.exit(0);
 			}
 			else {
@@ -412,7 +412,7 @@ public class VehicleMenu {
 		}
 		
 		// close scanner
-		sc.close();
+		//sc.close();
 		
 		return null;
 	}

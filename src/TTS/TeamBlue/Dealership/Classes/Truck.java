@@ -115,8 +115,11 @@ public class Truck implements IVehicle {
 	@Override
 	public void customerDisplay() {
 		
-		System.out.printf("%-5d%-20s%-20s%-10d%-8d%-15.2f%-8s%-10s%-10s%-10s%-8.2f%-8.2f%-8.2f%-5s\n", id, make, model, mileage, year, retail,
-							color, interior, rims, soundSystem, towingCapacity, grossCombinedWeight, truckWeight, is4wd);
+		System.out.printf("%-5d%-20s%-20s%-10d%-8d%-15.2f%-10s%-10s%-10s%-10s\n", id, make, model, mileage, year, retail,
+							color, interior, rims, soundSystem);
+		System.out.printf("\n%78s%-10s%-10s%-10s%-5s\n", "", "TOW", "GCW", "WEIGHT", "4WD");
+		System.out.printf("%78s%-10s%-10s%-10s%-5s\n", "", "---", "---", "------", "---");
+		System.out.printf("%78s%-10.2f%-10.2f%-10.2f%-5s\n", "", towingCapacity, grossCombinedWeight, truckWeight, is4wd);
 	}
 
 	@Override
