@@ -86,7 +86,7 @@ public class Coupe implements IVehicle {
 	@Override
 	public void customerDisplay() {
 		
-		System.out.printf("%-5d%-20s%-20s%-10d%-8d%-15.2f%-8s%-10s%-10s%-10s\n", id, make, model, mileage, year, retail,
+		System.out.printf("%-5d%-20s%-20s%-10d%-8d%-15.2f%-10s%-10s%-10s%-10s\n", id, make, model, mileage, year, retail,
 							color, interior, rims, soundSystem);
 	}
 

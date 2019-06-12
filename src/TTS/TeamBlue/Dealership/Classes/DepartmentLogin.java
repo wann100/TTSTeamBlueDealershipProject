@@ -1,16 +1,27 @@
 package TTS.TeamBlue.Dealership.Classes;
 
 import java.util.HashMap;
+import java.util.Queue;
 import java.util.Scanner;
 
-
+import TTS.TeamBlue.Dealership.Interfaces.IVehicle;
+import TTS.TeamBlue.Dealership.Utility.FirstNameInQueue;
+import TTS.TeamBlue.Dealership.Utility.QueueIndexTool;
 
 public class DepartmentLogin {
 	
-	public static void DepLog(int queuePosition) {
+	public static void DepLog(int DepChoice, Queue PurchasingDepartmentQueue, int PurchasingQueueTotal, Queue LeasingDepartmentQueue, int LeasingQueueTotal, Queue FinancingDepartmentQueue, int FinancingQueueTotal) {
 			
 		//wait for the count down timer to complete 
-		long waitTime = (queuePosition * 5)*1000; //multiplies the queue position by 5 get the total number of seconds, then multiply by 1000 to get the total miliseconds the customer will wait
+		long waitTime; 
+		if (DepChoice == 1) { //Purchasing Department
+			waitTime = (PurchasingQueueTotal * 5)*1000; //multiplies the queue position by 5 get the total number of seconds, then multiply by 1000 to get the total miliseconds the customer will wait
+		} else if (DepChoice == 2) { //Leasing Department
+			waitTime = (LeasingQueueTotal * 5)*1000; //multiplies the queue position by 5 get the total number of seconds, then multiply by 1000 to get the total miliseconds the customer will wait
+		} else { //Financing
+			waitTime = (FinancingQueueTotal * 5)*1000; //multiplies the queue position by 5 get the total number of seconds, then multiply by 1000 to get the total miliseconds the customer will wait
+		}
+		
 	
 		try {
 			Thread.sleep(waitTime);
@@ -19,31 +30,38 @@ public class DepartmentLogin {
         }
 		
 		//call the department selection method
-		departmentSelectionAndDisplay();
+		departmentSelectionAndDisplay(PurchasingDepartmentQueue, PurchasingQueueTotal, LeasingDepartmentQueue, LeasingQueueTotal, FinancingDepartmentQueue, FinancingQueueTotal);
 	}
 	
 	/*************************************** METHODS ***********************************************************/
 		
 		//Method to select the department and login and display the contents
-		public static void departmentSelectionAndDisplay() {
+		public static void departmentSelectionAndDisplay(Queue PurchasingDepartmentQueue, int PurchasingQueueTotal, Queue LeasingDepartmentQueue, int LeasingQueueTotal, Queue FinacingDepartmentQueue, int FinancingQueueTotal) {
 			
-			//select the department to log into 
+			//select the Sales department to log into 
 			int depChoice = departmentSelection(); //method to select the department 
 	  
 	    		//if purchasing department is selected
 				if (depChoice == 1) {
-					purchasingDepMethod("Jane", 5);				
+					purchasingDepMethod(FirstNameInQueue.FirstNameInQueue(PurchasingDepartmentQueue), PurchasingQueueTotal);				
 				
 				//if leasing department is selected	
 				} else if (depChoice == 2) {
-					leasingDepMethod("Jane", 5, 14000);
+					CustomerQueueItem temp = new CustomerQueueItem(); 
+					temp = (CustomerQueueItem) LeasingDepartmentQueue.peek();
+					IVehicle vehicle = temp.getGuestvehconfig();
+				
+					leasingDepMethod(FirstNameInQueue.FirstNameInQueue(LeasingDepartmentQueue), LeasingQueueTotal, vehicle.getRetail());
 				
 				//if financing department is selected
 				} else if (depChoice == 3) {
-					financingDepMethod("Jane", 5, 14000);
+					CustomerQueueItem temp = new CustomerQueueItem(); 
+					temp = (CustomerQueueItem) LeasingDepartmentQueue.peek();
+					IVehicle vehicle = temp.getGuestvehconfig();
+					
+					financingDepMethod(FirstNameInQueue.FirstNameInQueue(FinacingDepartmentQueue), FinancingQueueTotal, vehicle.getRetail());
 		
 				}
-				//return null;
 	}
 	
 	
@@ -53,10 +71,14 @@ public class DepartmentLogin {
 			ClearScreen.clearScreen();
 			
 			//instantiating the scanner class to be able to store sales rep input
-			Scanner scanner = new Scanner(System. in); 
+			Scanner scanner = new Scanner(System.in); 
 			
 			boolean validDep = true;
-			int depChoice; 
+			int depChoice =0; 
+			while (scanner.hasNext()) {
+				String temp = scanner.nextLine();
+			}
+			
 			
 			//loop to validate that the user entered a valid choice for department 
 			do {
@@ -66,12 +88,20 @@ public class DepartmentLogin {
 						+ "\n2. Leasing Department"
 						+ "\n3. Financing Department"
 						+ "\n\nPlease select your department to login: ");
-				depChoice = scanner.nextInt(); //store the user choice 
 				
+				if (scanner.hasNext()) {
+					//depChoice = scanner.nextInt(); //store the user choice 		
+					String temp = scanner.next();
+				} 
+					
+				if (scanner.hasNextInt()) {
+					depChoice = scanner.nextInt(); //store the user choice 		
+					}
+					
 				//terminate the loop if a valid choice is entered
 				if (depChoice >=1 && depChoice <= 3) {
 					validDep = true;
-				//if an invalid choice is entered prompt the user for a valid choice and start keep the loop going	
+				//if an invalid choice is not entered prompt the user for a valid choice and start keep the loop going	
 				} else {
 					System.out.println("Not a valid option. Please select from one of our 3 departments\n");
 					validDep = false;
@@ -162,7 +192,7 @@ public class DepartmentLogin {
 		}
 		
 		//Purchasing Department Method
-			public static void purchasingDepMethod(String firstName, int purchasingQueueTotal) {
+			public static void purchasingDepMethod(String firstName,  int purchasingQueueTotal) {
 
 				//HashMap of department usernames and passwords
 				HashMap<String, String> purchasingDepartmentLogin =  DepartmentMembers.purchasingDepMembers();
@@ -202,7 +232,7 @@ public class DepartmentLogin {
 	
 			
 		//Leasing Department Method
-			public static void leasingDepMethod(String firstName, int leasingQueueTotal, int vehiclePrice) {
+			public static void leasingDepMethod(String firstName, int leasingQueueTotal, double vehiclePrice) {
 				
 				//Clear the screen 
 				//ClearScreen.clearScreen();
@@ -256,7 +286,7 @@ public class DepartmentLogin {
 			
 		
 		//Financing Department Method
-			public static void financingDepMethod(String firstName, int financingQueueTotal, int vehiclePrice) {
+			public static void financingDepMethod(String firstName, int financingQueueTotal, double vehiclePrice) {
 				
 				//Clear the screen 
 				//ClearScreen.clearScreen();

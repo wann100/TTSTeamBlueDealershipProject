@@ -89,6 +89,18 @@ public class Inventory {
 				false, true, true, "Orange", "Cloth", "Chrome", "Premium");
 		vehicles.add(tmp6);
 		
+		IVehicle tmp7 = VehicleFactory.getVehicle(7, "truck", "Ford", "F-150", 28000, 2018, 33000d, 36000d,
+				false, true, true, "Green", "Leather", "Alloy", "Basic", 20000d, 50000d, 30000d, false);
+		vehicles.add(tmp7);
+		
+		IVehicle tmp8 = VehicleFactory.getVehicle(8, "suv", "Chevrolet", "Blazer", 180000, 2005, 3000d, 4000d,
+				false, true, true, "Black", "Leather", "Chrome", "Premium");
+		vehicles.add(tmp8);
+		
+		IVehicle tmp9 = VehicleFactory.getVehicle(9, "coupe", "Nissan", "Versa", 45123, 2016, 12000d, 12500d,
+				false, true, true, "White", "Cloth", "Alloy", "Basic");
+		vehicles.add(tmp9);
+		
 		return vehicles;
 		
 	}

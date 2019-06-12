@@ -14,7 +14,7 @@ public class CustomerQueueItem {
 	public Customer getGuestinfo() {
 		return guestinfo;
 	}
-	public Object getGuestvehconfig() {
+	public IVehicle getGuestvehconfig() {
 		return guestvehconfig;
 	}
 	
