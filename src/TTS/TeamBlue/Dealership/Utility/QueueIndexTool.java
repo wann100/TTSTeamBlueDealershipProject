@@ -28,7 +28,7 @@ public class QueueIndexTool {
 	}
 	}
 	
-	//Mode 2: extract the most recently added queue item in the passed queue, add it to the new queue you created and return that new queue
+	//Mode 2: extract the most recently added queue item in the passed Queue, return that CustomerQueueItem
 	if(mode == 2) {
 		itemtoreturn = (CustomerQueueItem)QueueArray[QueueArray.length - 1];
 	}
