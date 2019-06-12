@@ -18,15 +18,26 @@ public class UserOnboarding {
 				Scanner scanner = new Scanner(System.in);
 				
 				
+				String rawinput;
 				String response;
+
 				
-				do{
-				response = InputChecker.checkInputText(scanner);
+				rawinput = InputChecker.checkInputText(scanner);
+				response = rawinput.toLowerCase();
+				
+				if(!response.equals("yes") && !response.equals("no")) {
+					do {
+					System.out.println("Please type either Yes or No");
+					rawinput = InputChecker.checkInputText(scanner);
+					response = rawinput.toLowerCase();
+					}
+					while(!response.equals("yes") && !response.equals("no"));
+				}
+				
 				//If answer is no, create a new user instance and add it to queue
 				if(response.equalsIgnoreCase("no")) {
 					System.out.println("Let's get you into our system.");
 					client = CustomerIntake.customerIntake();
-
 				}
 				
 				if(response.equalsIgnoreCase("yes")) {
@@ -34,11 +45,7 @@ public class UserOnboarding {
 					System.out.println("We'll re-onboard you now. Sorry for the inconvenience.");
 					client = CustomerIntake.customerIntake();
 				}
-				
-				if(!response.equalsIgnoreCase("yes") || !response.equalsIgnoreCase("no")){
-					System.out.println("Incorrect Input. Please Write Either Yes or No.");
-				}
-				}while(!response.equalsIgnoreCase("yes") || !response.equalsIgnoreCase("no") );
+
 				
 				return client;
 		

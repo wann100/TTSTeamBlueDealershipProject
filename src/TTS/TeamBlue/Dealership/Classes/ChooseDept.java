@@ -2,6 +2,8 @@ package TTS.TeamBlue.Dealership.Classes;
 import java.util.*;
 import java.util.Scanner;
 
+import TTS.TeamBlue.Dealership.Utility.InputChecker;
+
 public class ChooseDept {
 	
 	public static int ChooseDept(String fName) {
@@ -13,22 +15,25 @@ public class ChooseDept {
 		
 		//Retrieve the first name inside the Queue item at the top of the Queue
 		System.out.println("Thank you for that information, "+fName);
-		System.out.println("Are you interested purchasing in full today or do you plan to lease or finance after you choose and customize you vehicle.");
-		System.out.println("You can type 'full' to buy outright, 'lease' to speak to a leasing representative later or 'finace' to speak to a financing representative.");
-		String departmentchoice = scanner.nextLine();
+		System.out.println("If you buy a vehicle today, will you be paying in full, leasing or financing?");
+		System.out.println();
+		System.out.println("1) Purchase today");
+		System.out.println("2) Lease today");
+		System.out.println("3) Finance today");
+		System.out.println();
+		
+		int departmentchoice = InputChecker.checkInputNum(scanner);
+		scanner.nextLine();
 		
 		//Convert string department choice into an int
 
-		if (departmentchoice.equalsIgnoreCase("full")){
-			deptchoicenumber = 1;
+		if (departmentchoice == 1){
 			System.out.println("No problem, "+fName+" We'll transfer you to the payment department after you choose your vehicle.");
 		}
-		if (departmentchoice.equalsIgnoreCase("lease")){
-			deptchoicenumber = 2;
+		if (departmentchoice == 2){
 			System.out.println("No problem, "+fName+" We'll transfer you to the leasing department after you choose your vehicle.");
 		}
-		if (departmentchoice.equalsIgnoreCase("finance")){
-			deptchoicenumber = 3;
+		if (departmentchoice == 3){
 			System.out.println("No problem, "+fName+" We'll transfer you to the financing department after you choose your vehicle.");
 		}
 		
