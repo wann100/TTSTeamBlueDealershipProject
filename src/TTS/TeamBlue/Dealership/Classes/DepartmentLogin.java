@@ -43,7 +43,7 @@ public class DepartmentLogin {
 	  
 	    		//if purchasing department is selected
 				if (depChoice == 1) {
-					purchasingDepMethod(scanner, FirstNameInQueue.FirstNameInQueue(PurchasingDepartmentQueue), PurchasingQueueTotal, PurchasingDepartmentQueue);				
+					purchasingDepMethod(scanner, PurchasingDepartmentQueue);				
 				
 				//if leasing department is selected	
 				} else if (depChoice == 2) {
@@ -182,10 +182,10 @@ public class DepartmentLogin {
 		}
 		
 		//Purchasing Department Method
-			public static void purchasingDepMethod(Scanner scanner, String firstName,  int purchasingQueueTotal, Queue PurchasingDepartmentQueue) {
-				int finalPrice;
+			public static void purchasingDepMethod(Scanner scanner, Queue PurchasingDepartmentQueue) {
+				int finalPrice = 0;
 				
-				do {
+			
 				//HashMap of department usernames and passwords
 				HashMap<String, String> purchasingDepartmentLogin =  DepartmentMembers.purchasingDepMembers();
 				
@@ -193,36 +193,29 @@ public class DepartmentLogin {
 				System.out.println("\n********** PURCHASING DEPARTMENT LOGIN **********");	
 				usernameAndPasswordValidation(scanner, purchasingDepartmentLogin);
 				
-//STILL TO DO PER DEPARTMENT 		
-				
+				while (PurchasingDepartmentQueue.size() > 0 || finalPrice != -1) {	
+		
 				//Display Purchasing Department Queue
 				System.out.println("\n********** PURCHASING DEPARTMENT QUEUE **********\n");	
 				
 				//Display the total number of people in queue
-				System.out.println("# of Customers in the Purchasing Department Queue: " + purchasingQueueTotal);
+				System.out.println("# of Customers in the Purchasing Department Queue: " + PurchasingDepartmentQueue.size());
 				
 				//Display the details of the car the current person in queue would like to purchase 
 				System.out.println("\nDetails for the customer at the front of the queue ");
-				System.out.println(firstName + "'s" + ", vehicle specifications");
-				
+				System.out.println(FirstNameInQueue.FirstNameInQueue(PurchasingDepartmentQueue) + "'s" + ", vehicle specifications");
 				
 				//prompt the sales rep to enter the final agreed upon price
-				//Scanner scanner = new Scanner(System. in); 
 				System.out.print("\nEnter the final agreed upon price OR -1 to quit: ");
 				finalPrice = scanner.nextInt();
-				
-				
+
 				//remove the customer that was just served from the queue 
 				PurchasingDepartmentQueue.remove();
 				
 				//display Transaction complete customer has now been removed from queue message 
 				System.out.println("\nTransaction complete. The customer has now been removed from the queue");
-				
-				//display the update queue number and the vehicle information for the next person in queue
-				
-				//provide option for the sales rep to log out and be brought back to the login screen
 			
-				} while (PurchasingDepartmentQueue.size() != 0 || finalPrice != -1);
+				}
 			}
 	
 			
