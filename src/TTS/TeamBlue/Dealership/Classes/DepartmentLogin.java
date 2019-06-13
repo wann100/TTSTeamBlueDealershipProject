@@ -227,6 +227,19 @@ public class DepartmentLogin {
 					System.out.println("\nTransaction complete. The customer has now been removed from the queue");
 					}
 				}
+				
+				System.out.println("\nThere are no more customers in the purchasing department queue.");
+				System.out.print("\nReturning you back to the Sales Representative Login in: ");
+				CountdownTimer.timer(1); 
+				//wait for the count down timer to complete 		
+				try {
+					Thread.sleep(5000);
+				} catch (InterruptedException ie) {
+		            ie.printStackTrace();
+		        }
+				
+				departmentSelection(scanner); //method to select the department 
+				
 			}
 	
 			
