@@ -3,8 +3,8 @@ package TTS.TeamBlue.Dealership.DAO;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import TTS.TeamBlue.Dealership.Customer.CustomerAbe;
 import TTS.TeamBlue.Dealership.Customer.CustomerQueueItem;
+import TTS.TeamBlue.Dealership.Customer.Fake.CustomerAbe;
 import TTS.TeamBlue.Dealership.Interfaces.IVehicle;
 import TTS.TeamBlue.Dealership.Vehicle.VehicleFactory;
 
