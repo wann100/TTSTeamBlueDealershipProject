@@ -193,7 +193,7 @@ public class DepartmentLogin {
 				System.out.println("\n********** PURCHASING DEPARTMENT LOGIN **********");	
 				usernameAndPasswordValidation(scanner, purchasingDepartmentLogin);
 				
-				while (PurchasingDepartmentQueue.size() > 0 || finalPrice != -1) {	
+				while (PurchasingDepartmentQueue.size() > 0 && finalPrice != -1) {	
 		
 				//Display Purchasing Department Queue
 				System.out.println("\n********** PURCHASING DEPARTMENT QUEUE **********\n");	
