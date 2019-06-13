@@ -10,7 +10,7 @@ import TTS.TeamBlue.Dealership.Utility.QueueIndexTool;
 
 public class DepartmentLogin {
 	
-	public static void DepLog(int DepChoice, Queue PurchasingDepartmentQueue, int PurchasingQueueTotal, Queue LeasingDepartmentQueue, int LeasingQueueTotal, Queue FinancingDepartmentQueue, int FinancingQueueTotal) {
+	public static void DepLog(Scanner scanner, int DepChoice, Queue PurchasingDepartmentQueue, int PurchasingQueueTotal, Queue LeasingDepartmentQueue, int LeasingQueueTotal, Queue FinancingDepartmentQueue, int FinancingQueueTotal) {
 			
 		//wait for the count down timer to complete 
 		long waitTime; 
@@ -30,74 +30,74 @@ public class DepartmentLogin {
         }
 		
 		//call the department selection method
-		departmentSelectionAndDisplay(PurchasingDepartmentQueue, PurchasingQueueTotal, LeasingDepartmentQueue, LeasingQueueTotal, FinancingDepartmentQueue, FinancingQueueTotal);
+		departmentSelectionAndDisplay(scanner, PurchasingDepartmentQueue, PurchasingQueueTotal, LeasingDepartmentQueue, LeasingQueueTotal, FinancingDepartmentQueue, FinancingQueueTotal);
 	}
 	
 	/*************************************** METHODS ***********************************************************/
 		
 		//Method to select the department and login and display the contents
-		public static void departmentSelectionAndDisplay(Queue PurchasingDepartmentQueue, int PurchasingQueueTotal, Queue LeasingDepartmentQueue, int LeasingQueueTotal, Queue FinacingDepartmentQueue, int FinancingQueueTotal) {
+		public static void departmentSelectionAndDisplay(Scanner scanner, Queue PurchasingDepartmentQueue, int PurchasingQueueTotal, Queue LeasingDepartmentQueue, int LeasingQueueTotal, Queue FinacingDepartmentQueue, int FinancingQueueTotal) {
 			
 			//select the Sales department to log into 
-			int depChoice = departmentSelection(); //method to select the department 
+			int depChoice = departmentSelection(scanner); //method to select the department 
 	  
 	    		//if purchasing department is selected
 				if (depChoice == 1) {
-					purchasingDepMethod(FirstNameInQueue.FirstNameInQueue(PurchasingDepartmentQueue), PurchasingQueueTotal);				
+					purchasingDepMethod(scanner, FirstNameInQueue.FirstNameInQueue(PurchasingDepartmentQueue), PurchasingQueueTotal);				
 				
 				//if leasing department is selected	
 				} else if (depChoice == 2) {
+					//get the vehicle 
 					CustomerQueueItem temp = new CustomerQueueItem(); 
 					temp = (CustomerQueueItem) LeasingDepartmentQueue.peek();
 					IVehicle vehicle = temp.getGuestvehconfig();
 				
-					leasingDepMethod(FirstNameInQueue.FirstNameInQueue(LeasingDepartmentQueue), LeasingQueueTotal, vehicle.getRetail());
+					//call Leasing Department specific method
+					leasingDepMethod(scanner, FirstNameInQueue.FirstNameInQueue(LeasingDepartmentQueue), LeasingQueueTotal, vehicle.getRetail());
 				
 				//if financing department is selected
 				} else if (depChoice == 3) {
+					//get the vehicle
 					CustomerQueueItem temp = new CustomerQueueItem(); 
 					temp = (CustomerQueueItem) LeasingDepartmentQueue.peek();
 					IVehicle vehicle = temp.getGuestvehconfig();
 					
-					financingDepMethod(FirstNameInQueue.FirstNameInQueue(FinacingDepartmentQueue), FinancingQueueTotal, vehicle.getRetail());
+					//call financing Department specific method
+					financingDepMethod(scanner, FirstNameInQueue.FirstNameInQueue(FinacingDepartmentQueue), FinancingQueueTotal, vehicle.getRetail());
 		
-				}
+			}
 	}
 	
 	
 		//method for selecting the sales department
-		public static int departmentSelection() {
+		public static int departmentSelection(Scanner scanner) {
 			//Clear the screen
 			ClearScreen.clearScreen();
 			
 			//instantiating the scanner class to be able to store sales rep input
-			Scanner scanner = new Scanner(System.in); 
+			//Scanner scanner = new Scanner(System.in); 
 			
 			boolean validDep = true;
-			int depChoice =0; 
-			while (scanner.hasNext()) {
-				String temp = scanner.nextLine();
-			}
+			int depChoice; 
+	
 			
 			
 			//loop to validate that the user entered a valid choice for department 
 			do {
+			
 				//Display the Menu
 				System.out.print("********** SALES REPRSENTATIVE LOGIN **********"
 						+ "\n\n1. Purchasing Department"
 						+ "\n2. Leasing Department"
 						+ "\n3. Financing Department"
 						+ "\n\nPlease select your department to login: ");
+		
+		
+					depChoice = scanner.nextInt(); //store the user choice 
+		
 				
-				if (scanner.hasNext()) {
-					//depChoice = scanner.nextInt(); //store the user choice 		
-					String temp = scanner.next();
-				} 
-					
-				if (scanner.hasNextInt()) {
-					depChoice = scanner.nextInt(); //store the user choice 		
-					}
-					
+			
+
 				//terminate the loop if a valid choice is entered
 				if (depChoice >=1 && depChoice <= 3) {
 					validDep = true;
@@ -113,8 +113,8 @@ public class DepartmentLogin {
 		
 		
 		//method for prompting for user name 
-		public static String usernameEntry() {
-			Scanner scanner = new Scanner(System. in); 
+		public static String usernameEntry(Scanner scanner) {
+			//Scanner scanner = new Scanner(System. in); 
 			System.out.print("\nEnter your username: ");
 			String userName = scanner.next();
 			return userName;
@@ -122,8 +122,8 @@ public class DepartmentLogin {
 		
 		
 		//method for prompting for password
-		public static String passwordEntry() {
-			Scanner scanner = new Scanner(System. in); 
+		public static String passwordEntry(Scanner scanner) {
+			//Scanner scanner = new Scanner(System. in); 
 			System.out.print("Enter your password: ");
 			String password = scanner.next();	
 			return password;
@@ -131,8 +131,7 @@ public class DepartmentLogin {
 		
 		
 		//Method to validate password
-		
-		public static void usernameAndPasswordValidation(HashMap<String, String> departmentLogin) {
+		public static void usernameAndPasswordValidation(Scanner scanner, HashMap<String, String> departmentLogin) {
 		
 			//check to see if the username is contained in the purchasing department users 
 			boolean validUser = true;
@@ -141,7 +140,7 @@ public class DepartmentLogin {
 			do {
 				//display the purchasing department login screen
 				
-				String userName = usernameEntry(); //prompt for the username
+				String userName = usernameEntry(scanner); //prompt for the username
 				
 				//check to see if the username is contained in the purchasing department users 
 				if (departmentLogin.containsKey(userName)) {
@@ -149,7 +148,7 @@ public class DepartmentLogin {
 						int passwordAttempts = 0;
 					
 						do {
-							String password = passwordEntry(); //prompt for the password
+							String password = passwordEntry(scanner); //prompt for the password
 							
 							//check to see if the password is match for the username 
 							if (departmentLogin.get(userName).equals(password)) {
@@ -192,14 +191,14 @@ public class DepartmentLogin {
 		}
 		
 		//Purchasing Department Method
-			public static void purchasingDepMethod(String firstName,  int purchasingQueueTotal) {
+			public static void purchasingDepMethod(Scanner scanner, String firstName,  int purchasingQueueTotal) {
 
 				//HashMap of department usernames and passwords
 				HashMap<String, String> purchasingDepartmentLogin =  DepartmentMembers.purchasingDepMembers();
 				
 				//if username and value match (loop through hashmap to get a key match then compare value to what the user entered)
 				System.out.println("\n********** PURCHASING DEPARTMENT LOGIN **********");	
-				usernameAndPasswordValidation(purchasingDepartmentLogin);
+				usernameAndPasswordValidation(scanner, purchasingDepartmentLogin);
 				
 //STILL TO DO PER DEPARTMENT 		
 				
@@ -215,7 +214,7 @@ public class DepartmentLogin {
 				
 				
 				//prompt the sales rep to enter the final agreed upon price
-				Scanner scanner = new Scanner(System. in); 
+				//Scanner scanner = new Scanner(System. in); 
 				System.out.print("\nEnter the final agreed upon price: ");
 				int finalPrice = scanner.nextInt();
 				
@@ -232,7 +231,7 @@ public class DepartmentLogin {
 	
 			
 		//Leasing Department Method
-			public static void leasingDepMethod(String firstName, int leasingQueueTotal, double vehiclePrice) {
+			public static void leasingDepMethod(Scanner scanner, String firstName, int leasingQueueTotal, double vehiclePrice) {
 				
 				//Clear the screen 
 				//ClearScreen.clearScreen();
@@ -242,7 +241,7 @@ public class DepartmentLogin {
 				
 				//if username and value match (loop through hashmap to get a key match then compare value to what the user entered)
 				System.out.println("\n********** LEASING DEPARTMENT LOGIN **********");	
-				usernameAndPasswordValidation(leasingDepartmentLogin);
+				usernameAndPasswordValidation(scanner, leasingDepartmentLogin);
 				
 //STILL TO DO PER DEPARTMENT 		
 				
@@ -257,7 +256,7 @@ public class DepartmentLogin {
 				System.out.println(firstName + "'s" + ", vehicle specifications");
 
 				//prompt the sales rep for leasing terms
-				Scanner scanner = new Scanner(System. in); 
+				//Scanner scanner = new Scanner(System. in); 
 				System.out.print("\nLeasing Options"
 						+ "\n\n1. Short term lease (less than 1 year)"
 						+ "\n2. Mid term lease (1 year to 3 years)"
@@ -286,7 +285,7 @@ public class DepartmentLogin {
 			
 		
 		//Financing Department Method
-			public static void financingDepMethod(String firstName, int financingQueueTotal, double vehiclePrice) {
+			public static void financingDepMethod(Scanner scanner, String firstName, int financingQueueTotal, double vehiclePrice) {
 				
 				//Clear the screen 
 				//ClearScreen.clearScreen();
@@ -296,7 +295,7 @@ public class DepartmentLogin {
 				
 				//if username and value match (loop through hashmap to get a key match then compare value to what the user entered)
 				System.out.println("\n********** FINANCING DEPARTMENT LOGIN **********");	
-				usernameAndPasswordValidation(financingDepartmentLogin);
+				usernameAndPasswordValidation(scanner, financingDepartmentLogin);
 				
 //STILL TO DO PER DEPARTMENT 		
 				
@@ -311,7 +310,7 @@ public class DepartmentLogin {
 				System.out.println(firstName + "'s" + ", vehicle specifications");
 
 				//prompt the sales rep for leasing terms
-				Scanner scanner = new Scanner(System. in); 
+				//Scanner scanner = new Scanner(System. in); 
 				System.out.print("\nFinancing Options"
 						+ "\n\n1. 24 Months"
 						+ "\n2. 36 Months"

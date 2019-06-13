@@ -179,12 +179,12 @@ public class VehicleMenu {
 				input = sc.next();
 				if (input.compareTo("1") == 0) {
 					// close scanner
-					sc.close();
+					//sc.close();
 					return this.customerVehicle;
 				}
 				else if (input.compareTo("2") == 0) {
 					// close scanner
-					sc.close();
+					//sc.close();
 					//System.exit(0);
 					return null;
 				}
