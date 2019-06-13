@@ -29,7 +29,7 @@ public class ChooseDept {
 		//Convert string department choice into an int
 
 		if (departmentchoice == 1){
-			System.out.println("\nNo problem, "+fName+" We'll transfer you to the payment department after you choose your vehicle.");
+			System.out.println("\nNo problem, "+fName+" We'll transfer you to the purchasing department after you choose your vehicle.");
 		}
 		if (departmentchoice == 2){
 			System.out.println("\nNo problem, "+fName+" We'll transfer you to the leasing department after you choose your vehicle.");
