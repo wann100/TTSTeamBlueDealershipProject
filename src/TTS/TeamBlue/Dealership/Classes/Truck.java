@@ -200,4 +200,36 @@ public class Truck implements IVehicle {
 		return this.mileage;
 	}
 
+	@Override
+	public void employeeDisplay() {
+		
+		System.out.println("-------------------------------");
+		System.out.println("     VEHICLE CONFIGURATION     ");
+		System.out.println("-------------------------------");
+		System.out.printf("%20s:\t%-10d", "ID", this.id);
+		System.out.printf("%20s:\t%-10s", "TYPE", this.type);
+		System.out.printf("%20s:\t%-10s", "MAKE", this.make);
+		System.out.printf("%20s:\t%-10s", "MODEL", this.model);
+		System.out.println();
+		System.out.printf("%20s:\t%-10d", "MILEAGE", this.mileage);
+		System.out.printf("%20s:\t%-10d", "YEAR", this.year);
+		System.out.printf("%20s:\t%-10.2f", "WHOLESALE", this.wholeSale);
+		System.out.printf("%20s:\t%-10.2f", "RETAIL", this.retail);
+		System.out.println();
+		System.out.printf("%20s:\t%-10s", "LEASABLE", this.isLeasable);
+		System.out.printf("%20s:\t%-10s", "FORSALE", this.isForSale);
+		System.out.printf("%20s:\t%-10s", "AVAILABLE", this.isAvailable);
+		System.out.printf("%20s:\t%-10s", "COLOR", this.color);
+		System.out.println();
+		System.out.printf("%20s:\t%-10s", "INTERIOR", this.interior);
+		System.out.printf("%20s:\t%-10s", "RIMS", this.rims);
+		System.out.printf("%20s:\t%-10s", "SOUNDSYSTEM", this.soundSystem);
+		System.out.printf("%20s:\t%-10s", "TOWINGCAP", this.towingCapacity);
+		System.out.println();
+		System.out.printf("%20s:\t%-10s", "GROSS-CW", this.grossCombinedWeight);
+		System.out.printf("%20s:\t%-10s", "WEIGHT", this.truckWeight);
+		System.out.printf("%20s:\t%-10s", "4WD", this.is4wd);
+		
+	}
+
 }

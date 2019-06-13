@@ -27,6 +27,8 @@ public interface IVehicle {
 	
 	public void customerDisplay();
 	
+	public void employeeDisplay();
+	
 	public String getColor();
 	public void setColor(String color);
 	

@@ -12,7 +12,7 @@ public class VehicleTests {
 		IVehicle customerVehicle = menu.displayVehicleMenu();
 		if (customerVehicle != null) {
 			System.out.println();
-			customerVehicle.customerDisplay();
+			customerVehicle.employeeDisplay();
 		} else {
 			System.out.println("\nYou didn't select a vehicle.");
 		}
