@@ -35,7 +35,7 @@ public class DepartmentLogin {
 	
 	/*************************************** METHODS ***********************************************************/
 		
-		//Method to select the department and login and display the contents
+		//DEPARTMENT SELECTION AND LOGIN METHOD
 		public static void departmentSelectionAndDisplay(Scanner scanner, Queue PurchasingDepartmentQueue, int PurchasingQueueTotal, Queue LeasingDepartmentQueue, int LeasingQueueTotal, Queue FinancingDepartmentQueue, int FinancingQueueTotal) {
 			
 			//select the Sales department to log into 
@@ -69,8 +69,9 @@ public class DepartmentLogin {
 	}
 	
 	
-		//method for selecting the sales department
+		//SALES DEPARTMENT SELECTION METHOD
 		public static int departmentSelection(Scanner scanner) {
+			
 			//Clear the screen
 			ClearScreen.clearScreen();
 			
@@ -103,7 +104,7 @@ public class DepartmentLogin {
 		}
 		
 		
-		//method for prompting for user name 
+		//USERNAME PROMPT METHOD
 		public static String usernameEntry(Scanner scanner) {
 			//Scanner scanner = new Scanner(System. in); 
 			System.out.print("\nEnter your username: ");
@@ -112,7 +113,7 @@ public class DepartmentLogin {
 		}
 		
 		
-		//method for prompting for password
+		//PASSWORD PROMPT METHOD
 		public static String passwordEntry(Scanner scanner) {
 			//Scanner scanner = new Scanner(System. in); 
 			System.out.print("Enter your password: ");
@@ -121,7 +122,7 @@ public class DepartmentLogin {
 		}
 		
 		
-		//Method to validate password
+		//PASSWORD VALIDATION METHOD
 		public static void usernameAndPasswordValidation(Scanner scanner, HashMap<String, String> departmentLogin) {
 		
 			//check to see if the username is contained in the purchasing department users 
@@ -181,11 +182,10 @@ public class DepartmentLogin {
 			
 		}
 		
-		//Purchasing Department Method
+		//PURCHASING DEPARTMENT METHOD
 			public static void purchasingDepMethod(Scanner scanner, Queue PurchasingDepartmentQueue) {
 				int finalPrice = 0;
 				
-			
 				//HashMap of department usernames and passwords
 				HashMap<String, String> purchasingDepartmentLogin =  DepartmentMembers.purchasingDepMembers();
 				
@@ -201,25 +201,36 @@ public class DepartmentLogin {
 				//Display the total number of people in queue
 				System.out.println("# of Customers in the Purchasing Department Queue: " + PurchasingDepartmentQueue.size());
 				
-				//Display the details of the car the current person in queue would like to purchase 
+				//Display the personal details person at the head of the queue 
 				System.out.println("\nDetails for the customer at the front of the queue ");
-				System.out.println(FirstNameInQueue.FirstNameInQueue(PurchasingDepartmentQueue) + "'s" + ", vehicle specifications");
+				CustomerQueueItem temp = new CustomerQueueItem(); 
+				temp = (CustomerQueueItem) PurchasingDepartmentQueue.peek();
+				temp.getGuestinfo().printAll();
+				
+				//Display the details of the car that the person at the head of the queue would like to purchase 
+				System.out.println("\n" + FirstNameInQueue.FirstNameInQueue(PurchasingDepartmentQueue) + "'s" + ", vehicle specifications");
+				//get the vehicle 
+				CustomerQueueItem temp2 = new CustomerQueueItem(); 
+				temp2 = (CustomerQueueItem) PurchasingDepartmentQueue.peek();
+				temp2.getGuestvehconfig().employeeDisplay();
+				
 				
 				//prompt the sales rep to enter the final agreed upon price
 				System.out.print("\nEnter the final agreed upon price OR -1 to quit: ");
 				finalPrice = scanner.nextInt();
 
-				//remove the customer that was just served from the queue 
-				PurchasingDepartmentQueue.remove();
-				
-				//display Transaction complete customer has now been removed from queue message 
-				System.out.println("\nTransaction complete. The customer has now been removed from the queue");
-			
+				if (finalPrice != -1) {
+					//remove the customer that was just served from the queue 
+					PurchasingDepartmentQueue.remove();
+					
+					//display Transaction complete customer has now been removed from queue message 
+					System.out.println("\nTransaction complete. The customer has now been removed from the queue");
+					}
 				}
 			}
 	
 			
-		//Leasing Department Method
+		//LEASING DEPARTMENT METHOD
 			public static void leasingDepMethod(Scanner scanner, String firstName, int leasingQueueTotal, double vehiclePrice) {
 				
 				//Clear the screen 
@@ -273,7 +284,7 @@ public class DepartmentLogin {
 			}		
 			
 		
-		//Financing Department Method
+		//FINANCING DEPARTMENT METHOD
 			public static void financingDepMethod(Scanner scanner, String firstName, int financingQueueTotal, double vehiclePrice) {
 				
 				//Clear the screen 
