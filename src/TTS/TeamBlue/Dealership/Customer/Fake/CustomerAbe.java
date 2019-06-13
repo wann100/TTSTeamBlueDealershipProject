@@ -1,4 +1,6 @@
-package TTS.TeamBlue.Dealership.Customer;
+package TTS.TeamBlue.Dealership.Customer.Fake;
+
+import TTS.TeamBlue.Dealership.Customer.Customer;
 
 public class CustomerAbe extends Customer{
 	public CustomerAbe() {

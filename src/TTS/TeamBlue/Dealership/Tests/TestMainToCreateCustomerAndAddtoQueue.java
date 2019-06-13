@@ -3,7 +3,7 @@ import java.util.*;
 
 import TTS.TeamBlue.Dealership.Customer.Customer;
 import TTS.TeamBlue.Dealership.Customer.CustomerQueueItem;
-import TTS.TeamBlue.Dealership.Customer.UserOnboarding;
+import TTS.TeamBlue.Dealership.Customer.CustomerUtils;
 import TTS.TeamBlue.Dealership.EmployeeModule.ChooseDept;
 import TTS.TeamBlue.Dealership.Utility.FirstNameInQueue;
 import TTS.TeamBlue.Dealership.Utility.Helper;
@@ -18,7 +18,7 @@ public class TestMainToCreateCustomerAndAddtoQueue {
 		Scanner scanner = new Scanner(System.in);
 		
 		//Create a new customer instance
-		Customer ourCustomer = UserOnboarding.userOnboarding();
+		Customer ourCustomer = CustomerUtils.userOnboarding();
 	
 		
 		//Create a Vehicle instance paired with that Customer//

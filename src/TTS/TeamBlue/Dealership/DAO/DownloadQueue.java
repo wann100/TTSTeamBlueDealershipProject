@@ -1,10 +1,10 @@
 package TTS.TeamBlue.Dealership.DAO;
 import java.util.*;
 
-import TTS.TeamBlue.Dealership.Customer.CustomerAbe;
-import TTS.TeamBlue.Dealership.Customer.CustomerBob;
 import TTS.TeamBlue.Dealership.Customer.CustomerQueueItem;
-import TTS.TeamBlue.Dealership.Customer.CustomerRoger;
+import TTS.TeamBlue.Dealership.Customer.Fake.CustomerAbe;
+import TTS.TeamBlue.Dealership.Customer.Fake.CustomerBob;
+import TTS.TeamBlue.Dealership.Customer.Fake.CustomerRoger;
 
 public class DownloadQueue {
 	

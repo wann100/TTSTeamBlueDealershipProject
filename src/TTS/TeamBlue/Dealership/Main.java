@@ -1,9 +1,8 @@
 package TTS.TeamBlue.Dealership;
 
 import TTS.TeamBlue.Dealership.Customer.Customer;
-import TTS.TeamBlue.Dealership.Customer.CustomerDisplayMessage;
 import TTS.TeamBlue.Dealership.Customer.CustomerQueueItem;
-import TTS.TeamBlue.Dealership.Customer.UserOnboarding;
+import TTS.TeamBlue.Dealership.Customer.CustomerUtils;
 import TTS.TeamBlue.Dealership.DAO.FinancingQueueDB;
 import TTS.TeamBlue.Dealership.DAO.Inventory;
 import TTS.TeamBlue.Dealership.DAO.LeasingQueueDB;
@@ -26,7 +25,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		//Create a new customer instance
-		Customer ourCustomer = UserOnboarding.userOnboarding();
+		Customer ourCustomer = CustomerUtils.userOnboarding();
 		
 		//Customer chooses department choice
 		int deptchoicenumber = ChooseDept.ChooseDept(ourCustomer.getFirstName());
@@ -72,7 +71,7 @@ public class Main {
 			System.out.println("Purchasing Queue Length: "+ PurchasingQueueLength);
 			
 			//Display message to customer and Countdown when open
-			CustomerDisplayMessage.disMsg(ourCustomer.getFirstName(), deptchoicenumber, PurchasingQueueLength); //returns the message to the customer
+			CustomerUtils.disMsg(ourCustomer.getFirstName(), deptchoicenumber, PurchasingQueueLength); //returns the message to the customer
 		}
 		
 		if(deptchoicenumber == 2) {
@@ -81,7 +80,7 @@ public class Main {
 			LeasingQueueLength = Helper.QueueIndexTool2(LeasingQueue);
 			System.out.println("Leasing Queue Length: "+LeasingQueueLength );
 			//Display message to customer and Countdown when open
-			CustomerDisplayMessage.disMsg(ourCustomer.getFirstName(), deptchoicenumber, LeasingQueueLength); //returns the message to the customer
+			CustomerUtils.disMsg(ourCustomer.getFirstName(), deptchoicenumber, LeasingQueueLength); //returns the message to the customer
 		}
 		
 		if(deptchoicenumber == 3) {
@@ -90,7 +89,7 @@ public class Main {
 			FinancingQueueLength = Helper.QueueIndexTool2(FinancingQueue);
 			System.out.println("Finance Queue Length: "+FinancingQueueLength);
 			//Display message to customer and Countdown when open
-			CustomerDisplayMessage.disMsg(ourCustomer.getFirstName(), deptchoicenumber, FinancingQueueLength); //returns the message to the customer
+			CustomerUtils.disMsg(ourCustomer.getFirstName(), deptchoicenumber, FinancingQueueLength); //returns the message to the customer
 		}
 		
 		Scanner scanner = new Scanner(System.in); 
