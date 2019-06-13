@@ -53,7 +53,7 @@ public class DepartmentLogin {
 					IVehicle vehicle = temp.getGuestvehconfig();
 				
 					//call Leasing Department specific method
-					leasingDepMethod(scanner, Helper.FirstNameInQueue(LeasingDepartmentQueue), LeasingQueueTotal, vehicle.getRetail());
+					leasingDepMethod(scanner, PurchasingDepartmentQueue, PurchasingQueueTotal, LeasingDepartmentQueue, LeasingQueueTotal, FinancingDepartmentQueue, FinancingQueueTotal);
 				
 				//if financing department is selected
 				} else if (depChoice == 3) {
@@ -195,41 +195,42 @@ public class DepartmentLogin {
 				
 				while (PurchasingDepartmentQueue.size() > 0 && finalPrice != -1) {	
 		
-				//Display Purchasing Department Queue
-				System.out.println("\n********** PURCHASING DEPARTMENT QUEUE **********\n");	
-				
-				//Display the total number of people in queue
-				System.out.println("# of Customers in the Purchasing Department Queue: " + PurchasingDepartmentQueue.size());
-				
-				//Display the personal details person at the head of the queue 
-				System.out.println("\nDetails for the customer at the front of the queue ");
-				CustomerQueueItem temp = new CustomerQueueItem(); 
-				temp = (CustomerQueueItem) PurchasingDepartmentQueue.peek();
-				temp.getGuestinfo().printAll();
-				
-				//Display the details of the car that the person at the head of the queue would like to purchase 
-				System.out.println("\n" + Helper.FirstNameInQueue(PurchasingDepartmentQueue) + "'s" + ", vehicle specifications");
-				//get the vehicle 
-				CustomerQueueItem temp2 = new CustomerQueueItem(); 
-				temp2 = (CustomerQueueItem) PurchasingDepartmentQueue.peek();
-				temp2.getGuestvehconfig().employeeDisplay();
-				
-				
-				//prompt the sales rep to enter the final agreed upon price
-				System.out.print("\nEnter the final agreed upon price OR -1 to quit: ");
-				finalPrice = scanner.nextInt();
-
-				if (finalPrice != -1) {
-					//remove the customer that was just served from the queue 
-					PurchasingDepartmentQueue.remove();
+					//Display Purchasing Department Queue
+					System.out.println("\n********** PURCHASING DEPARTMENT QUEUE **********\n");	
 					
-					//display Transaction complete customer has now been removed from queue message 
-					System.out.println("\nTransaction complete. The customer has now been removed from the queue");
-					}
+					//Display the total number of people in queue
+					System.out.println("# of Customers in the Purchasing Department Queue: " + PurchasingDepartmentQueue.size());
+					
+					//Display the personal details person at the head of the queue 
+					System.out.println("\nDetails for the customer at the front of the queue ");
+					CustomerQueueItem temp = new CustomerQueueItem(); 
+					temp = (CustomerQueueItem) PurchasingDepartmentQueue.peek();
+					temp.getGuestinfo().printAll();
+					
+					//Display the details of the car that the person at the head of the queue would like to purchase 
+					System.out.println("\n" + Helper.FirstNameInQueue(PurchasingDepartmentQueue) + "'s" + ", vehicle specifications");
+					//get the vehicle 
+					CustomerQueueItem temp2 = new CustomerQueueItem(); 
+					temp2 = (CustomerQueueItem) PurchasingDepartmentQueue.peek();
+					temp2.getGuestvehconfig().employeeDisplay();
+					
+					
+					//prompt the sales rep to enter the final agreed upon price
+					System.out.print("\nEnter the final agreed upon price OR -1 to quit: ");
+					finalPrice = scanner.nextInt();
+	
+					if (finalPrice != -1) {
+						//remove the customer that was just served from the queue 
+						PurchasingDepartmentQueue.remove();
+						
+						//display Transaction complete customer has now been removed from queue message 
+						System.out.println("\nTransaction complete. The customer has now been removed from the queue");
+						}
 				}
 				
+				//Transferring the sales rep back to the SALES REPRSENTATIVE LOGIN 
 				System.out.println("\nThere are no more customers in the purchasing department queue.");
-				System.out.print("\nTransfering you back to the Sales Representative Login in: ");
+				System.out.print("\nTransferring you back to the Sales Representative Login in: ");
 				CountdownTimer.timer(1,0); 
 				//wait for the count down timer to complete 		
 				try {
@@ -245,11 +246,10 @@ public class DepartmentLogin {
 	
 			
 		//LEASING DEPARTMENT METHOD
-			public static void leasingDepMethod(Scanner scanner, String firstName, int leasingQueueTotal, double vehiclePrice) {
-				
-				//Clear the screen 
-				//ClearScreen.clearScreen();
-				
+			public static void leasingDepMethod(Scanner scanner,  Queue PurchasingDepartmentQueue, int PurchasingQueueTotal, Queue LeasingDepartmentQueue, int LeasingQueueTotal, Queue FinancingDepartmentQueue, int FinancingQueueTotal) {
+				int leaseTerm = 0;
+				int finalPrice = 0;
+
 				//HashMap of department usernames and passwords
 				HashMap<String, String> leasingDepartmentLogin =  DepartmentMembers.leasingDepMembers();
 				
@@ -258,42 +258,69 @@ public class DepartmentLogin {
 				usernameAndPasswordValidation(scanner, leasingDepartmentLogin);
 				
 //STILL TO DO PER DEPARTMENT 		
+				while (LeasingDepartmentQueue.size() > 0 && finalPrice != -1 && leaseTerm != -1) {
+					//Display Purchasing Department Queue
+					System.out.println("\n********** LEASING DEPARTMENT QUEUE **********\n");	
+					
+					//Display the total number of people in queue
+					System.out.println("# of Customers in the Leasing Department Queue: " + LeasingDepartmentQueue.size());
+					
+					//Display the details of the car the current person in queue would like to purchase 
+					System.out.println("\nDetails for the customer at the front of the queue ");
+					CustomerQueueItem temp = new CustomerQueueItem(); 
+					temp = (CustomerQueueItem) LeasingDepartmentQueue.peek();
+					temp.getGuestinfo().printAll();
+					
+					//Display the details of the car that the person at the head of the queue would like to purchase 
+					System.out.println("\n" + Helper.FirstNameInQueue(LeasingDepartmentQueue) + "'s" + ", vehicle specifications");
+					//get the vehicle 
+					CustomerQueueItem temp2 = new CustomerQueueItem(); 
+					temp2 = (CustomerQueueItem) LeasingDepartmentQueue.peek();
+					temp2.getGuestvehconfig().employeeDisplay();
+	
+					//prompt the sales rep for leasing terms
+					System.out.print("\nLeasing Options"
+							+ "\n\n1. Short term lease (less than 1 year)"
+							+ "\n2. Mid term lease (1 year to 3 years)"
+							+ "\n3. Long term lease (3 years to 5 years)"
+							+ "\n\nWhich lease option does the customer desire (Enter -1 to Quit)?  ");
+					leaseTerm = scanner.nextInt(); //store the user choice 
+					
+					if (leaseTerm != -1) {
+						//Display the suggested lease price to the sales Rep
+						System.out.print("\nSuggested Lease Price: " + temp2.getGuestvehconfig().getRetail()/10);
+		
+						//prompt the sales rep to enter the final agreed upon price
+						System.out.print("\nEnter the final agreed upon price OR -1 to quit: ");
+						finalPrice = scanner.nextInt();
+					}
+					
+					if (finalPrice != -1) {
+						//remove the customer that was just served from the queue 
+						LeasingDepartmentQueue.remove();
+						
+						//display Transaction complete customer has now been removed from queue message 
+						System.out.println("\nTransaction complete. The customer has now been removed from the queue");
+						}
+					
+				}
 				
-				//Display Purchasing Department Queue
-				System.out.println("\n********** LEASING DEPARTMENT QUEUE **********\n");	
+				if (leaseTerm != -1 && finalPrice != -1) {
+					//Transferring the sales rep back to the SALES REPRSENTATIVE LOGIN 
+					System.out.println("\nThere are no more customers in the leasing department queue.");
+				}
 				
-				//Display the total number of people in queue
-				System.out.println("# of Customers in the Leasing Department Queue: " + leasingQueueTotal);
+				System.out.print("\nTransferring you back to the Sales Representative Login in: ");
+				CountdownTimer.timer(1,0); 
+				//wait for the count down timer to complete 		
+				try {
+					Thread.sleep(6000);
+				} catch (InterruptedException ie) {
+		            ie.printStackTrace();
+		        }
 				
-				//Display the details of the car the current person in queue would like to purchase 
-				System.out.println("\nDetails for the customer at the front of the queue ");
-				System.out.println(firstName + "'s" + ", vehicle specifications");
-
-				//prompt the sales rep for leasing terms
-				//Scanner scanner = new Scanner(System. in); 
-				System.out.print("\nLeasing Options"
-						+ "\n\n1. Short term lease (less than 1 year)"
-						+ "\n2. Mid term lease (1 year to 3 years)"
-						+ "\n3. Long term lease (3 years to 5 years)"
-						+ "\n\nWhich lease option does the customer desire?  ");
-				int leaseTerm = scanner.nextInt(); //store the user choice 
-				
-				//Display the suggested lease price to the sales Rep
-				System.out.print("\nSuggested Lease Price: " + vehiclePrice/10);
-
-				//prompt the sales rep to enter the final agreed upon price
-				
-				System.out.print("\nEnter the final agreed upon price: ");
-				int finalPrice = scanner.nextInt();
-				
-				//remove the customer that was just served from the queue 
-				
-				//display Transaction complete customer has now been removed from queue message 
-				System.out.println("\nTransaction complete. The customer has now been removed from the queue");
-				
-				//display the update queue number and the vehicle information for the next person in queue
-				
-				//provide option for the sales rep to log out and be brought back to the login screen
+				//call the department selection method
+				departmentSelectionAndDisplay(scanner, PurchasingDepartmentQueue, PurchasingQueueTotal, LeasingDepartmentQueue, LeasingQueueTotal, FinancingDepartmentQueue, FinancingQueueTotal);
 				
 			}		
 			
