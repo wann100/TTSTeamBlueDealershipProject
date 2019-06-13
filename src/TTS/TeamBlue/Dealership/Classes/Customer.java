@@ -34,15 +34,21 @@ public class Customer {
 	
 	//Print Contents of Customer 
 	public void printAll() {
-		System.out.println("First Name: "+firstName);
-		System.out.println("Last Name: "+lastName);
-		System.out.println("Middle Initial: "+middleInitial);
-		System.out.println("Telephone: "+customerPhone);
-		System.out.println("Street Address: "+street);
-		System.out.println("City: "+customerCity);
-		System.out.println("State: "+customerState);
-		System.out.println("Zip Code: "+customerZip);
-		System.out.println("E-mail: "+email);
+		
+		System.out.println("-------------------------------");
+		System.out.println("     CUSTOMER INFORMATION     ");
+		System.out.println("-------------------------------");
+		System.out.printf("%20s:\t%-10s", "FIRST NAME", this.firstName);
+		System.out.printf("%20s:\t%-10s", "LAST NAME", this.lastName);
+		System.out.printf("%20s:\t%-10s", "MIDDLE INITIAL", this.middleInitial);
+		System.out.printf("%20s:\t%-10s", "TELEPHONE", this.customerPhone);
+		System.out.println();
+		System.out.printf("%20s:\t%-10s", "STREET ADDR", this.street);
+		System.out.printf("%20s:\t%-10s", "CIY", this.customerCity);
+		System.out.printf("%20s:\t%-10s", "STATE", this.customerState);
+		System.out.printf("%20s:\t%-10d", "ZIP CODE", this.customerZip);
+		System.out.println();
+		System.out.printf("%20s:\t%-10s", "E-MAIL", this.email);
 	}
 	
 	//GETTERS
