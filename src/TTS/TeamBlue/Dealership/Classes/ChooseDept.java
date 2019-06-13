@@ -14,7 +14,7 @@ public class ChooseDept {
 		int deptchoicenumber = 0;
 		
 		//Retrieve the first name inside the Queue item at the top of the Queue
-		System.out.println("Thank you for that information, "+fName);
+		System.out.println("Okay, "+fName+" Let's get started.");
 		System.out.println("If you buy a vehicle today, will you be paying in full, leasing or financing?");
 		System.out.println();
 		System.out.println("1) Purchase today");

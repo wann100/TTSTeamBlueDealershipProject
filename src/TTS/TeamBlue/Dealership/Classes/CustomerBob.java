@@ -9,6 +9,7 @@ public class CustomerBob extends Customer{
 		this.setCustomerCity("Moonshine");
 		this.setCustomerState("KY");
 		this.setCustomerZip(12345);
+		this.setEmail("bobbrinker@yahoo.com");
 		
 	}
 	

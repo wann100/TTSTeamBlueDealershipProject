@@ -13,9 +13,10 @@ public class Customer {
 	private String customerCity = "default";
 	private String customerState = "default";
 	private int customerZip = 99999;
+	private String email = "default";
 	
 	//CONSTRUCTOR
-	public Customer(String fName, String lName, String mI, String pNumber, String sAddress, String city, String state, int zip) {
+	public Customer(String fName, String lName, String mI, String pNumber, String sAddress, String city, String state, int zip, String customerEmail) {
 		
 		firstName = (String)fName;
 		lastName = (String)lName;
@@ -25,6 +26,7 @@ public class Customer {
 		customerCity = (String)city;
 		customerState = (String)state;
 		customerZip = (int)zip;	
+		email = customerEmail;
 	}
 	
 	public Customer() {
@@ -40,6 +42,7 @@ public class Customer {
 		System.out.println(customerCity);
 		System.out.println(customerState);
 		System.out.println(customerZip);
+		System.out.println(email);
 	}
 	
 	//GETTERS
@@ -93,6 +96,14 @@ public class Customer {
 	}
 	public void setCustomerZip(int zip) {
 		this.customerZip = zip;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 

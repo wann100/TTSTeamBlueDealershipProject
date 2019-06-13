@@ -52,11 +52,18 @@ public class CustomerIntake {
 				//Zip
 				System.out.println("Enter Zipcode: ");
 				int zip = InputChecker.checkInputNum(scanner);
+				scanner.nextLine();
+				
+				//E-mail
+				System.out.println("Enter e-mail: ");
+				String email = InputChecker.checkInputText(scanner);
+				
+				
 				//////////////////////////////////////////END DATA COLLECTION///////////////////////////////////////////////
 				
 				
 				//Create a customer object
-				Customer newCustomer = new Customer(fName, lName, mI, phone, streetAddressString,city,state,zip);
+				Customer newCustomer = new Customer(fName, lName, mI, phone, streetAddressString,city,state,zip,email);
 				
 				//Return customer object
 				return newCustomer;
