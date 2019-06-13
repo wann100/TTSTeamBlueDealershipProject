@@ -19,8 +19,7 @@ public class ChooseDept {
 		System.out.println();
 		System.out.println("1) Purchase today");
 		System.out.println("2) Lease today");
-		System.out.println("3) Finance today");
-		System.out.println();
+		System.out.print("3) Finance today\n");
 		System.out.println("Your Choice: ");
 		
 		
