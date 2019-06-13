@@ -45,7 +45,7 @@ public class DepartmentLogin {
 	  
 	    		//if purchasing department is selected
 				if (depChoice == 1) {
-					purchasingDepMethod(scanner, PurchasingDepartmentQueue);				
+					purchasingDepMethod(scanner, PurchasingDepartmentQueue, PurchasingQueueTotal, LeasingDepartmentQueue, LeasingQueueTotal, FinancingDepartmentQueue, FinancingQueueTotal);				
 				
 				//if leasing department is selected	
 				} else if (depChoice == 2) {
@@ -185,7 +185,7 @@ public class DepartmentLogin {
 		}
 		
 		//PURCHASING DEPARTMENT METHOD
-			public static void purchasingDepMethod(Scanner scanner, Queue PurchasingDepartmentQueue) {
+			public static void purchasingDepMethod(Scanner scanner,  Queue PurchasingDepartmentQueue, int PurchasingQueueTotal, Queue LeasingDepartmentQueue, int LeasingQueueTotal, Queue FinancingDepartmentQueue, int FinancingQueueTotal) {
 				int finalPrice = 0;
 				
 				//HashMap of department usernames and passwords
@@ -229,6 +229,20 @@ public class DepartmentLogin {
 					System.out.println("\nTransaction complete. The customer has now been removed from the queue");
 					}
 				}
+				
+				System.out.println("\nThere are no more customers in the purchasing department queue.");
+				System.out.print("\nTransfering you back to the Sales Representative Login in: ");
+				CountdownTimer.timer(1,0); 
+				//wait for the count down timer to complete 		
+				try {
+					Thread.sleep(6000);
+				} catch (InterruptedException ie) {
+		            ie.printStackTrace();
+		        }
+				
+				//call the department selection method
+				departmentSelectionAndDisplay(scanner, PurchasingDepartmentQueue, PurchasingQueueTotal, LeasingDepartmentQueue, LeasingQueueTotal, FinancingDepartmentQueue, FinancingQueueTotal);
+				
 			}
 	
 			

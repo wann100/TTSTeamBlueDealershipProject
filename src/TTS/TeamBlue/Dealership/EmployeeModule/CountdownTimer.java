@@ -8,7 +8,7 @@ public class CountdownTimer {
 		static int interval; 
 		static Timer timer;
 		
-		public static void timer(int queuePosition) {
+		public static void timer(int queuePosition, int Choice) {
 			
 			if (queuePosition > 0) {
 				int waitTime = queuePosition * 5; //multiplies the queue position by 5 get the total number of seconds the customer will wait
@@ -16,7 +16,9 @@ public class CountdownTimer {
 			    int period = 1000; //how many milliseconds between countdown elements
 			    timer = new Timer(); //instantiating a new Timer object 
 			    interval = waitTime;
-			    System.out.println("\nYOU WILL BE SERVED IN:");
+			    if (Choice == 1) {
+			    	System.out.println("\nYOU WILL BE SERVED IN:");
+			    }			    
 			    System.out.print(waitTime); //prints the overall wait time in seconds
 			    timer.scheduleAtFixedRate(new TimerTask() {
 
