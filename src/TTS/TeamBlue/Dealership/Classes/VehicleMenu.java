@@ -156,11 +156,11 @@ public class VehicleMenu {
 			System.out.println("2) No");
 			System.out.print("\nYour Choice: ");
 			input = InputChecker.checkInputText(sc);
-			if (input.toLowerCase().compareTo("1") == 0) {
+			if (input.toLowerCase().compareTo("1") == 0 || input.toLowerCase().compareTo("yes") == 0) {
 				customizeFlag = true;
 				customize = true;
 			}
-			else if (input.toLowerCase().compareTo("2") == 0) {
+			else if (input.toLowerCase().compareTo("2") == 0 || input.toLowerCase().compareTo("no") == 0) {
 				customizeFlag = true;
 				customize = false;
 			}
@@ -177,12 +177,12 @@ public class VehicleMenu {
 				System.out.println("2) No");
 				System.out.print("\nYour Choice: ");
 				input = sc.next();
-				if (input.compareTo("1") == 0) {
+				if (input.compareTo("1") == 0 || input.toLowerCase().compareTo("yes") == 0) {
 					// close scanner
 					//sc.close();
 					return this.customerVehicle;
 				}
-				else if (input.compareTo("2") == 0) {
+				else if (input.compareTo("2") == 0 || input.toLowerCase().compareTo("no") == 0) {
 					// close scanner
 					//sc.close();
 					//System.exit(0);
@@ -227,10 +227,10 @@ public class VehicleMenu {
 					System.out.println("2) No\n");
 					System.out.print("Your Choice: ");
 					input = sc.next();
-					if (input.compareTo("1") == 0) {
+					if (input.compareTo("1") == 0 || input.toLowerCase().compareTo("yes") == 0) {
 						colorFlag = false;
 					}
-					else if (input.compareTo("2") == 0) {
+					else if (input.compareTo("2") == 0 || input.toLowerCase().compareTo("no") == 0) {
 						if (currentColor.compareTo(selectedColor) != 0) {
 							customerVehicle.setRetail(customerVehicle.getRetail() + 1000);
 							System.out.printf("\nNew Price: $%.2f\n", customerVehicle.getRetail());
@@ -272,10 +272,10 @@ public class VehicleMenu {
 					System.out.println("2) No\n");
 					System.out.print("Your Choice: ");
 					input = sc.next();
-					if (input.compareTo("1") == 0) {
+					if (input.compareTo("1") == 0 || input.toLowerCase().compareTo("yes") == 0) {
 						interiorFlag = false;
 					}
-					else if (input.compareTo("2") == 0) {
+					else if (input.compareTo("2") == 0 || input.toLowerCase().compareTo("no") == 0) {
 						if (currentInterior.compareTo(selectedInterior) != 0) {
 							customerVehicle.setRetail(customerVehicle.getRetail() + 500);
 							System.out.printf("\nNew Price: $%.2f\n", customerVehicle.getRetail());
@@ -317,10 +317,10 @@ public class VehicleMenu {
 					System.out.println("2) No\n");
 					System.out.print("Your Choice: ");
 					input = sc.next();
-					if (input.compareTo("1") == 0) {
+					if (input.compareTo("1") == 0 || input.toLowerCase().compareTo("yes") == 0) {
 						rimsFlag = false;
 					}
-					else if (input.compareTo("2") == 0) {
+					else if (input.compareTo("2") == 0 || input.toLowerCase().compareTo("no") == 0) {
 						if (currentRims.compareTo(selectedRims) != 0) {
 							customerVehicle.setRetail(customerVehicle.getRetail() + 700);
 							System.out.printf("\nNew Price: $%.2f\n", customerVehicle.getRetail());
@@ -362,10 +362,10 @@ public class VehicleMenu {
 					System.out.println("2) No\n");
 					System.out.print("Your Choice: ");
 					input = sc.next();
-					if (input.compareTo("1") == 0) {
+					if (input.compareTo("1") == 0 || input.toLowerCase().compareTo("yes") == 0) {
 						soundSystemFlag = false;
 					}
-					else if (input.compareTo("2") == 0) {
+					else if (input.compareTo("2") == 0 || input.toLowerCase().compareTo("no") == 0) {
 						if (currentSoundSystem.compareTo(selectedSoundSystem) != 0) {
 							customerVehicle.setRetail(customerVehicle.getRetail() + 400);
 							System.out.printf("\nNew Price: $%.2f\n", customerVehicle.getRetail());
@@ -396,12 +396,12 @@ public class VehicleMenu {
 			System.out.println("2) No");
 			System.out.print("\nYour Choice: ");
 			input = sc.next();
-			if (input.compareTo("1") == 0) {
+			if (input.compareTo("1") == 0 || input.toLowerCase().compareTo("yes") == 0) {
 				// close scanner
 				//sc.close();
 				return this.customerVehicle;
 			}
-			else if (input.compareTo("2") == 0) {
+			else if (input.compareTo("2") == 0 || input.toLowerCase().compareTo("no") == 0) {
 				// close scanner
 				//sc.close();
 				System.exit(0);

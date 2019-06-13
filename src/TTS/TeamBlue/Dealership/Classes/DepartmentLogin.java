@@ -36,7 +36,7 @@ public class DepartmentLogin {
 	/*************************************** METHODS ***********************************************************/
 		
 		//Method to select the department and login and display the contents
-		public static void departmentSelectionAndDisplay(Scanner scanner, Queue PurchasingDepartmentQueue, int PurchasingQueueTotal, Queue LeasingDepartmentQueue, int LeasingQueueTotal, Queue FinacingDepartmentQueue, int FinancingQueueTotal) {
+		public static void departmentSelectionAndDisplay(Scanner scanner, Queue PurchasingDepartmentQueue, int PurchasingQueueTotal, Queue LeasingDepartmentQueue, int LeasingQueueTotal, Queue FinancingDepartmentQueue, int FinancingQueueTotal) {
 			
 			//select the Sales department to log into 
 			int depChoice = departmentSelection(scanner); //method to select the department 
@@ -59,11 +59,11 @@ public class DepartmentLogin {
 				} else if (depChoice == 3) {
 					//get the vehicle
 					CustomerQueueItem temp = new CustomerQueueItem(); 
-					temp = (CustomerQueueItem) LeasingDepartmentQueue.peek();
+					temp = (CustomerQueueItem) FinancingDepartmentQueue.peek();
 					IVehicle vehicle = temp.getGuestvehconfig();
 					
 					//call financing Department specific method
-					financingDepMethod(scanner, FirstNameInQueue.FirstNameInQueue(FinacingDepartmentQueue), FinancingQueueTotal, vehicle.getRetail());
+					financingDepMethod(scanner, FirstNameInQueue.FirstNameInQueue(FinancingDepartmentQueue), FinancingQueueTotal, vehicle.getRetail());
 		
 			}
 	}
@@ -74,14 +74,9 @@ public class DepartmentLogin {
 			//Clear the screen
 			ClearScreen.clearScreen();
 			
-			//instantiating the scanner class to be able to store sales rep input
-			//Scanner scanner = new Scanner(System.in); 
-			
 			boolean validDep = true;
 			int depChoice; 
-	
-			
-			
+				
 			//loop to validate that the user entered a valid choice for department 
 			do {
 			
@@ -92,11 +87,7 @@ public class DepartmentLogin {
 						+ "\n3. Financing Department"
 						+ "\n\nPlease select your department to login: ");
 		
-		
 					depChoice = scanner.nextInt(); //store the user choice 
-		
-				
-			
 
 				//terminate the loop if a valid choice is entered
 				if (depChoice >=1 && depChoice <= 3) {
