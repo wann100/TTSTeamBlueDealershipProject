@@ -14,13 +14,15 @@ public class ChooseDept {
 		int departmentchoice = 0;
 		
 		//Retrieve the first name inside the Queue item at the top of the Queue
-		System.out.println("Okay, "+fName+" Let's get started.");
+		System.out.println("\nOkay, "+fName+" Let's get started.");
 		System.out.println("If you buy a vehicle today, will you be paying in full, leasing or financing?");
 		System.out.println();
 		System.out.println("1) Purchase today");
 		System.out.println("2) Lease today");
 		System.out.println("3) Finance today");
 		System.out.println();
+		System.out.println("Your Choice: ");
+		
 		
 		departmentchoice = InputChecker.checkInputNum(scanner);
 		scanner.nextLine();
@@ -28,13 +30,13 @@ public class ChooseDept {
 		//Convert string department choice into an int
 
 		if (departmentchoice == 1){
-			System.out.println("No problem, "+fName+" We'll transfer you to the payment department after you choose your vehicle.");
+			System.out.println("\nNo problem, "+fName+" We'll transfer you to the payment department after you choose your vehicle.");
 		}
 		if (departmentchoice == 2){
-			System.out.println("No problem, "+fName+" We'll transfer you to the leasing department after you choose your vehicle.");
+			System.out.println("\nNo problem, "+fName+" We'll transfer you to the leasing department after you choose your vehicle.");
 		}
 		if (departmentchoice == 3){
-			System.out.println("No problem, "+fName+" We'll transfer you to the financing department after you choose your vehicle.");
+			System.out.println("\nNo problem, "+fName+" We'll transfer you to the financing department after you choose your vehicle.");
 		}
 		
 		return departmentchoice;

@@ -38,7 +38,7 @@ public class UserOnboarding {
 				
 				//If answer is no, create a new user instance and add it to queue
 				if(response.equalsIgnoreCase("no")) {
-					System.out.println("Let's get you into our system.");
+					System.out.println("Let's get you into our system.\n");
 					client = CustomerIntake.customerIntake();
 				}
 				
@@ -67,7 +67,7 @@ public class UserOnboarding {
 					}
 					if(CheckPastCustomerDatabase.CheckPastCustomerDatabase(email).getEmail().equalsIgnoreCase(email)) {
 					fName = CheckPastCustomerDatabase.CheckPastCustomerDatabase(email).getFirstName();
-					System.out.println("Client data retrieved. Welcome back, "+fName+". We missed you.");
+					System.out.println("\nClient data retrieved. Welcome back, "+fName+". We missed you.");
 					client = CheckPastCustomerDatabase.CheckPastCustomerDatabase(email);
 					}
 
