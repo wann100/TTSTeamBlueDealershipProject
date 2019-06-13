@@ -1,8 +1,8 @@
 package TTS.TeamBlue.Dealership.Tests;
 
-import TTS.TeamBlue.Dealership.Classes.Inventory;
-import TTS.TeamBlue.Dealership.Classes.VehicleMenu;
+import TTS.TeamBlue.Dealership.DAO.Inventory;
 import TTS.TeamBlue.Dealership.Interfaces.IVehicle;
+import TTS.TeamBlue.Dealership.Vehicle.VehicleMenu;
 
 public class VehicleTests {
 

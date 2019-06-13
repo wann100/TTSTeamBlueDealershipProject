@@ -1,27 +1,25 @@
 package TTS.TeamBlue.Dealership;
 
-import TTS.TeamBlue.Dealership.Classes.UserOnboarding;
-import TTS.TeamBlue.Dealership.Classes.VehicleMenu;
+import TTS.TeamBlue.Dealership.Customer.Customer;
+import TTS.TeamBlue.Dealership.Customer.CustomerDisplayMessage;
+import TTS.TeamBlue.Dealership.Customer.CustomerQueueItem;
+import TTS.TeamBlue.Dealership.Customer.UserOnboarding;
+import TTS.TeamBlue.Dealership.DAO.FinancingQueueDB;
+import TTS.TeamBlue.Dealership.DAO.Inventory;
+import TTS.TeamBlue.Dealership.DAO.LeasingQueueDB;
+import TTS.TeamBlue.Dealership.DAO.PurchasingQueueDB;
+import TTS.TeamBlue.Dealership.DAO.QueueDLAndUpdate;
+import TTS.TeamBlue.Dealership.EmployeeModule.ChooseDept;
+import TTS.TeamBlue.Dealership.EmployeeModule.CountdownTimer;
+import TTS.TeamBlue.Dealership.EmployeeModule.DepStatus;
+import TTS.TeamBlue.Dealership.EmployeeModule.DepartmentLogin;
 import TTS.TeamBlue.Dealership.Interfaces.IVehicle;
 import TTS.TeamBlue.Dealership.Utility.QueueIndexTool2;
-import TTS.TeamBlue.Dealership.Classes.DepStatus;
-import TTS.TeamBlue.Dealership.Classes.CustomerDisplayMessage;
-import TTS.TeamBlue.Dealership.Classes.CustomerQueueItem;
+import TTS.TeamBlue.Dealership.Vehicle.VehicleMenu;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
-
-import TTS.TeamBlue.Dealership.Classes.ChooseDept;
-import TTS.TeamBlue.Dealership.Classes.CountdownTimer;
-import TTS.TeamBlue.Dealership.Classes.Customer;
-import TTS.TeamBlue.Dealership.Classes.DepartmentLogin;
-import TTS.TeamBlue.Dealership.Classes.FinancingQueueDB;
-import TTS.TeamBlue.Dealership.Classes.Inventory;
-import TTS.TeamBlue.Dealership.Classes.LeasingQueueDB;
-import TTS.TeamBlue.Dealership.Classes.PurchasingQueueDB;
-import TTS.TeamBlue.Dealership.Classes.QueueDLAndUpdate;
-import TTS.TeamBlue.Dealership.Classes.UserOnboarding;
 
 public class Main {
 
