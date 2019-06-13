@@ -34,7 +34,7 @@ public class VehicleMenu {
 		String input = "";
 		boolean menuFlag = false;
 		while (menuFlag == false) {
-			System.out.printf("What type of vehicle would you like to %s?\t", this.departmentString);
+			System.out.printf("\nWhat type of vehicle would you like to %s?\t", this.departmentString);
 			System.out.println();
 			System.out.println("1) " + VehicleTypes.Sedan);
 			System.out.println("2) " + VehicleTypes.Coupe);
