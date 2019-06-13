@@ -14,48 +14,48 @@ public class CustomerIntake {
 				
 				//COLLECT BASIC CUSTOMER DATA////////////////////////////////////////////////////////////////////////////////
 				//First Name
-				System.out.println("Enter First Name: ");
+				System.out.print("Enter First Name: ");
 				String fName = InputChecker.checkInputText(scanner);
 				
 				//Last Name
-				System.out.println("Enter Last Name: ");
+				System.out.print("Enter Last Name: ");
 				String lName = InputChecker.checkInputText(scanner);
 				
 				//Middle Initial
-				System.out.println("Enter Middle Initial: ");
+				System.out.print("Enter Middle Initial: ");
 				String mI = InputChecker.checkInputText(scanner);
 				
 				//Phone
-				System.out.println("Enter Phone Number: ");
+				System.out.print("Enter Phone Number: ");
 				String phone = InputChecker.checkInputText(scanner);
 				scanner.nextLine();
 				
 				//Enter home address as an Integer and a string, cast the Integer into a String and combine them into one string**
-				System.out.println("Enter Street Number: ");
+				System.out.print("Enter Street Number: ");
 				String streetNumString = InputChecker.checkInputText(scanner);
 				scanner.nextLine();
 
 				//
-				System.out.println("Enter Street Name: ");
+				System.out.print("Enter Street Name: ");
 				String streetName = InputChecker.checkInputText(scanner);
 				String streetAddressString = streetNumString+" "+streetName;
 				//**
 				
 				//City
-				System.out.println("Enter City: ");
+				System.out.print("Enter City: ");
 				String city = InputChecker.checkInputText(scanner);
 				
 				//State
-				System.out.println("Enter State: ");
+				System.out.print("Enter State: ");
 				String state = InputChecker.checkInputText(scanner);
 				
 				//Zip
-				System.out.println("Enter Zipcode: ");
+				System.out.print("Enter Zipcode: ");
 				int zip = InputChecker.checkInputNum(scanner);
 				scanner.nextLine();
 				
 				//E-mail
-				System.out.println("Enter e-mail: ");
+				System.out.print("Enter e-mail: ");
 				String email = InputChecker.checkInputText(scanner);
 				
 				
