@@ -34,15 +34,15 @@ public class Customer {
 	
 	//Print Contents of Customer 
 	public void printAll() {
-		System.out.println(firstName);
-		System.out.println(lastName);
-		System.out.println(middleInitial);
-		System.out.println(customerPhone);
-		System.out.println(street);
-		System.out.println(customerCity);
-		System.out.println(customerState);
-		System.out.println(customerZip);
-		System.out.println(email);
+		System.out.println("First Name: "+firstName);
+		System.out.println("Last Name: "+lastName);
+		System.out.println("Middle Initial: "+middleInitial);
+		System.out.println("Telephone: "+customerPhone);
+		System.out.println("Street Address: "+street);
+		System.out.println("City: "+customerCity);
+		System.out.println("State: "+customerState);
+		System.out.println("Zip Code: "+customerZip);
+		System.out.println("E-mail: "+email);
 	}
 	
 	//GETTERS
