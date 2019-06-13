@@ -18,15 +18,16 @@ public class UserOnboarding {
 				//Create New Scanner Instance
 				Scanner scanner = new Scanner(System.in);
 				
-				
+				//Declare variables
 				String rawinput;
 				String response;
 				String fName;
 
-				
+				//Pass scanner to variable and convert to lowercase
 				rawinput = InputChecker.checkInputText(scanner);
 				response = rawinput.toLowerCase();
 				
+				//Error check
 				if(!response.equals("yes") && !response.equals("no")) {
 					do {
 					System.out.println("Please type either Yes or No");
@@ -43,14 +44,14 @@ public class UserOnboarding {
 				}
 				
 				
-
+				//If answer is yes, attempt to recover their customer item and return it
 				if(response.equalsIgnoreCase("yes")) {
 					System.out.println("Let's find your record. Please enter your e-mail address ");
 					System.out.println("Type jeremyangel@gmail.com for now, guys ");
 					String email = InputChecker.checkInputText(scanner);
 					
 
-					
+					//If four login attempts fail, re-onboard them
 					int failcount = 0;
 					if(!CheckPastCustomerDatabase.CheckPastCustomerDatabase(email).getEmail().equalsIgnoreCase(email)){
 						do {
@@ -65,6 +66,7 @@ public class UserOnboarding {
 						}
 						while(!CheckPastCustomerDatabase.CheckPastCustomerDatabase(email).getEmail().equalsIgnoreCase(email));
 					}
+					//If account found, pass that Customer instance and bypass on-boarding survey prompts
 					if(CheckPastCustomerDatabase.CheckPastCustomerDatabase(email).getEmail().equalsIgnoreCase(email)) {
 					fName = CheckPastCustomerDatabase.CheckPastCustomerDatabase(email).getFirstName();
 					System.out.println("\nClient data retrieved. Welcome back, "+fName+". We missed you.");

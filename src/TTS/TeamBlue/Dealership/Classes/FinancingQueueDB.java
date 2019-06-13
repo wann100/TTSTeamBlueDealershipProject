@@ -26,6 +26,7 @@ public class FinancingQueueDB {
 		tmpItem.setGuestvehconfig(v1);
 		sampleData.add(tmpItem);
 		
+		/*
 		// second customer and car
 		CustomerBob c2 = new CustomerBob();
 		IVehicle v2 = VehicleFactory.getVehicle(11, "sedan", "Ford", "Five Hundred", 38000, 2015, 28000d, 30000d,
@@ -42,7 +43,8 @@ public class FinancingQueueDB {
 		CustomerQueueItem tmpItem3 = new CustomerQueueItem();
 		tmpItem3.setGuestinfo(c3);
 		tmpItem3.setGuestvehconfig(v3);
-		sampleData.add(tmpItem3);		
+		sampleData.add(tmpItem3);
+		*/
 		
 		return sampleData;
 		
