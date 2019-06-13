@@ -52,7 +52,7 @@ public class TestMainToCreateCustomerAndAddtoQueue {
 		Queue<CustomerQueueItem> PurchasingQueue = new LinkedList<CustomerQueueItem>(); 
 		Queue<CustomerQueueItem> LeasingQueue = new LinkedList<CustomerQueueItem>(); 
 		Queue<CustomerQueueItem> FinancingQueue = new LinkedList<CustomerQueueItem>(); 
-		
+		System.out.print(deptchoicenumber);
 		if(deptchoicenumber == 1) {
 			//Assign to purchasingQueue
 			System.out.println("Okay, "+fName+" We're transfering you to the purchasing department now!");
@@ -76,8 +76,13 @@ public class TestMainToCreateCustomerAndAddtoQueue {
 		}
 		
 		
-
-
+		System.out.print(PurchasingQueue.toString());
+		
+		/*
+		Object QueueArray[] = PurchasingQueue.toArray();
+		String test = (((CustomerQueueItem)QueueArray[0]).getGuestinfo()).getFirstName();
+		System.out.print(test);
+*/
 	}
 
 }

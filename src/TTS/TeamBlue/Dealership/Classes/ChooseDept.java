@@ -11,7 +11,7 @@ public class ChooseDept {
 		//Create a Scanner instance
 		Scanner scanner = new Scanner(System.in);
 		
-		int deptchoicenumber = 0;
+		int departmentchoice = 0;
 		
 		//Retrieve the first name inside the Queue item at the top of the Queue
 		System.out.println("Okay, "+fName+" Let's get started.");
@@ -22,7 +22,7 @@ public class ChooseDept {
 		System.out.println("3) Finance today");
 		System.out.println();
 		
-		int departmentchoice = InputChecker.checkInputNum(scanner);
+		departmentchoice = InputChecker.checkInputNum(scanner);
 		scanner.nextLine();
 		
 		//Convert string department choice into an int
@@ -37,7 +37,7 @@ public class ChooseDept {
 			System.out.println("No problem, "+fName+" We'll transfer you to the financing department after you choose your vehicle.");
 		}
 		
-		return deptchoicenumber;
+		return departmentchoice;
 	}
 
 }
