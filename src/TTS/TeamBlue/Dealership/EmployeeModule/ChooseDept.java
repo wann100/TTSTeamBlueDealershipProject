@@ -2,7 +2,7 @@ package TTS.TeamBlue.Dealership.EmployeeModule;
 import java.util.*;
 import java.util.Scanner;
 
-import TTS.TeamBlue.Dealership.Utility.InputChecker;
+import TTS.TeamBlue.Dealership.Utility.Helper;
 
 public class ChooseDept {
 	
@@ -23,7 +23,7 @@ public class ChooseDept {
 		System.out.print("\nYour Choice: ");
 		
 		
-		departmentchoice = InputChecker.checkInputNum(scanner);
+		departmentchoice = Helper.checkInputNum(scanner);
 		scanner.nextLine();
 		
 		//Convert string department choice into an int

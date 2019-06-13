@@ -14,7 +14,7 @@ import TTS.TeamBlue.Dealership.EmployeeModule.CountdownTimer;
 import TTS.TeamBlue.Dealership.EmployeeModule.DepStatus;
 import TTS.TeamBlue.Dealership.EmployeeModule.DepartmentLogin;
 import TTS.TeamBlue.Dealership.Interfaces.IVehicle;
-import TTS.TeamBlue.Dealership.Utility.QueueIndexTool2;
+import TTS.TeamBlue.Dealership.Utility.Helper;
 import TTS.TeamBlue.Dealership.Vehicle.VehicleMenu;
 
 import java.util.LinkedList;
@@ -68,7 +68,7 @@ public class Main {
 		if(deptchoicenumber == 1) {
 			//Assign to purchasingQueue
 			PurchasingQueue.add(newItem);
-			PurchasingQueueLength = QueueIndexTool2.QueueIndexTool2(PurchasingQueue);
+			PurchasingQueueLength = Helper.QueueIndexTool2(PurchasingQueue);
 			System.out.println("Purchasing Queue Length: "+ PurchasingQueueLength);
 			
 			//Display message to customer and Countdown when open
@@ -78,7 +78,7 @@ public class Main {
 		if(deptchoicenumber == 2) {
 			//Assign to leasingQueue
 			LeasingQueue.add(newItem);
-			LeasingQueueLength = QueueIndexTool2.QueueIndexTool2(LeasingQueue);
+			LeasingQueueLength = Helper.QueueIndexTool2(LeasingQueue);
 			System.out.println("Leasing Queue Length: "+LeasingQueueLength );
 			//Display message to customer and Countdown when open
 			CustomerDisplayMessage.disMsg(ourCustomer.getFirstName(), deptchoicenumber, LeasingQueueLength); //returns the message to the customer
@@ -87,7 +87,7 @@ public class Main {
 		if(deptchoicenumber == 3) {
 			//Assign to financingQueue
 			FinancingQueue.add(newItem);
-			FinancingQueueLength = QueueIndexTool2.QueueIndexTool2(FinancingQueue);
+			FinancingQueueLength = Helper.QueueIndexTool2(FinancingQueue);
 			System.out.println("Finance Queue Length: "+FinancingQueueLength);
 			//Display message to customer and Countdown when open
 			CustomerDisplayMessage.disMsg(ourCustomer.getFirstName(), deptchoicenumber, FinancingQueueLength); //returns the message to the customer

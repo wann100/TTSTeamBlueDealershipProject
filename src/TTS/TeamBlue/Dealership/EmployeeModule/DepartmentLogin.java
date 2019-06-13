@@ -6,9 +6,7 @@ import java.util.Scanner;
 
 import TTS.TeamBlue.Dealership.Customer.CustomerQueueItem;
 import TTS.TeamBlue.Dealership.Interfaces.IVehicle;
-import TTS.TeamBlue.Dealership.Utility.ClearScreen;
-import TTS.TeamBlue.Dealership.Utility.FirstNameInQueue;
-import TTS.TeamBlue.Dealership.Utility.QueueIndexTool;
+import TTS.TeamBlue.Dealership.Utility.Helper;
 
 public class DepartmentLogin {
 	
@@ -55,7 +53,7 @@ public class DepartmentLogin {
 					IVehicle vehicle = temp.getGuestvehconfig();
 				
 					//call Leasing Department specific method
-					leasingDepMethod(scanner, FirstNameInQueue.FirstNameInQueue(LeasingDepartmentQueue), LeasingQueueTotal, vehicle.getRetail());
+					leasingDepMethod(scanner, Helper.FirstNameInQueue(LeasingDepartmentQueue), LeasingQueueTotal, vehicle.getRetail());
 				
 				//if financing department is selected
 				} else if (depChoice == 3) {
@@ -65,7 +63,7 @@ public class DepartmentLogin {
 					IVehicle vehicle = temp.getGuestvehconfig();
 					
 					//call financing Department specific method
-					financingDepMethod(scanner, FirstNameInQueue.FirstNameInQueue(FinancingDepartmentQueue), FinancingQueueTotal, vehicle.getRetail());
+					financingDepMethod(scanner, Helper.FirstNameInQueue(FinancingDepartmentQueue), FinancingQueueTotal, vehicle.getRetail());
 		
 			}
 	}
@@ -75,7 +73,7 @@ public class DepartmentLogin {
 		public static int departmentSelection(Scanner scanner) {
 			
 			//Clear the screen
-			ClearScreen.clearScreen();
+			Helper.clearScreen();
 			
 			boolean validDep = true;
 			int depChoice; 
@@ -210,7 +208,7 @@ public class DepartmentLogin {
 				temp.getGuestinfo().printAll();
 				
 				//Display the details of the car that the person at the head of the queue would like to purchase 
-				System.out.println("\n" + FirstNameInQueue.FirstNameInQueue(PurchasingDepartmentQueue) + "'s" + ", vehicle specifications");
+				System.out.println("\n" + Helper.FirstNameInQueue(PurchasingDepartmentQueue) + "'s" + ", vehicle specifications");
 				//get the vehicle 
 				CustomerQueueItem temp2 = new CustomerQueueItem(); 
 				temp2 = (CustomerQueueItem) PurchasingDepartmentQueue.peek();

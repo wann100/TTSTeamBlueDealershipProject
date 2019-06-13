@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import TTS.TeamBlue.Dealership.DAO.Inventory;
 import TTS.TeamBlue.Dealership.Interfaces.IVehicle;
-import TTS.TeamBlue.Dealership.Utility.InputChecker;
+import TTS.TeamBlue.Dealership.Utility.Helper;
 
 public class VehicleMenu {
 	
@@ -44,7 +44,7 @@ public class VehicleMenu {
 			System.out.println("5) Exit");
 			System.out.println();
 			System.out.print("Your Choice: ");
-			input = InputChecker.checkInputText(sc);
+			input = Helper.checkInputText(sc);
 			if (input.compareTo("1") == 0 || input.compareTo("2") == 0 || input.compareTo("3") == 0 || input.compareTo("4") == 0) {
 				menuFlag = true;
 			}
@@ -138,7 +138,7 @@ public class VehicleMenu {
 		boolean flag2 = false;
 		while (flag2 == false) {
 			System.out.print("\nEnter Car ID to view Vehicle: ");
-			input = InputChecker.checkInputText(sc);
+			input = Helper.checkInputText(sc);
 			this.customerVehicle = inventory.getVehicle(input);
 			if (this.customerVehicle == null) {
 				System.out.println("That vehicle doesn't exist. Try again.");
@@ -156,7 +156,7 @@ public class VehicleMenu {
 			System.out.println("1) Yes");
 			System.out.println("2) No");
 			System.out.print("\nYour Choice: ");
-			input = InputChecker.checkInputText(sc);
+			input = Helper.checkInputText(sc);
 			if (input.toLowerCase().compareTo("1") == 0 || input.toLowerCase().compareTo("yes") == 0) {
 				customizeFlag = true;
 				customize = true;
@@ -179,14 +179,9 @@ public class VehicleMenu {
 				System.out.print("\nYour Choice: ");
 				input = sc.next();
 				if (input.compareTo("1") == 0 || input.toLowerCase().compareTo("yes") == 0) {
-					// close scanner
-					//sc.close();
 					return this.customerVehicle;
 				}
 				else if (input.compareTo("2") == 0 || input.toLowerCase().compareTo("no") == 0) {
-					// close scanner
-					//sc.close();
-					//System.exit(0);
 					return null;
 				}
 				else {
@@ -194,8 +189,6 @@ public class VehicleMenu {
 				}
 			}
 			
-			// close scanner
-			//sc.close();
 			return customerVehicle;
 		}
 		else if (customize == true) {
@@ -210,7 +203,7 @@ public class VehicleMenu {
 				}
 				System.out.print("\nYour Choice: ");
 				String color = sc.next();
-				if (!InputChecker.numberOrNot(color)) {
+				if (!Helper.numberOrNot(color)) {
 					colorFlag = false;
 					System.out.println("\nNot a valid option. Try again.");
 				}
@@ -255,7 +248,7 @@ public class VehicleMenu {
 				}
 				System.out.print("\nYour Choice: ");
 				String interior = sc.next();
-				if (!InputChecker.numberOrNot(interior)) {
+				if (!Helper.numberOrNot(interior)) {
 					interiorFlag = false;
 					System.out.println("\nNot a valid option. Try again.");
 				}
@@ -300,7 +293,7 @@ public class VehicleMenu {
 				}
 				System.out.print("\nYour Choice: ");
 				String rim = sc.next();
-				if (!InputChecker.numberOrNot(rim)) {
+				if (!Helper.numberOrNot(rim)) {
 					rimsFlag = false;
 					System.out.println("\nNot a valid option. Try again.");
 				}
@@ -345,7 +338,7 @@ public class VehicleMenu {
 				}
 				System.out.print("\nYour Choice: ");
 				String soundSystem = sc.next();
-				if (!InputChecker.numberOrNot(soundSystem)) {
+				if (!Helper.numberOrNot(soundSystem)) {
 					soundSystemFlag = false;
 					System.out.println("\nNot a valid option. Try again.");
 				}
@@ -398,22 +391,15 @@ public class VehicleMenu {
 			System.out.print("\nYour Choice: ");
 			input = sc.next();
 			if (input.compareTo("1") == 0 || input.toLowerCase().compareTo("yes") == 0) {
-				// close scanner
-				//sc.close();
 				return this.customerVehicle;
 			}
 			else if (input.compareTo("2") == 0 || input.toLowerCase().compareTo("no") == 0) {
-				// close scanner
-				//sc.close();
 				System.exit(0);
 			}
 			else {
 				saveFlag = false;
 			}
 		}
-		
-		// close scanner
-		//sc.close();
 		
 		return null;
 	}

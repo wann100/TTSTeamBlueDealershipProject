@@ -1,8 +1,9 @@
 package TTS.TeamBlue.Dealership.Customer;
 import java.util.*;
-import java.lang.*;
 
-import TTS.TeamBlue.Dealership.Utility.InputChecker;
+import TTS.TeamBlue.Dealership.Utility.Helper;
+
+import java.lang.*;
 
 public class UserOnboarding {
 	
@@ -24,14 +25,14 @@ public class UserOnboarding {
 				String fName;
 
 				//Pass scanner to variable and convert to lowercase
-				rawinput = InputChecker.checkInputText(scanner);
+				rawinput = Helper.checkInputText(scanner);
 				response = rawinput.toLowerCase();
 				
 				//Error check
 				if(!response.equals("yes") && !response.equals("no")) {
 					do {
 					System.out.println("Please type either Yes or No");
-					rawinput = InputChecker.checkInputText(scanner);
+					rawinput = Helper.checkInputText(scanner);
 					response = rawinput.toLowerCase();
 					}
 					while(!response.equals("yes") && !response.equals("no"));
@@ -48,7 +49,7 @@ public class UserOnboarding {
 				if(response.equalsIgnoreCase("yes")) {
 					System.out.println("Let's find your record. Please enter your e-mail address ");
 					System.out.println("Type jeremyangel@gmail.com for now, guys ");
-					String email = InputChecker.checkInputText(scanner);
+					String email = Helper.checkInputText(scanner);
 					
 
 					//If four login attempts fail, re-onboard them
@@ -56,7 +57,7 @@ public class UserOnboarding {
 					if(!CheckPastCustomerDatabase.CheckPastCustomerDatabase(email).getEmail().equalsIgnoreCase(email)){
 						do {
 						System.out.println("Sorry, record not found. Try again.");
-						email = InputChecker.checkInputText(scanner);
+						email = Helper.checkInputText(scanner);
 						failcount++;
 						if(failcount > 3) {
 							System.out.println("Sorry, we can't find your record. We'll create a new account for you. Sorry for the inconveniance.");

@@ -6,8 +6,8 @@ import TTS.TeamBlue.Dealership.Customer.CustomerQueueItem;
 import TTS.TeamBlue.Dealership.Customer.UserOnboarding;
 import TTS.TeamBlue.Dealership.EmployeeModule.ChooseDept;
 import TTS.TeamBlue.Dealership.Utility.FirstNameInQueue;
+import TTS.TeamBlue.Dealership.Utility.Helper;
 import TTS.TeamBlue.Dealership.Utility.QueueIndexTool;
-import TTS.TeamBlue.Dealership.Utility.QueueIndexTool2;
 
 
 public class TestMainToCreateCustomerAndAddtoQueue {
@@ -61,21 +61,21 @@ public class TestMainToCreateCustomerAndAddtoQueue {
 			//Assign to purchasingQueue
 			System.out.println("Okay, "+fName+" We're transfering you to the purchasing department now!");
 			PurchasingQueue.add(newItem);
-			int PurchasingQueueLength = QueueIndexTool2.QueueIndexTool2(PurchasingQueue);
+			int PurchasingQueueLength = Helper.QueueIndexTool2(PurchasingQueue);
 			System.out.println("Purchasing Queue Length: "+PurchasingQueueLength);
 		}
 		if(deptchoicenumber == 2) {
 			//Assign to leasingQueue
 			System.out.println("Okay, "+fName+" We're transfering you to the leasing department now!");
 			LeasingQueue.add(newItem);
-			int LeasingQueueLength = QueueIndexTool2.QueueIndexTool2(LeasingQueue);
+			int LeasingQueueLength = Helper.QueueIndexTool2(LeasingQueue);
 			System.out.println("Leasing Queue Length: "+LeasingQueueLength);
 		}
 		if(deptchoicenumber == 3) {
 			//Assign to financingQueue
 			System.out.println("Okay, "+fName+" We're transfering you to the financing department now!");
 			FinancingQueue.add(newItem);
-			int FinancingQueueLength = QueueIndexTool2.QueueIndexTool2(FinancingQueue);
+			int FinancingQueueLength = Helper.QueueIndexTool2(FinancingQueue);
 			System.out.println("Finance Queue Length: "+FinancingQueueLength);
 		}
 		
