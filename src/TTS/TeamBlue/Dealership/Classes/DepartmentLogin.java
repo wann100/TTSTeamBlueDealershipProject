@@ -43,7 +43,7 @@ public class DepartmentLogin {
 	  
 	    		//if purchasing department is selected
 				if (depChoice == 1) {
-					purchasingDepMethod(scanner, FirstNameInQueue.FirstNameInQueue(PurchasingDepartmentQueue), PurchasingQueueTotal);				
+					purchasingDepMethod(scanner, FirstNameInQueue.FirstNameInQueue(PurchasingDepartmentQueue), PurchasingQueueTotal, PurchasingDepartmentQueue);				
 				
 				//if leasing department is selected	
 				} else if (depChoice == 2) {
@@ -182,8 +182,10 @@ public class DepartmentLogin {
 		}
 		
 		//Purchasing Department Method
-			public static void purchasingDepMethod(Scanner scanner, String firstName,  int purchasingQueueTotal) {
-
+			public static void purchasingDepMethod(Scanner scanner, String firstName,  int purchasingQueueTotal, Queue PurchasingDepartmentQueue) {
+				int finalPrice;
+				
+				do {
 				//HashMap of department usernames and passwords
 				HashMap<String, String> purchasingDepartmentLogin =  DepartmentMembers.purchasingDepMembers();
 				
@@ -206,10 +208,12 @@ public class DepartmentLogin {
 				
 				//prompt the sales rep to enter the final agreed upon price
 				//Scanner scanner = new Scanner(System. in); 
-				System.out.print("\nEnter the final agreed upon price: ");
-				int finalPrice = scanner.nextInt();
+				System.out.print("\nEnter the final agreed upon price OR -1 to quit: ");
+				finalPrice = scanner.nextInt();
+				
 				
 				//remove the customer that was just served from the queue 
+				PurchasingDepartmentQueue.remove();
 				
 				//display Transaction complete customer has now been removed from queue message 
 				System.out.println("\nTransaction complete. The customer has now been removed from the queue");
@@ -217,7 +221,8 @@ public class DepartmentLogin {
 				//display the update queue number and the vehicle information for the next person in queue
 				
 				//provide option for the sales rep to log out and be brought back to the login screen
-				
+			
+				} while (PurchasingDepartmentQueue.size() != 0 || finalPrice != -1);
 			}
 	
 			

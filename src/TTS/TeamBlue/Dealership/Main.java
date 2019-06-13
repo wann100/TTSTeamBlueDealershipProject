@@ -16,7 +16,10 @@ import TTS.TeamBlue.Dealership.Classes.ChooseDept;
 import TTS.TeamBlue.Dealership.Classes.CountdownTimer;
 import TTS.TeamBlue.Dealership.Classes.Customer;
 import TTS.TeamBlue.Dealership.Classes.DepartmentLogin;
+import TTS.TeamBlue.Dealership.Classes.FinancingQueueDB;
 import TTS.TeamBlue.Dealership.Classes.Inventory;
+import TTS.TeamBlue.Dealership.Classes.LeasingQueueDB;
+import TTS.TeamBlue.Dealership.Classes.PurchasingQueueDB;
 import TTS.TeamBlue.Dealership.Classes.QueueDLAndUpdate;
 import TTS.TeamBlue.Dealership.Classes.UserOnboarding;
 
@@ -50,8 +53,11 @@ public class Main {
 		
 		//Instantiating department queues 
 		Queue<CustomerQueueItem> PurchasingQueue = new LinkedList<CustomerQueueItem>();
+		PurchasingQueue = PurchasingQueueDB.getPurchasingQueueData();
 		Queue<CustomerQueueItem> LeasingQueue = new LinkedList<CustomerQueueItem>(); 
+		LeasingQueue = LeasingQueueDB.getLeasingQueueData();
 		Queue<CustomerQueueItem> FinancingQueue = new LinkedList<CustomerQueueItem>(); 
+		FinancingQueue = FinancingQueueDB.getFinancingQueueData();
 		
 		//Store Queue item in the corresponding department queue 
 		int PurchasingQueueLength = 0;
@@ -90,6 +96,7 @@ public class Main {
 		
 		//Display Sales Rep Screen
 		DepartmentLogin.DepLog(scanner, deptchoicenumber, PurchasingQueue, PurchasingQueueLength, LeasingQueue, LeasingQueueLength, FinancingQueue, FinancingQueueLength);
+		
 		
 		
 		
