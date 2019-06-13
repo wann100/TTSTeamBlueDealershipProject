@@ -15,7 +15,7 @@ public class CustomerDisplayMessage {
 		} else if (depName == 3 && DepStatus.financingDepStatus().equalsIgnoreCase("Open")) {
 			System.out.println("\nHi " + firstName + ", your information has been submitted to the financing department.\nA sales agent will be with you shortly. \nYou are number " + depQueue + " in queue." 
 					+ "\nYour wait time is approximatly: " + depQueue*5 + " seconds \n\nPlease enjoy a complimentary beverage while you wait.");
-			CountdownTimer.timer(depQueue); 
+			CountdownTimer.timer(depQueue,1); 
 		}
 		
 			
@@ -25,7 +25,7 @@ public class CustomerDisplayMessage {
 		} else if (depName == 2 && DepStatus.leasingDepStatus().equalsIgnoreCase("Open")) {
 			System.out.println("\nHi " + firstName + ", your information has been submitted to the leasing department.\nA sales agent will be with you shortly. \nYou are number " + depQueue + " in queue." 
 					+ "\nYour wait time is approximatly: " + depQueue*5 + " seconds \n\nPlease enjoy a complimentary beverage while you wait.");
-			CountdownTimer.timer(depQueue); 
+			CountdownTimer.timer(depQueue,1); 
 		}
 	
 		
@@ -35,7 +35,7 @@ public class CustomerDisplayMessage {
 		}  else if (depName ==1 && DepStatus.financingDepStatus().equalsIgnoreCase("Open")) {
 			System.out.println("\nHi " + firstName + ", your information has been submitted to th purchasing department.\nA sales agent will be with you shortly. \nYou are number " + depQueue + " in queue." 
 					+ "\nYour wait time is approximatly: " + depQueue*5 + " seconds \n\nPlease enjoy a complimentary beverage while you wait.");
-			CountdownTimer.timer(depQueue); 
+			CountdownTimer.timer(depQueue,1); 
 		}
 			
 		else {
