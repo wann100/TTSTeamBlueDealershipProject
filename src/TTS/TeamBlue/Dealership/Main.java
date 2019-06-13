@@ -49,7 +49,7 @@ public class Main {
 		System.out.println(newItem.getGuestvehconfig().getRetail());
 		
 		//Instantiating department queues 
-		Queue<CustomerQueueItem> PurchasingQueue = new LinkedList<CustomerQueueItem>(); 
+		Queue<CustomerQueueItem> PurchasingQueue = new LinkedList<CustomerQueueItem>();
 		Queue<CustomerQueueItem> LeasingQueue = new LinkedList<CustomerQueueItem>(); 
 		Queue<CustomerQueueItem> FinancingQueue = new LinkedList<CustomerQueueItem>(); 
 		
