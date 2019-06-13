@@ -26,6 +26,7 @@ public LeasingQueueDB() {
 		tmpItem.setGuestvehconfig(v1);
 		sampleData.add(tmpItem);
 		
+		/*
 		// second customer and car
 		CustomerBob c2 = new CustomerBob();
 		IVehicle v2 = VehicleFactory.getVehicle(14, "truck", "Chevrolet", "Silverado", 16000, 2019, 46000d, 48000d,
@@ -42,7 +43,8 @@ public LeasingQueueDB() {
 		CustomerQueueItem tmpItem3 = new CustomerQueueItem();
 		tmpItem3.setGuestinfo(c3);
 		tmpItem3.setGuestvehconfig(v3);
-		sampleData.add(tmpItem3);		
+		sampleData.add(tmpItem3);
+		*/		
 		
 		return sampleData;
 		

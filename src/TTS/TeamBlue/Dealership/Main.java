@@ -50,8 +50,8 @@ public class Main {
 		
 		//Instantiating department queues 
 		Queue<CustomerQueueItem> PurchasingQueue = new LinkedList<CustomerQueueItem>();
-		Queue<CustomerQueueItem> LeasingQueue = new LinkedList<CustomerQueueItem>(); 
-		Queue<CustomerQueueItem> FinancingQueue = new LinkedList<CustomerQueueItem>(); 
+		Queue<CustomerQueueItem> LeasingQueue = new LinkedList<CustomerQueueItem>();
+		Queue<CustomerQueueItem> FinancingQueue = new LinkedList<CustomerQueueItem>();
 		
 		//Store Queue item in the corresponding department queue 
 		int PurchasingQueueLength = 0;
