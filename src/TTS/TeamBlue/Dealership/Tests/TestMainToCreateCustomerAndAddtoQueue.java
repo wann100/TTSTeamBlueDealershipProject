@@ -1,10 +1,10 @@
 package TTS.TeamBlue.Dealership.Tests;
 import java.util.*;
 
+import TTS.TeamBlue.Dealership.Customer.ChooseDept;
 import TTS.TeamBlue.Dealership.Customer.Customer;
 import TTS.TeamBlue.Dealership.Customer.CustomerQueueItem;
 import TTS.TeamBlue.Dealership.Customer.CustomerUtils;
-import TTS.TeamBlue.Dealership.EmployeeModule.ChooseDept;
 import TTS.TeamBlue.Dealership.Utility.FirstNameInQueue;
 import TTS.TeamBlue.Dealership.Utility.Helper;
 import TTS.TeamBlue.Dealership.Utility.QueueIndexTool;

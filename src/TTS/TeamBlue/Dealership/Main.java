@@ -1,5 +1,6 @@
 package TTS.TeamBlue.Dealership;
 
+import TTS.TeamBlue.Dealership.Customer.ChooseDept;
 import TTS.TeamBlue.Dealership.Customer.Customer;
 import TTS.TeamBlue.Dealership.Customer.CustomerQueueItem;
 import TTS.TeamBlue.Dealership.Customer.CustomerUtils;
@@ -8,7 +9,6 @@ import TTS.TeamBlue.Dealership.DAO.Inventory;
 import TTS.TeamBlue.Dealership.DAO.LeasingQueueDB;
 import TTS.TeamBlue.Dealership.DAO.PurchasingQueueDB;
 import TTS.TeamBlue.Dealership.DAO.QueueDLAndUpdate;
-import TTS.TeamBlue.Dealership.EmployeeModule.ChooseDept;
 import TTS.TeamBlue.Dealership.EmployeeModule.CountdownTimer;
 import TTS.TeamBlue.Dealership.EmployeeModule.DepStatus;
 import TTS.TeamBlue.Dealership.EmployeeModule.DepartmentLogin;
