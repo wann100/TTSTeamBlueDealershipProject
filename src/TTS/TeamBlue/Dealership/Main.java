@@ -10,6 +10,7 @@ import TTS.TeamBlue.Dealership.Classes.CustomerQueueItem;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Scanner;
 
 import TTS.TeamBlue.Dealership.Classes.ChooseDept;
 import TTS.TeamBlue.Dealership.Classes.CountdownTimer;
@@ -60,7 +61,7 @@ public class Main {
 			//Assign to purchasingQueue
 			PurchasingQueue.add(newItem);
 			PurchasingQueueLength = QueueIndexTool2.QueueIndexTool2(PurchasingQueue);
-			System.out.println("Purchasing Queue Length: "+PurchasingQueueLength );
+			System.out.println("Purchasing Queue Length: "+ PurchasingQueueLength);
 			
 			//Display message to customer and Countdown when open
 			CustomerDisplayMessage.disMsg(ourCustomer.getFirstName(), deptchoicenumber, PurchasingQueueLength); //returns the message to the customer
@@ -84,8 +85,11 @@ public class Main {
 			CustomerDisplayMessage.disMsg(ourCustomer.getFirstName(), deptchoicenumber, FinancingQueueLength); //returns the message to the customer
 		}
 		
+		Scanner scanner = new Scanner(System.in); 
+		//scanner.reset();
+		
 		//Display Sales Rep Screen
-		DepartmentLogin.DepLog(deptchoicenumber, PurchasingQueue, PurchasingQueueLength, LeasingQueue, LeasingQueueLength, FinancingQueue, FinancingQueueLength);
+		DepartmentLogin.DepLog(scanner, deptchoicenumber, PurchasingQueue, PurchasingQueueLength, LeasingQueue, LeasingQueueLength, FinancingQueue, FinancingQueueLength);
 		
 		
 		
