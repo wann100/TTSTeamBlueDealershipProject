@@ -43,15 +43,11 @@ public class DepartmentLogin {
 	  
 	    		//if purchasing department is selected
 				if (depChoice == 1) {
+					//call Purchasing Department specific method
 					purchasingDepMethod(scanner, PurchasingDepartmentQueue, PurchasingQueueTotal, LeasingDepartmentQueue, LeasingQueueTotal, FinancingDepartmentQueue, FinancingQueueTotal);				
 				
 				//if leasing department is selected	
-				} else if (depChoice == 2) {
-					//get the vehicle 
-					CustomerQueueItem temp = new CustomerQueueItem(); 
-					temp = (CustomerQueueItem) LeasingDepartmentQueue.peek();
-					IVehicle vehicle = temp.getGuestvehconfig();
-				
+				} else if (depChoice == 2) {			
 					//call Leasing Department specific method
 					leasingDepMethod(scanner, PurchasingDepartmentQueue, PurchasingQueueTotal, LeasingDepartmentQueue, LeasingQueueTotal, FinancingDepartmentQueue, FinancingQueueTotal);
 				
