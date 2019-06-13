@@ -2,10 +2,10 @@ package TTS.TeamBlue.Dealership.Tests;
 
 import java.util.Timer;
 
-import TTS.TeamBlue.Dealership.Classes.CountdownTimer;
-import TTS.TeamBlue.Dealership.Classes.CustomerDisplayMessage;
-import TTS.TeamBlue.Dealership.Classes.DepStatus;
-import TTS.TeamBlue.Dealership.Classes.DepartmentLogin;
+import TTS.TeamBlue.Dealership.Customer.CustomerDisplayMessage;
+import TTS.TeamBlue.Dealership.EmployeeModule.CountdownTimer;
+import TTS.TeamBlue.Dealership.EmployeeModule.DepStatus;
+import TTS.TeamBlue.Dealership.EmployeeModule.DepartmentLogin;
 
 public class RicardoMain {
 

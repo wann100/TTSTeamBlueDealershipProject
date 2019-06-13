@@ -1,6 +1,7 @@
 package TTS.TeamBlue.Dealership.Utility;
 import java.util.*;
-import TTS.TeamBlue.Dealership.Classes.CustomerQueueItem;
+
+import TTS.TeamBlue.Dealership.Customer.CustomerQueueItem;
 
 public class QueueIndexTool {
 	
