@@ -192,17 +192,23 @@ public class CustomerUtils {
 				
 				//If answer is yes, attempt to recover their customer item and return it
 				if(response.equalsIgnoreCase("yes")) {
-					System.out.println("Let's find your record. Please enter your e-mail address ");
+					System.out.println("Let's find your record.");
+					System.out.println();
+					System.out.println("Please enter your e-mail address: ");
 					
 					String email = Helper.checkInputText(scanner);
+					scanner.nextLine();
 					
 	
 					//If four login attempts fail, re-onboard them
 					int failcount = 0;
 					if(!CheckPastCustomerDatabase(email).getEmail().equalsIgnoreCase(email)){
 						do {
-						System.out.println("Sorry, record not found. Try again.");
+						System.out.println("Sorry, record not found.");
+						System.out.println();
+						System.out.println("Please enter your e-mail address: ");
 						email = Helper.checkInputText(scanner);
+						scanner.nextLine();
 						failcount++;
 						if(failcount > 3) {
 							System.out.println("Sorry, we can't find your record. We'll create a new account for you. Sorry for the inconveniance.");
