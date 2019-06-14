@@ -94,14 +94,17 @@ public class CustomerUtils {
 			//First Name
 			System.out.print("Enter First Name: ");
 			String fName = Helper.checkInputText(scanner);
+			scanner.nextLine();
 			
 			//Last Name
 			System.out.print("Enter Last Name: ");
 			String lName = Helper.checkInputText(scanner);
+			scanner.nextLine();
 			
 			//Middle Initial
 			System.out.print("Enter Middle Initial: ");
 			String mI = Helper.checkInputText(scanner);
+			scanner.nextLine();
 			
 			//Phone
 			System.out.print("Enter Phone Number: ");
@@ -117,11 +120,13 @@ public class CustomerUtils {
 			System.out.print("Enter Street Name: ");
 			String streetName = Helper.checkInputText(scanner);
 			String streetAddressString = streetNumString+" "+streetName;
+			scanner.nextLine();
 			//**
 			
 			//City
 			System.out.print("Enter City: ");
 			String city = Helper.checkInputText(scanner);
+			scanner.nextLine();
 			
 			//State
 			System.out.print("Enter State: ");
