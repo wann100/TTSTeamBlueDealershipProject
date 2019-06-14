@@ -54,7 +54,7 @@ public class CustomerUtils {
 					+ "\nYou have been added to the waitinglist, please return tomorrow to complete your transaction");
 		} else if (depName == 3 && DepStatus.financingDepStatus().equalsIgnoreCase("Open")) {
 			System.out.println("\nHi " + firstName + ", your information has been submitted to the financing department.\nA sales agent will be with you shortly. \nYou are number " + depQueue + " in queue." 
-					+ "\nYour wait time is approximatly: " + depQueue*5 + " seconds \n\nPlease enjoy a complimentary beverage while you wait.");
+					+ "\nYour wait time is approximately: " + depQueue*5 + " seconds \n\nPlease enjoy a complimentary beverage while you wait.");
 			CountdownTimer.timer(depQueue,1); 
 		}
 		
@@ -64,7 +64,7 @@ public class CustomerUtils {
 			System.out.println("\nHi " + firstName + ", the leasing department is currently closed. \nYou have been added to the waitinglist, please return tomorrow to complete your transaction");
 		} else if (depName == 2 && DepStatus.leasingDepStatus().equalsIgnoreCase("Open")) {
 			System.out.println("\nHi " + firstName + ", your information has been submitted to the leasing department.\nA sales agent will be with you shortly. \nYou are number " + depQueue + " in queue." 
-					+ "\nYour wait time is approximatly: " + depQueue*5 + " seconds \n\nPlease enjoy a complimentary beverage while you wait.");
+					+ "\nYour wait time is approximately: " + depQueue*5 + " seconds \n\nPlease enjoy a complimentary beverage while you wait.");
 			CountdownTimer.timer(depQueue,1); 
 		}
 	
@@ -74,7 +74,7 @@ public class CustomerUtils {
 			System.out.println("\nHi " + firstName + ", the purchasing department is currently closed. \nYou have been added to the waitinglist, please return tomorrow to complete your transaction");
 		}  else if (depName ==1 && DepStatus.financingDepStatus().equalsIgnoreCase("Open")) {
 			System.out.println("\nHi " + firstName + ", your information has been submitted to th purchasing department.\nA sales agent will be with you shortly. \nYou are number " + depQueue + " in queue." 
-					+ "\nYour wait time is approximatly: " + depQueue*5 + " seconds \n\nPlease enjoy a complimentary beverage while you wait.");
+					+ "\nYour wait time is approximately: " + depQueue*5 + " seconds \n\nPlease enjoy a complimentary beverage while you wait.");
 			CountdownTimer.timer(depQueue,1); 
 		}
 			
@@ -176,7 +176,7 @@ public class CustomerUtils {
 				//Error check
 				if(!response.equals("yes") && !response.equals("no")) {
 					do {
-					System.out.println("Please type either Yes or No");
+					System.out.print("Please type either Yes or No ");
 					rawinput = Helper.checkInputText(scanner);
 					response = rawinput.toLowerCase();
 					}
@@ -194,7 +194,7 @@ public class CustomerUtils {
 				if(response.equalsIgnoreCase("yes")) {
 					System.out.println("Let's find your record.");
 					System.out.println();
-					System.out.println("Please enter your e-mail address: ");
+					System.out.print("Please enter your e-mail address: ");
 					
 					String email = Helper.checkInputText(scanner);
 					scanner.nextLine();
@@ -206,7 +206,7 @@ public class CustomerUtils {
 						do {
 						System.out.println("Sorry, record not found.");
 						System.out.println();
-						System.out.println("Please enter your e-mail address: ");
+						System.out.print("Please enter your e-mail address: ");
 						email = Helper.checkInputText(scanner);
 						scanner.nextLine();
 						failcount++;
