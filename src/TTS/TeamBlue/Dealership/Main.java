@@ -8,9 +8,6 @@ import TTS.TeamBlue.Dealership.DAO.FinancingQueueDB;
 import TTS.TeamBlue.Dealership.DAO.Inventory;
 import TTS.TeamBlue.Dealership.DAO.LeasingQueueDB;
 import TTS.TeamBlue.Dealership.DAO.PurchasingQueueDB;
-import TTS.TeamBlue.Dealership.DAO.QueueDLAndUpdate;
-import TTS.TeamBlue.Dealership.EmployeeModule.CountdownTimer;
-import TTS.TeamBlue.Dealership.EmployeeModule.DepStatus;
 import TTS.TeamBlue.Dealership.EmployeeModule.DepartmentLogin;
 import TTS.TeamBlue.Dealership.Interfaces.IVehicle;
 import TTS.TeamBlue.Dealership.Utility.Helper;
@@ -58,8 +55,6 @@ public class Main {
 		Queue<CustomerQueueItem> FinancingQueue = new LinkedList<CustomerQueueItem>(); 
 		FinancingQueue = FinancingQueueDB.getFinancingQueueData();
 
-
-		
 		//Store Queue item in the corresponding department queue 
 		int PurchasingQueueLength = 0;
 		int LeasingQueueLength = 0; 
@@ -88,19 +83,12 @@ public class Main {
 			CustomerUtils.disMsg(ourCustomer.getFirstName(), deptchoicenumber, FinancingQueueLength); //returns the message to the customer
 		}
 		
+		//instantiating the scanner
 		Scanner scanner = new Scanner(System.in); 
 
 		//Display Sales Rep Screen
 		DepartmentLogin.DepLog(scanner, deptchoicenumber, PurchasingQueue, PurchasingQueueLength, LeasingQueue, LeasingQueueLength, FinancingQueue, FinancingQueueLength);
-		
-		
-		
-		
-		
+
 	} //END OF MAIN
-
-		
-
-	
 
 }
