@@ -21,6 +21,14 @@ public class Main {
 
 	public static void main(String[] args) {
 		
+		// display splash
+		System.out.println("***************************************************************");
+		System.out.println("*********************** TEAM BLUE AUTOS ***********************");
+		System.out.println("---------------------------------------------------------------");
+		System.out.println("                              v1                               ");
+		System.out.println("***************************************************************");
+		System.out.println();
+		
 		//Create a new customer instance
 		Customer ourCustomer = CustomerUtils.userOnboarding();
 		
@@ -29,13 +37,18 @@ public class Main {
 		
 		//Customer vehicle selection
 		Inventory inventory = new Inventory();
-		VehicleMenu menu = new VehicleMenu(inventory, deptchoicenumber);
-		IVehicle customerVehicle = menu.displayVehicleMenu();
-		if (customerVehicle != null) {
-			System.out.println();
-			
-		} else {
-			System.out.println("\nYou didn't select a vehicle.");
+		IVehicle customerVehicle = null;
+		boolean menuFlag = false;
+		while (menuFlag ==  false) {
+			VehicleMenu menu = new VehicleMenu(inventory, deptchoicenumber);
+			customerVehicle = menu.displayVehicleMenu();
+			if (customerVehicle != null) {
+				System.out.println();
+				menuFlag = true;				
+			} else {
+				System.out.println("\nYou didn't select a vehicle.");
+				menuFlag = false;
+			}			
 		}
 		
 		//Create queue item to store customer and vehicle configuration

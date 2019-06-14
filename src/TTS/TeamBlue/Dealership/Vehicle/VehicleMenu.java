@@ -153,12 +153,12 @@ public class VehicleMenu {
 			System.out.print("\nEnter Car ID to select Vehicle: ");
 			input = Helper.checkInputText(sc);
 			if (!validIds.contains(Integer.parseInt(input))) {
-				System.out.println("That vehicle is not one of the options. Try again.");
+				System.out.println("\nThat vehicle is not one of the options. Try again.");
 				flag2 = false;
 			} else {
 				this.customerVehicle = inventory.getVehicle(input);
 				if (this.customerVehicle == null) {
-					System.out.println("That vehicle doesn't exist. Try again.");
+					System.out.println("\nThat vehicle doesn't exist. Try again.");
 					flag2 = false;
 				} else {
 					flag2 = true;
