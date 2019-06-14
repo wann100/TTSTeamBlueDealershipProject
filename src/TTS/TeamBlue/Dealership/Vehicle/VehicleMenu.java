@@ -52,7 +52,7 @@ public class VehicleMenu {
 				menuFlag = true;
 			}
 			else if (input.compareTo("5") == 0) {
-				System.exit(0);
+				return null;
 			}
 			else {
 				menuFlag = false;
@@ -68,17 +68,20 @@ public class VehicleMenu {
 							"-----", "--------", "----", "-----------");
 		
 		// display list of vehicles based on user selection and whether leasing or purchasing
+		ArrayList<Integer> validIds = new ArrayList<Integer>();
 		if (input.compareTo("1") == 0) {
 			ArrayList<IVehicle> sedans = inventory.getSedans();
 			if (leaseFlag) {
 				for (IVehicle vehicle : sedans) {
 					if (vehicle.getLeasable()) {
+						validIds.add(vehicle.getId());
 						vehicle.customerDisplay();
 					}
 				}
 			} else if (!leaseFlag) {
 				for (IVehicle vehicle : sedans) {
 					if (!vehicle.getLeasable()) {
+						validIds.add(vehicle.getId());
 						vehicle.customerDisplay();
 					}
 				}
@@ -89,12 +92,14 @@ public class VehicleMenu {
 			if (leaseFlag) {
 				for (IVehicle vehicle : coupes) {
 					if (vehicle.getLeasable()) {
+						validIds.add(vehicle.getId());
 						vehicle.customerDisplay();
 					}
 				}
 			} else if (!leaseFlag) {
 				for (IVehicle vehicle : coupes) {
 					if (!vehicle.getLeasable()) {
+						validIds.add(vehicle.getId());
 						vehicle.customerDisplay();
 					}
 				}
@@ -105,12 +110,14 @@ public class VehicleMenu {
 			if (leaseFlag) {
 				for (IVehicle vehicle : suvs) {
 					if (vehicle.getLeasable()) {
+						validIds.add(vehicle.getId());
 						vehicle.customerDisplay();
 					}
 				}
 			} else if (!leaseFlag) {
 				for (IVehicle vehicle : suvs) {
 					if (!vehicle.getLeasable()) {
+						validIds.add(vehicle.getId());
 						vehicle.customerDisplay();
 					}
 				}
@@ -121,12 +128,14 @@ public class VehicleMenu {
 			if (leaseFlag) {
 				for (IVehicle vehicle : trucks) {
 					if (vehicle.getLeasable()) {
+						validIds.add(vehicle.getId());
 						vehicle.customerDisplay();
 					}
 				}
 			} else if (!leaseFlag) {
 				for (IVehicle vehicle : trucks) {
 					if (!vehicle.getLeasable()) {
+						validIds.add(vehicle.getId());
 						vehicle.customerDisplay();
 					}
 				}
@@ -141,14 +150,19 @@ public class VehicleMenu {
 		// loop and prompt user to select a specific car
 		boolean flag2 = false;
 		while (flag2 == false) {
-			System.out.print("\nEnter Car ID to view Vehicle: ");
+			System.out.print("\nEnter Car ID to select Vehicle: ");
 			input = Helper.checkInputText(sc);
-			this.customerVehicle = inventory.getVehicle(input);
-			if (this.customerVehicle == null) {
-				System.out.println("That vehicle doesn't exist. Try again.");
+			if (!validIds.contains(Integer.parseInt(input))) {
+				System.out.println("That vehicle is not one of the options. Try again.");
 				flag2 = false;
 			} else {
-				flag2 = true;
+				this.customerVehicle = inventory.getVehicle(input);
+				if (this.customerVehicle == null) {
+					System.out.println("That vehicle doesn't exist. Try again.");
+					flag2 = false;
+				} else {
+					flag2 = true;
+				}
 			}			
 		}
 		
@@ -402,7 +416,7 @@ public class VehicleMenu {
 				return this.customerVehicle;
 			}
 			else if (input.compareTo("2") == 0 || input.toLowerCase().compareTo("no") == 0) {
-				System.exit(0);
+				return null;
 			}
 			else {
 				saveFlag = false;
