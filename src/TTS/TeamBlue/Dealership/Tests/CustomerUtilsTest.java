@@ -1,6 +1,8 @@
-package TTS.TeamBlue.Dealership.Customer;
+package TTS.TeamBlue.Dealership.Tests;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+
+import TTS.TeamBlue.Dealership.Customer.CustomerUtils;
 
 class CustomerUtilsTest extends CustomerUtils {
 

@@ -1,4 +1,4 @@
-package TTS.TeamBlue.Dealership.Utility;
+package TTS.TeamBlue.Dealership.Tests;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import TTS.TeamBlue.Dealership.Customer.CustomerQueueItem;
 import TTS.TeamBlue.Dealership.Customer.Fake.CustomerAbe;
 import TTS.TeamBlue.Dealership.Customer.Fake.CustomerBob;
+import TTS.TeamBlue.Dealership.Utility.Helper;
 
 class HelperTest {
 
