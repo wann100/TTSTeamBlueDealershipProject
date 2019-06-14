@@ -17,7 +17,7 @@ public class CountdownTimer {
 			    timer = new Timer(); //instantiating a new Timer object 
 			    interval = waitTime;
 			    if (Choice == 1) {
-			    	System.out.println("\nYOU WILL BE SERVED IN:");
+			    	System.out.print("\nYOU WILL BE SERVED IN: ");
 			    }			    
 			    System.out.print(waitTime); //prints the overall wait time in seconds
 			    timer.scheduleAtFixedRate(new TimerTask() {

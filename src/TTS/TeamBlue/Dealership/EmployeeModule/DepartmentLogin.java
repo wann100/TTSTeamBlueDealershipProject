@@ -188,7 +188,7 @@ public class DepartmentLogin {
 				while (PurchasingDepartmentQueue.size() > 0 && finalPrice != -1) {	
 		
 					//Display Purchasing Department Queue
-					System.out.println("\n********** PURCHASING DEPARTMENT QUEUE **********\n");	
+					System.out.println("\n\n********** PURCHASING DEPARTMENT QUEUE **********\n");	
 					
 					//Display the total number of people in queue
 					System.out.println("# of Customers in the Purchasing Department Queue: " + PurchasingDepartmentQueue.size());
@@ -217,11 +217,22 @@ public class DepartmentLogin {
 						
 						//display Transaction complete customer has now been removed from queue message 
 						System.out.println("\nTransaction complete. The customer has now been removed from the queue");
+						
+						//Countdown timer to next customer load
+						System.out.print("\nLoading the next customer in queue in: ");
+						//wait for the count down timer to complete 		
+						CountdownTimer.timer(1,0); 
+						try {
+							Thread.sleep(6000);
+						} catch (InterruptedException ie) {
+				            ie.printStackTrace();
+				        }
+						
 						}
 				}
 				
 				//Transferring the sales rep back to the SALES REPRSENTATIVE LOGIN 
-				System.out.println("\nThere are no more customers in the purchasing department queue.");
+				System.out.println("\n\nThere are no more customers in the purchasing department queue.");
 				System.out.print("\nTransferring you back to the Sales Representative Login in: ");
 				CountdownTimer.timer(1,0); 
 				//wait for the count down timer to complete 		
@@ -253,7 +264,7 @@ public class DepartmentLogin {
 				
 				while (LeasingDepartmentQueue.size() > 0 && finalPrice != -1 && leaseTerm != -1) {
 					//Display Purchasing Department Queue
-					System.out.println("\n********** LEASING DEPARTMENT QUEUE **********\n");	
+					System.out.println("\n\n********** LEASING DEPARTMENT QUEUE **********\n");	
 					
 					//Display the total number of people in queue
 					System.out.println("# of Customers in the Leasing Department Queue: " + LeasingDepartmentQueue.size());
@@ -294,13 +305,23 @@ public class DepartmentLogin {
 						
 						//display Transaction complete customer has now been removed from queue message 
 						System.out.println("\nTransaction complete. The customer has now been removed from the queue");
-						}
-					
+						
+						//Countdown timer to next customer load
+						System.out.print("\nLoading the next customer in queue in: ");
+						//wait for the count down timer to complete 		
+						CountdownTimer.timer(1,0); 
+						try {
+							Thread.sleep(6000);
+						} catch (InterruptedException ie) {
+				            ie.printStackTrace();
+				        }
+					}
+
 				}
 				
 				if (leaseTerm != -1 && finalPrice != -1) {
 					//Transferring the sales rep back to the SALES REPRSENTATIVE LOGIN 
-					System.out.println("\nThere are no more customers in the leasing department queue.");
+					System.out.println("\n\nThere are no more customers in the leasing department queue.");
 				}
 				
 				System.out.print("\nTransferring you back to the Sales Representative Login in: ");
@@ -332,7 +353,7 @@ public class DepartmentLogin {
 				HashMap<String, String> financingDepartmentLogin =  DepartmentMembers.financingDepMembers();
 				
 				//if username and value match (loop through hashmap to get a key match then compare value to what the user entered)
-				System.out.println("\n********** FINANCING DEPARTMENT LOGIN **********");	
+				System.out.println("\n\n********** FINANCING DEPARTMENT LOGIN **********");	
 				usernameAndPasswordValidation(scanner, financingDepartmentLogin);
 				
 				while (FinancingDepartmentQueue.size() > 0 && financingTerm != -1 && creditScore != -1 && annualIncome != -1 && downPayment != -1 && finalPrice != -1) {
@@ -392,7 +413,7 @@ public class DepartmentLogin {
 										finalPrice = scanner.nextInt();
 										
 									} else {
-										System.out.println("The customer is NOT approved for financing. Credit score must be at least 700 and annual income at least 40K OR Downpayment must be at least 20% of MSRP");
+										System.out.println("\nThe customer is NOT approved for financing. Credit score must be at least 700 and annual income at least 40K OR Downpayment must be at least 20% of MSRP");
 									}
 																	
 									if (financingTerm != -1 && creditScore != -1 && annualIncome != -1 && downPayment != -1 && finalPrice != -1) {
@@ -402,6 +423,15 @@ public class DepartmentLogin {
 										//display Transaction complete customer has now been removed from queue message 
 										System.out.println("\nTransaction complete. The customer has now been removed from the queue");
 										
+										//Countdown timer to next customer load
+										System.out.print("\nLoading the next customer in queue in: ");
+										//wait for the count down timer to complete 		
+										CountdownTimer.timer(1,0); 
+										try {
+											Thread.sleep(6000);
+										} catch (InterruptedException ie) {
+								            ie.printStackTrace();
+								        }	
 									}
 								}
 							}
@@ -411,7 +441,7 @@ public class DepartmentLogin {
 				
 				if (financingTerm != -1 && creditScore != -1 && annualIncome != -1 && downPayment != -1 && finalPrice != -1) {
 				//Transferring the sales rep back to the SALES REPRSENTATIVE LOGIN 
-				System.out.println("\nThere are no more customers in the financing department queue.");
+				System.out.println("\n\nThere are no more customers in the financing department queue.");
 				}
 				
 				System.out.print("\nTransferring you back to the Sales Representative Login in: ");
