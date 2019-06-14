@@ -53,14 +53,8 @@ public class DepartmentLogin {
 				
 				//if financing department is selected
 				} else if (depChoice == 3) {
-					//get the vehicle
-					CustomerQueueItem temp = new CustomerQueueItem(); 
-					temp = (CustomerQueueItem) FinancingDepartmentQueue.peek();
-					IVehicle vehicle = temp.getGuestvehconfig();
-					
 					//call financing Department specific method
-					financingDepMethod(scanner, Helper.FirstNameInQueue(FinancingDepartmentQueue), FinancingQueueTotal, vehicle.getRetail());
-		
+					financingDepMethod(scanner, PurchasingDepartmentQueue, PurchasingQueueTotal, LeasingDepartmentQueue, LeasingQueueTotal, FinancingDepartmentQueue, FinancingQueueTotal);
 			}
 	}
 	
@@ -180,6 +174,8 @@ public class DepartmentLogin {
 		
 		//PURCHASING DEPARTMENT METHOD
 			public static void purchasingDepMethod(Scanner scanner,  Queue PurchasingDepartmentQueue, int PurchasingQueueTotal, Queue LeasingDepartmentQueue, int LeasingQueueTotal, Queue FinancingDepartmentQueue, int FinancingQueueTotal) {
+				
+				//Variable Declaration and Initialization
 				int finalPrice = 0;
 				
 				//HashMap of department usernames and passwords
@@ -243,6 +239,8 @@ public class DepartmentLogin {
 			
 		//LEASING DEPARTMENT METHOD
 			public static void leasingDepMethod(Scanner scanner,  Queue PurchasingDepartmentQueue, int PurchasingQueueTotal, Queue LeasingDepartmentQueue, int LeasingQueueTotal, Queue FinancingDepartmentQueue, int FinancingQueueTotal) {
+				
+				//Variable Declaration and Initialization
 				int leaseTerm = 0;
 				int finalPrice = 0;
 
@@ -253,7 +251,6 @@ public class DepartmentLogin {
 				System.out.println("\n********** LEASING DEPARTMENT LOGIN **********");	
 				usernameAndPasswordValidation(scanner, leasingDepartmentLogin);
 				
-//STILL TO DO PER DEPARTMENT 		
 				while (LeasingDepartmentQueue.size() > 0 && finalPrice != -1 && leaseTerm != -1) {
 					//Display Purchasing Department Queue
 					System.out.println("\n********** LEASING DEPARTMENT QUEUE **********\n");	
@@ -322,10 +319,14 @@ public class DepartmentLogin {
 			
 		
 		//FINANCING DEPARTMENT METHOD
-			public static void financingDepMethod(Scanner scanner, String firstName, int financingQueueTotal, double vehiclePrice) {
+			public static void financingDepMethod(Scanner scanner,  Queue PurchasingDepartmentQueue, int PurchasingQueueTotal, Queue LeasingDepartmentQueue, int LeasingQueueTotal, Queue FinancingDepartmentQueue, int FinancingQueueTotal) {
 				
-				//Clear the screen 
-				//ClearScreen.clearScreen();
+				//Variable Declaration and Initialization
+				int financingTerm = 0;
+				int creditScore = 0;
+				int annualIncome = 0;
+				int downPayment = 0;
+				int finalPrice = 0;		
 				
 				//HashMap of department usernames and passwords
 				HashMap<String, String> financingDepartmentLogin =  DepartmentMembers.financingDepMembers();
@@ -334,60 +335,97 @@ public class DepartmentLogin {
 				System.out.println("\n********** FINANCING DEPARTMENT LOGIN **********");	
 				usernameAndPasswordValidation(scanner, financingDepartmentLogin);
 				
-//STILL TO DO PER DEPARTMENT 		
+				while (FinancingDepartmentQueue.size() > 0 && financingTerm != -1 && creditScore != -1 && annualIncome != -1 && downPayment != -1 && finalPrice != -1) {
 				
-				//Display Purchasing Department Queue
-				System.out.println("\n********** FINANCING DEPARTMENT QUEUE **********\n");	
-				
-				//Display the total number of people in queue
-				System.out.println("# of Customers in the Fiancing Department Queue: " + financingQueueTotal);
-				
-				//Display the details of the car the current person in queue would like to purchase 
-				System.out.println("\nDetails for the customer at the front of the queue ");
-				System.out.println(firstName + "'s" + ", vehicle specifications");
-
-				//prompt the sales rep for leasing terms
-				//Scanner scanner = new Scanner(System. in); 
-				System.out.print("\nFinancing Options"
-						+ "\n\n1. 24 Months"
-						+ "\n2. 36 Months"
-						+ "\n3. 48 Months"
-						+ "\n4. 60 Months"
-						+ "\n\nWhich financing option does the customer desire?  ");
-				int financingTerm = scanner.nextInt(); //store the user choice 
-				
-				//pompt the sales rep for additional information from the customer
-				System.out.print("\nWhat’s the customer’s credit score? ");
-				int creditScore = scanner.nextInt(); //store the customers credit score
-				
-				System.out.print("\nWhat’s the customer’s annual income? ");
-				int annualIncome = scanner.nextInt(); //store the customers credit score
-				
-				System.out.print("\nWhat’s the customer’s down payment? ");
-				int downPayment = scanner.nextInt(); //store the customers credit score
-				
-				//Let the sales rep know whether the customer has been approved or not
-				//approved if credit score is greater than 700 and income greater 40K OR downpayment of at least 20%
-				if ((creditScore >= 700 && annualIncome >= 40000) || downPayment >= (vehiclePrice * .20)) {
-					System.out.println("\nCONGRATULATIONS the customer has been approved for financing. ");
+					//Display Purchasing Department Queue
+					System.out.println("\n********** FINANCING DEPARTMENT QUEUE **********\n");	
 					
-					//Prompt sales rep for final agreed upon price
-					System.out.print("\nEnter the final agreed upon price: ");
-					int finalPrice = scanner.nextInt();
+					//Display the total number of people in queue
+					System.out.println("# of Customers in the Financing Department Queue: " + FinancingDepartmentQueue.size());
 					
-				} else {
-					System.out.println("The customer is NOT approved for financing. Credit score must be at least 700 and annual income at least 40K OR Downpayment must be at least 20% of MSRP");
+					//Display the details of the car the current person in queue would like to purchase 
+					System.out.println("\nDetails for the customer at the front of the queue ");
+					CustomerQueueItem temp = new CustomerQueueItem(); 
+					temp = (CustomerQueueItem) FinancingDepartmentQueue.peek();
+					temp.getGuestinfo().printAll();
+					
+					//Display the details of the car that the person at the head of the queue would like to purchase 
+					System.out.println("\n" + Helper.FirstNameInQueue(FinancingDepartmentQueue) + "'s" + ", vehicle specifications");
+					//get the vehicle 
+					CustomerQueueItem temp2 = new CustomerQueueItem(); 
+					temp2 = (CustomerQueueItem) FinancingDepartmentQueue.peek();
+					temp2.getGuestvehconfig().employeeDisplay();
+	
+					//prompt the sales rep for leasing terms
+					System.out.print("\nFinancing Options"
+							+ "\n\n1. 24 Months"
+							+ "\n2. 36 Months"
+							+ "\n3. 48 Months"
+							+ "\n4. 60 Months"
+							+ "\n\nWhich financing option does the customer desire (Enter -1 to Quit)?  ");
+					financingTerm = scanner.nextInt(); //store the user choice 
+					
+					//prompt the sales rep for additional information from the customer
+					
+					if (financingTerm != -1) {
+						System.out.print("\nWhat’s the customer’s credit score (Enter -1 to Quit)? ");
+						creditScore = scanner.nextInt(); //store the customers credit score
+						
+						if (creditScore != -1) {
+							System.out.print("What’s the customer’s annual income (Enter -1 to Quit)? ");
+							annualIncome = scanner.nextInt(); //store the customers credit score
+							
+							if (annualIncome != -1) {
+								System.out.print("What’s the customer’s down payment (Enter -1 to Quit)? ");
+								downPayment = scanner.nextInt(); //store the customers credit score
+								
+								if (downPayment != -1) {
+									
+									//Let the sales rep know whether the customer has been approved or not
+									
+									//approved if credit score is greater than 700 and income greater 40K OR downpayment of at least 20%
+									if ((creditScore >= 700 && annualIncome >= 40000) || downPayment >= (temp2.getGuestvehconfig().getRetail() * .20)) {
+										System.out.println("\nCONGRATULATIONS the customer has been approved for financing. ");
+										
+										//Prompt sales rep for final agreed upon price
+										System.out.print("\nEnter the final agreed upon price: ");
+										finalPrice = scanner.nextInt();
+										
+									} else {
+										System.out.println("The customer is NOT approved for financing. Credit score must be at least 700 and annual income at least 40K OR Downpayment must be at least 20% of MSRP");
+									}
+																	
+									if (financingTerm != -1 && creditScore != -1 && annualIncome != -1 && downPayment != -1 && finalPrice != -1) {
+										//remove the customer that was just served from the queue 
+										FinancingDepartmentQueue.remove();
+										
+										//display Transaction complete customer has now been removed from queue message 
+										System.out.println("\nTransaction complete. The customer has now been removed from the queue");
+										
+									}
+								}
+							}
+						}
+					}		
 				}
 				
-		
-				//remove the customer that was just served from the queue 
+				if (financingTerm != -1 && creditScore != -1 && annualIncome != -1 && downPayment != -1 && finalPrice != -1) {
+				//Transferring the sales rep back to the SALES REPRSENTATIVE LOGIN 
+				System.out.println("\nThere are no more customers in the financing department queue.");
+				}
 				
-				//display Transaction complete customer has now been removed from queue message 
-				System.out.println("\nTransaction complete. The customer has now been removed from the queue");
+				System.out.print("\nTransferring you back to the Sales Representative Login in: ");
+				CountdownTimer.timer(1,0); 
+				//wait for the count down timer to complete 		
+				try {
+					Thread.sleep(6000);
+				} catch (InterruptedException ie) {
+		            ie.printStackTrace();
+		        }
 				
-				//display the update queue number and the vehicle information for the next person in queue
+				//call the department selection method
+				departmentSelectionAndDisplay(scanner, PurchasingDepartmentQueue, PurchasingQueueTotal, LeasingDepartmentQueue, LeasingQueueTotal, FinancingDepartmentQueue, FinancingQueueTotal);
 				
-				//provide option for the sales rep to log out and be brought back to the login screen		
 			}			
 			
 }
