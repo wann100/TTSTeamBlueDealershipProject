@@ -193,7 +193,7 @@ public class CustomerUtils {
 				//If answer is yes, attempt to recover their customer item and return it
 				if(response.equalsIgnoreCase("yes")) {
 					System.out.println("Let's find your record. Please enter your e-mail address ");
-					System.out.println("Type jeremyangel@gmail.com for now, guys ");
+					
 					String email = Helper.checkInputText(scanner);
 					
 	
