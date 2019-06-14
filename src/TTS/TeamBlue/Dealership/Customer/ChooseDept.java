@@ -1,4 +1,4 @@
-package TTS.TeamBlue.Dealership.EmployeeModule;
+package TTS.TeamBlue.Dealership.Customer;
 import java.util.*;
 import java.util.Scanner;
 
