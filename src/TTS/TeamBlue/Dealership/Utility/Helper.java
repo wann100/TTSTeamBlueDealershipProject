@@ -32,10 +32,11 @@ public class Helper {
 			if (scanner.hasNext()) {
 				input = scanner.next();
 				if (input.isEmpty()) {
+					System.out.println("Something's wrong with your input. Try again...");
 					flag = false;
 				} else {
 					flag = true;
-				}
+				}	
 			}
 		}
 		return input;
@@ -49,14 +50,14 @@ public class Helper {
 			input = scanner.next();
 			if (Helper.numberOrNot(input)) {
 				num = Integer.parseInt(input);
-				if (num < 0 || num > Integer.MAX_VALUE) {
-					System.out.println("Something's wrong with you input. Try again...");
+				if (num < -1 || num > Integer.MAX_VALUE) {
+					System.out.println("Something's wrong with your input. Try again...");
 					flag = false;
 				} else {
 					flag = true;
 				}
 			} else {
-				System.out.println("Something's wrong with you input. Try again...");
+				System.out.println("Something's wrong with your input. Try again...");
 				flag = false;
 			}
 		}

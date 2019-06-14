@@ -3,9 +3,7 @@ package TTS.TeamBlue.Dealership.EmployeeModule;
 import java.util.HashMap;
 import java.util.Queue;
 import java.util.Scanner;
-
 import TTS.TeamBlue.Dealership.Customer.CustomerQueueItem;
-import TTS.TeamBlue.Dealership.Interfaces.IVehicle;
 import TTS.TeamBlue.Dealership.Utility.Helper;
 
 public class DepartmentLogin {
@@ -78,8 +76,8 @@ public class DepartmentLogin {
 						+ "\n3. Financing Department"
 						+ "\n\nPlease select your department to login: ");
 		
-					depChoice = scanner.nextInt(); //store the user choice 
-
+					depChoice = Helper.checkInputNum(scanner); //store the user choice 
+				
 				//terminate the loop if a valid choice is entered
 				if (depChoice >=1 && depChoice <= 3) {
 					validDep = true;
@@ -98,7 +96,7 @@ public class DepartmentLogin {
 		public static String usernameEntry(Scanner scanner) {
 			//Scanner scanner = new Scanner(System. in); 
 			System.out.print("\nEnter your username: ");
-			String userName = scanner.next();
+			String userName = Helper.checkInputText(scanner); //checks to ensure that input field is not empty
 			return userName;
 		}
 		
@@ -107,7 +105,7 @@ public class DepartmentLogin {
 		public static String passwordEntry(Scanner scanner) {
 			//Scanner scanner = new Scanner(System. in); 
 			System.out.print("Enter your password: ");
-			String password = scanner.next();	
+			String password = Helper.checkInputText(scanner); //checks to ensure that input field is not empty
 			return password;
 		}
 		
@@ -209,7 +207,7 @@ public class DepartmentLogin {
 					
 					//prompt the sales rep to enter the final agreed upon price
 					System.out.print("\nEnter the final agreed upon price OR -1 to quit: ");
-					finalPrice = scanner.nextInt();
+					finalPrice = Helper.checkInputNum(scanner); //validates that a integer is entered
 	
 					if (finalPrice != -1) {
 						//remove the customer that was just served from the queue 
@@ -288,7 +286,7 @@ public class DepartmentLogin {
 							+ "\n2. Mid term lease (1 year to 3 years)"
 							+ "\n3. Long term lease (3 years to 5 years)"
 							+ "\n\nWhich lease option does the customer desire (Enter -1 to Quit)?  ");
-					leaseTerm = scanner.nextInt(); //store the user choice 
+					leaseTerm = Helper.checkInputNum(scanner); //validates that a integer is entered
 					
 					if (leaseTerm != -1) {
 						//Display the suggested lease price to the sales Rep
@@ -296,7 +294,7 @@ public class DepartmentLogin {
 		
 						//prompt the sales rep to enter the final agreed upon price
 						System.out.print("\nEnter the final agreed upon price OR -1 to quit: ");
-						finalPrice = scanner.nextInt();
+						finalPrice = Helper.checkInputNum(scanner); //validates that a integer is entered
 					}
 					
 					if (finalPrice != -1) {
@@ -384,21 +382,21 @@ public class DepartmentLogin {
 							+ "\n3. 48 Months"
 							+ "\n4. 60 Months"
 							+ "\n\nWhich financing option does the customer desire (Enter -1 to Quit)?  ");
-					financingTerm = scanner.nextInt(); //store the user choice 
+					financingTerm = Helper.checkInputNum(scanner); //validates that a integer is entered
 					
 					//prompt the sales rep for additional information from the customer
 					
 					if (financingTerm != -1) {
 						System.out.print("\nWhat’s the customer’s credit score (Enter -1 to Quit)? ");
-						creditScore = scanner.nextInt(); //store the customers credit score
+						creditScore = Helper.checkInputNum(scanner); //validates that a integer is entered
 						
 						if (creditScore != -1) {
 							System.out.print("What’s the customer’s annual income (Enter -1 to Quit)? ");
-							annualIncome = scanner.nextInt(); //store the customers credit score
+							annualIncome = Helper.checkInputNum(scanner); //validates that a integer is entered
 							
 							if (annualIncome != -1) {
 								System.out.print("What’s the customer’s down payment (Enter -1 to Quit)? ");
-								downPayment = scanner.nextInt(); //store the customers credit score
+								downPayment = Helper.checkInputNum(scanner); //validates that a integer is entered
 								
 								if (downPayment != -1) {
 									
@@ -410,7 +408,7 @@ public class DepartmentLogin {
 										
 										//Prompt sales rep for final agreed upon price
 										System.out.print("\nEnter the final agreed upon price: ");
-										finalPrice = scanner.nextInt();
+										finalPrice = Helper.checkInputNum(scanner); //validates that a integer is entered
 										
 									} else {
 										System.out.println("\nThe customer is NOT approved for financing. Credit score must be at least 700 and annual income at least 40K OR Downpayment must be at least 20% of MSRP");
