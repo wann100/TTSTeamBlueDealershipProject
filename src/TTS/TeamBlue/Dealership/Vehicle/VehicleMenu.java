@@ -26,6 +26,7 @@ public class VehicleMenu {
 	public IVehicle displayVehicleMenu() {
 		
 		// display menu get input
+		// determine whether customer wants to purchase or lease (for pulling inventory)
 		boolean leaseFlag = false;
 		if (this.department == 2) {
 			leaseFlag = true;
@@ -33,6 +34,8 @@ public class VehicleMenu {
 		}
 		Scanner sc = new Scanner(System.in);
 		String input = "";
+		
+		// loop menu
 		boolean menuFlag = false;
 		while (menuFlag == false) {
 			System.out.printf("\nWhat type of vehicle would you like to %s?\t", this.departmentString);
@@ -56,7 +59,7 @@ public class VehicleMenu {
 			}
 		}
 		
-		// display headings
+		// display primary heading
 		System.out.println();
 		System.out.println("Inventory:\n");
 		System.out.printf("%-5s%-20s%-20s%-10s%-8s%-15s%-10s%-10s%-10s%-10s\n", "ID", "MAKE", "MODEL", "MILEAGE", "YEAR", "MSRP",
@@ -64,7 +67,7 @@ public class VehicleMenu {
 		System.out.printf("%-5s%-20s%-20s%-10s%-8s%-15s%-10s%-10s%-10s%-10s\n", "--", "----", "-----", "-------", "----", "----",
 							"-----", "--------", "----", "-----------");
 		
-		// display list of vehicles
+		// display list of vehicles based on user selection and whether leasing or purchasing
 		if (input.compareTo("1") == 0) {
 			ArrayList<IVehicle> sedans = inventory.getSedans();
 			if (leaseFlag) {
@@ -130,11 +133,12 @@ public class VehicleMenu {
 			}
 		}
 		else {
+			// handle error
 			System.out.println("Something went wrong. Exiting.");
 			System.exit(0);
 		}
 		
-		// prompt user to select a car
+		// loop and prompt user to select a specific car
 		boolean flag2 = false;
 		while (flag2 == false) {
 			System.out.print("\nEnter Car ID to view Vehicle: ");
@@ -170,6 +174,8 @@ public class VehicleMenu {
 			}
 		}
 		
+		// user is leasing a vehicle, can't customize. prompt to save vehicle
+		// or if customer purchasing prompt to customize vehicle
 		if (customize == false || leaseFlag == true) {
 			boolean saveFlag = false;
 			while (saveFlag == false) {
@@ -383,6 +389,8 @@ public class VehicleMenu {
 							"-----", "--------", "----", "-----------");
 		this.customerVehicle.customerDisplay();
 		System.out.println();
+		
+		// loop to prompt user to save vehicle
 		boolean saveFlag = false;
 		while (saveFlag == false) {
 			System.out.println("Save Vehicle?");
