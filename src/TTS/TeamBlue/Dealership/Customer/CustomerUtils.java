@@ -176,7 +176,7 @@ public class CustomerUtils {
 				//Error check
 				if(!response.equals("yes") && !response.equals("no")) {
 					do {
-					System.out.println("Please type either Yes or No");
+					System.out.print("Please type either Yes or No ");
 					rawinput = Helper.checkInputText(scanner);
 					response = rawinput.toLowerCase();
 					}
@@ -194,7 +194,7 @@ public class CustomerUtils {
 				if(response.equalsIgnoreCase("yes")) {
 					System.out.println("Let's find your record.");
 					System.out.println();
-					System.out.println("Please enter your e-mail address: ");
+					System.out.print("Please enter your e-mail address: ");
 					
 					String email = Helper.checkInputText(scanner);
 					scanner.nextLine();
@@ -206,7 +206,7 @@ public class CustomerUtils {
 						do {
 						System.out.println("Sorry, record not found.");
 						System.out.println();
-						System.out.println("Please enter your e-mail address: ");
+						System.out.print("Please enter your e-mail address: ");
 						email = Helper.checkInputText(scanner);
 						scanner.nextLine();
 						failcount++;
