@@ -2,6 +2,8 @@ package TTS.TeamBlue.Dealership.Vehicle;
 
 public class VehicleFeatures {
 	
+	// this class is for extensibility, being able to change options in one place
+	
 	public static String[] getVehicleColors() {
 		String[] colors = {"Red", "Yellow", "Blue", "Green", "Orange", "Black", "White",
 							"Pearl", "Silver", "Brown"};

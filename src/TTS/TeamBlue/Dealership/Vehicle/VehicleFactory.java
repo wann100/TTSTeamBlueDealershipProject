@@ -8,6 +8,7 @@ public class VehicleFactory {
 			Double wholeSale, Double retail, boolean isLeasable, boolean isForSale, boolean isAvailable,
 			String color, String interior, String rims, String soundSystem) {
 		
+		// determine which constructor to use based on type field
 		IVehicle tmp = null;
 		if (type.equalsIgnoreCase("Sedan")) {
 			tmp = new Sedan(id, make, model, mileage, year, wholeSale, retail, isLeasable, isForSale, isAvailable,

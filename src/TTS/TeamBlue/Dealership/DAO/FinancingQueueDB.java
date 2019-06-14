@@ -29,26 +29,6 @@ public class FinancingQueueDB {
 		tmpItem.setGuestvehconfig(v1);
 		sampleData.add(tmpItem);
 		
-		/*
-		// second customer and car
-		CustomerBob c2 = new CustomerBob();
-		IVehicle v2 = VehicleFactory.getVehicle(11, "sedan", "Ford", "Five Hundred", 38000, 2015, 28000d, 30000d,
-				false, true, true, "Black", "Leather", "Chrome", "Premium");
-		CustomerQueueItem tmpItem2 = new CustomerQueueItem();
-		tmpItem2.setGuestinfo(c2);
-		tmpItem2.setGuestvehconfig(v2);
-		sampleData.add(tmpItem2);
-		
-		// third customer and car
-		CustomerBob c3 = new CustomerBob();
-		IVehicle v3 = VehicleFactory.getVehicle(12, "truck", "Dodge", "Ram", 28000, 2019, 50000d, 55000d,
-				false, true, true, "Yellow", "Leather", "Alloy", "Basic");
-		CustomerQueueItem tmpItem3 = new CustomerQueueItem();
-		tmpItem3.setGuestinfo(c3);
-		tmpItem3.setGuestvehconfig(v3);
-		sampleData.add(tmpItem3);
-		*/
-		
 		return sampleData;
 		
 	}
