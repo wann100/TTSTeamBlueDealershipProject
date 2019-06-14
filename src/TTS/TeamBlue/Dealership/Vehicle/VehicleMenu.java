@@ -151,7 +151,9 @@ public class VehicleMenu {
 		boolean flag2 = false;
 		while (flag2 == false) {
 			System.out.print("\nEnter Car ID to select Vehicle: ");
-			input = Helper.checkInputText(sc);
+			int stringBuffer = Helper.checkInputNum(sc);
+			input = String.valueOf(stringBuffer);
+			//input = Helper.checkInputText(sc);
 			if (!validIds.contains(Integer.parseInt(input))) {
 				System.out.println("\nThat vehicle is not one of the options. Try again.");
 				flag2 = false;
