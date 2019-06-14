@@ -26,6 +26,19 @@ public class ChooseDept {
 		departmentchoice = Helper.checkInputNum(scanner);
 		scanner.nextLine();
 		
+		if(departmentchoice < 1 || departmentchoice > 3) {
+			do {
+				System.out.println();
+				System.out.println("Please choose from one of the following 3 options:");
+				System.out.println("1) Purchase today");
+				System.out.println("2) Lease today");
+				System.out.println("3) Finance today");
+				System.out.print("\nYour Choice: ");
+				departmentchoice = Helper.checkInputNum(scanner);
+				scanner.nextLine();
+			}while(departmentchoice < 1 || departmentchoice > 3);
+		}
+		
 		//Convert string department choice into an int
 
 		if (departmentchoice == 1){
