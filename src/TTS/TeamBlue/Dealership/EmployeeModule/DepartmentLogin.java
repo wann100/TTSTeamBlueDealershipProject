@@ -22,7 +22,7 @@ public class DepartmentLogin {
 		
 	
 		try {
-			Thread.sleep(waitTime);
+			Thread.sleep(waitTime + 1000);
 		} catch (InterruptedException ie) {
             ie.printStackTrace();
         }
@@ -70,7 +70,7 @@ public class DepartmentLogin {
 			do {
 			
 				//Display the Menu
-				System.out.print("********** SALES REPRSENTATIVE LOGIN **********"
+				System.out.print("********** SALES REPRESENTATIVE LOGIN **********"
 						+ "\n\n1. Purchasing Department"
 						+ "\n2. Leasing Department"
 						+ "\n3. Financing Department"
@@ -229,9 +229,15 @@ public class DepartmentLogin {
 						}
 				}
 				
-				//Transferring the sales rep back to the SALES REPRSENTATIVE LOGIN 
-				System.out.println("\n\nThere are no more customers in the purchasing department queue.");
-				System.out.print("\nTransferring you back to the Sales Representative Login in: ");
+				if (finalPrice == -1) {
+					//Transferring the sales rep back to the SALES REPRSENTATIVE LOGIN
+					System.out.print("\nTransferring you back to the Sales Representative Login in: ");
+					
+				} else {
+					System.out.println("\n\nThere are no more customers in the purchasing department queue.");
+					System.out.print("\nTransferring you back to the Sales Representative Login in: ");
+				}
+				
 				CountdownTimer.timer(1,0); 
 				//wait for the count down timer to complete 		
 				try {
@@ -242,7 +248,6 @@ public class DepartmentLogin {
 				
 				//call the department selection method
 				departmentSelectionAndDisplay(scanner, PurchasingDepartmentQueue, PurchasingQueueTotal, LeasingDepartmentQueue, LeasingQueueTotal, FinancingDepartmentQueue, FinancingQueueTotal);
-				
 			}
 	
 			
@@ -317,12 +322,16 @@ public class DepartmentLogin {
 
 				}
 				
-				if (leaseTerm != -1 && finalPrice != -1) {
-					//Transferring the sales rep back to the SALES REPRSENTATIVE LOGIN 
+							
+				if (leaseTerm == -1 || finalPrice == -1) {
+					//Transferring the sales rep back to the SALES REPRSENTATIVE LOGIN
+					System.out.print("\nTransferring you back to the Sales Representative Login in: ");
+					
+				} else {
 					System.out.println("\n\nThere are no more customers in the leasing department queue.");
+					System.out.print("\nTransferring you back to the Sales Representative Login in: ");
 				}
 				
-				System.out.print("\nTransferring you back to the Sales Representative Login in: ");
 				CountdownTimer.timer(1,0); 
 				//wait for the count down timer to complete 		
 				try {
@@ -437,12 +446,16 @@ public class DepartmentLogin {
 					}		
 				}
 				
-				if (financingTerm != -1 && creditScore != -1 && annualIncome != -1 && downPayment != -1 && finalPrice != -1) {
-				//Transferring the sales rep back to the SALES REPRSENTATIVE LOGIN 
-				System.out.println("\n\nThere are no more customers in the financing department queue.");
+						
+				if (financingTerm == -1 || creditScore == -1 || annualIncome == -1 || downPayment == -1 || finalPrice == -1) {
+					//Transferring the sales rep back to the SALES REPRSENTATIVE LOGIN
+					System.out.print("\nTransferring you back to the Sales Representative Login in: ");
+					
+				} else {
+					System.out.println("\n\nThere are no more customers in the financing department queue.");
+					System.out.print("\nTransferring you back to the Sales Representative Login in: ");
 				}
-				
-				System.out.print("\nTransferring you back to the Sales Representative Login in: ");
+			
 				CountdownTimer.timer(1,0); 
 				//wait for the count down timer to complete 		
 				try {
