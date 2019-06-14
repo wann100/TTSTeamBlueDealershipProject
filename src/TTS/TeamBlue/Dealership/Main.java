@@ -67,9 +67,7 @@ public class Main {
 		if(deptchoicenumber == 1) {
 			//Assign to purchasingQueue
 			PurchasingQueue.add(newItem);
-			PurchasingQueueLength = Helper.QueueIndexTool2(PurchasingQueue);
-			System.out.println("Purchasing Queue Length: "+ PurchasingQueueLength);
-			
+			PurchasingQueueLength = Helper.QueueIndexTool2(PurchasingQueue);	
 			//Display message to customer and Countdown when open
 			CustomerUtils.disMsg(ourCustomer.getFirstName(), deptchoicenumber, PurchasingQueueLength); //returns the message to the customer
 		}
@@ -78,7 +76,6 @@ public class Main {
 			//Assign to leasingQueue
 			LeasingQueue.add(newItem);
 			LeasingQueueLength = Helper.QueueIndexTool2(LeasingQueue);
-			System.out.println("Leasing Queue Length: "+LeasingQueueLength );
 			//Display message to customer and Countdown when open
 			CustomerUtils.disMsg(ourCustomer.getFirstName(), deptchoicenumber, LeasingQueueLength); //returns the message to the customer
 		}
@@ -87,14 +84,12 @@ public class Main {
 			//Assign to financingQueue
 			FinancingQueue.add(newItem);
 			FinancingQueueLength = Helper.QueueIndexTool2(FinancingQueue);
-			System.out.println("Finance Queue Length: "+FinancingQueueLength);
 			//Display message to customer and Countdown when open
 			CustomerUtils.disMsg(ourCustomer.getFirstName(), deptchoicenumber, FinancingQueueLength); //returns the message to the customer
 		}
 		
 		Scanner scanner = new Scanner(System.in); 
-		//scanner.reset();
-		
+
 		//Display Sales Rep Screen
 		DepartmentLogin.DepLog(scanner, deptchoicenumber, PurchasingQueue, PurchasingQueueLength, LeasingQueue, LeasingQueueLength, FinancingQueue, FinancingQueueLength);
 		
