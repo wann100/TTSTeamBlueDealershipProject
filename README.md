@@ -16,7 +16,7 @@ The program has three phases:
 2) Vehicle Selection/Customization
 3) Backend/Queue Processing
 
-PHASE 1:
+**PHASE 1:**
 
 Customer perspective:
 - choose new or existing customer
@@ -26,7 +26,7 @@ Customer perspective:
   select a transaction type: Pay in full, Leasing, or Financing. Follow
   the prompts onscreen and make a selection.
 
-PHASE 2:
+**PHASE 2:**
 
 Customer  persepective:
 - after making your selection above you will enter the vehicle selection
@@ -46,7 +46,7 @@ Customer  persepective:
 - read the onscreen messages as they differ dependent on the time of day.
 - this concludes the customer/user experience portion of the program.
 	
-PHASE 3:
+**PHASE 3:**
 
 Employee perspective:
 - the screen will now display the simulated employee login screen.
