@@ -23,12 +23,12 @@ The program has three phases:
 PHASE 1:
 
 Customer perspective:
-	- choose new or existing customer
-	- if existing, enter e-mail address
-	- if new, follow the onscreen prompts and enter in relevant information
-	- once you have entered in personal information you will be prompted to
-	  select a transaction type: Pay in full, Leasing, or Financing. Follow
-	  the prompts onscreen and make a selection.
+- choose new or existing customer
+- if existing, enter e-mail address
+- if new, follow the onscreen prompts and enter in relevant information
+- once you have entered in personal information you will be prompted to
+  select a transaction type: Pay in full, Leasing, or Financing. Follow
+  the prompts onscreen and make a selection.
 
 PHASE 2:
 
