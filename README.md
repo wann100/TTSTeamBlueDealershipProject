@@ -59,16 +59,16 @@ Employee perspective:
   slightly based upon department. Here are the username/password pairs:
 
 Purchasing Department:	
-- JaneP	: Letmein
-- BrianP : Letmein2
+* JaneP	: Letmein
+* BrianP : Letmein2
 
 Leasing Department:
-- JaneL	: Letmein
-- BrianL : Letmein2
+* JaneL	: Letmein
+* BrianL : Letmein2
 
 Financing Department:
-- JaneF	: Letmein
-- BrianF : Letmein2
+* JaneF	: Letmein
+* BrianF : Letmein2
 
 - once you have successfully logged into your chosen department, the head of  the the queue for that department will be displayed. This consists of a customer and their corresponding vehicle they wish to purchase/lease/finance.
 	  
